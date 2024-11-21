@@ -1,0 +1,10 @@
+﻿{
+    "profiles": {
+      "Automated_Menu_Ordering_System (Package)": {
+        "commandName": "MsixPackage"
+      },
+      "Automated_Menu_Ordering_System (Unpackaged)": {
+        "commandName": "Project"
+      }
+    }
+}

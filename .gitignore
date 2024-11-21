@@ -16,6 +16,7 @@ obj/
 
 # IDE files (Visual Studio, Rider, etc.)
 .vs/
+.vscode/
 .idea/
 
 # Package outputs
