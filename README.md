@@ -83,12 +83,13 @@ Make sure you have the following installed:
 
 4. Set up the environment variables:
 
-   - Create a new file named `.env` in the root directory of the project.
-   - Add the following environment variable to the file:
+   - Create a new file named `.env` in the `Automated-Menu-Ordering-System/src/` directory and add the following environment variables:
 
    ```bash
    DATABASE_CONNECTION='Host=localhost;Port=5432;Username=postgres;Password=your_password;Database=your_database;'
    ```
+
+   _Replace parameters with your PostgreSQL database credentials._
 
 5. Build the solution:
 
