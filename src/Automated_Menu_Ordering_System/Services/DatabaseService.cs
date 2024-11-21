@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics;
+using System.Diagnostics.Metrics;
 using Npgsql;
 
 public class DatabaseService
@@ -9,16 +10,8 @@ public class DatabaseService
     {
         if (string.IsNullOrEmpty(connectionString))
             throw new System.ArgumentException("message", nameof(connectionString));
-        try
-        {
-            _connection = new NpgsqlConnection(connectionString);
-            _connection.Open();
-            Debug.WriteLine("Connection opened");
-        }
-        catch (Npgsql.PostgresException ex)
-        {
-            Debug.WriteLine(ex.MessageText);
-        }
+        _connection = new NpgsqlConnection(connectionString);
+        OpenConnection();
     }
 
     public bool IsConnectionOpen()
@@ -29,12 +22,28 @@ public class DatabaseService
     public void OpenConnection()
     {
         if (!IsConnectionOpen())
-            _connection.Open();
+        {
+            for (var i = 0; i < 3; i++)
+            {
+                try
+                {
+                    _connection.Open();
+                    Debug.WriteLine("Connection opened");
+                    break;
+                }
+                catch (Npgsql.PostgresException ex)
+                {
+                    Debug.WriteLine(ex.MessageText);
+                }
+            }
+        }
+        if (!IsConnectionOpen())
+            throw new System.Exception("Connection failed to open");
     }
 
     public NpgsqlConnection GetConnection()
     {
-        OpenConnection();   
+        OpenConnection();
         return _connection;
     }
 
@@ -45,29 +54,14 @@ public class DatabaseService
 
     public NpgsqlDataReader run_query(string query)
     {
-        try
-        {
-            var cmd = new NpgsqlCommand(query, GetConnection());
-            return cmd.ExecuteReader();
-        }
-        catch (Npgsql.PostgresException ex)
-        {
-            Debug.WriteLine(ex.MessageText);
-            return null;
-        }
+        var cmd = new NpgsqlCommand(query, GetConnection());
+        return cmd.ExecuteReader();
     }
 
     public void run_non_query(string query)
     {
-        try
-        {
-            var cmd = new NpgsqlCommand(query, GetConnection());
-            cmd.ExecuteNonQuery();
-        }
-        catch (Npgsql.PostgresException ex)
-        {
-            Debug.WriteLine(ex.MessageText);
-        }
+        var cmd = new NpgsqlCommand(query, GetConnection());
+        cmd.ExecuteNonQuery();
     }
 
     public NpgsqlDataReader get_product_by_category_and_subcategory(string? category, string? subcategory = null)
