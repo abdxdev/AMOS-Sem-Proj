@@ -16,7 +16,7 @@
     <WindowsAppSDKSelfContained>true</WindowsAppSDKSelfContained>
   </PropertyGroup>
   <ItemGroup>
-    <Content Remove="Assets\WindowIcon.ico" />
+    <Content Remove="Assets\amos (1).ico" />
   </ItemGroup>
 
   <ItemGroup>

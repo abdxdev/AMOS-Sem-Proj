@@ -121,7 +121,7 @@
     <value>Automated Menu Ordering System</value>
   </data>
   <data name="AppDescription" xml:space="preserve">
-    <value>The Automated Menu Ordering System solves issues like long wait times, order mistakes, and reliance on waitstaff by allowing customers to select tables, browse menus, and place orders directly from a table screen. Customer can pay for their food. A manager oversees order fulfillment and overall restaurant operations, while an admin manages the menu, promotional deals, accounts, and branches.</value>
+    <value>Streamline your dining experience with the Automated Menu Ordering System. Effortlessly browse, order, and pay from your table.</value>
   </data>
   <data name="Shell_Signin.Content" xml:space="preserve">
     <value>Signin</value>
@@ -160,7 +160,7 @@
     <value>About this application</value>
   </data>
   <data name="Settings_AboutDescription.Text" xml:space="preserve">
-    <value>The Automated Menu Ordering System solves issues like long wait times, order mistakes, and reliance on waitstaff by allowing customers to select tables, browse menus, and place orders directly from a table screen. Customer can pay for their food. A manager oversees order fulfillment and overall restaurant operations, while an admin manages the menu, promotional deals, accounts, and branches.</value>
+    <value>Experience seamless restaurant operations with our innovative ordering and management system. Designed for customers, managers, and admins.</value>
   </data>
   <data name="SettingsPage_PrivacyTermsLink.Content" xml:space="preserve">
     <value>Privacy Statement</value>

@@ -5,6 +5,7 @@ using Automated_Menu_Ordering_System.Services;
 using Automated_Menu_Ordering_System.Contracts.Services;
 using System.Diagnostics;
 using Npgsql;
+using Automated_Menu_Ordering_System.Helpers;
 
 namespace Automated_Menu_Ordering_System.Views;
 
@@ -18,10 +19,11 @@ public sealed partial class SigninPage : Page
     private readonly ILocalSettingsService _localSettingsService;
     private readonly INavigationService _navigationService;
 
-    public SigninPage()
-    {
+    public SigninPage() {
         InitializeComponent();
         ViewModel = App.GetService<SigninViewModel>();
+        AppName_TextBlock.Text = "AppDisplayName".GetLocalized();
+        AppDescription_TextBlock.Text = "AppDescription".GetLocalized();
         _localSettingsService = App.GetService<ILocalSettingsService>();
         _navigationService = App.GetService<INavigationService>();
         _ = LoadSignInSettingsAsync();

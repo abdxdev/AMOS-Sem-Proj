@@ -33,14 +33,17 @@
             VerticalAlignment="Center"
             CornerRadius="{StaticResource ControlCornerRadius}">
 
-            <PersonPicture Margin="0,0,0,24" ProfilePicture="https://learn.microsoft.com/windows/uwp/contacts-and-calendar/images/shoulder-tap-static-payload.png" />
+            <Image
+                Height="100"
+                Margin="0,0,0,24"
+                Source="/Assets/StoreLogo.png" />
             <TextBlock
+                x:Name="AppName_TextBlock"
                 Margin="0,0,0,24"
                 Style="{StaticResource TitleTextBlockStyle}"
-                Text="Resturant Management"
                 TextAlignment="Center" />
             <TextBlock
-                Text="Lorem ipsum dolor sit amet consectetur. Velit pulvinar laoreet nec venenatis bibendum imperdiet mauris id sit."
+                x:Name="AppDescription_TextBlock"
                 TextAlignment="Center"
                 TextWrapping="Wrap" />
 
