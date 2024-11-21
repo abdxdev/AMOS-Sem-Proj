@@ -1,1 +1,0 @@
-﻿# Automated Menu Ordering System
