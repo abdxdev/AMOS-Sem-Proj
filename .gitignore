@@ -1,0 +1,32 @@
+﻿# Build directories
+bin/
+obj/
+
+# User-specific files
+*.user
+
+# Logs
+*.log
+
+# Temporary files
+*.tmp
+
+# Environment files
+.env
+
+# IDE files (Visual Studio, Rider, etc.)
+.vs/
+.idea/
+
+# Package outputs
+*.nupkg
+*.snupkg
+
+# Deployment-related files
+Package.appinstaller
+Package.appxmanifest
+
+# Other temp files
+*.DS_Store
+*.swp
+Thumbs.db

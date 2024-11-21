@@ -1,0 +1,72 @@
+﻿<Page
+    x:Class="mianApp10.Views.DrinksPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    DataContext="{Binding RelativeSource={RelativeSource Self}}"
+    mc:Ignorable="d">
+
+    <ScrollViewer VerticalScrollBarVisibility="Hidden">
+
+        <Grid x:Name="ContentArea" RowSpacing="40">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <StackPanel Grid.Row="0" Spacing="16">
+                <TextBlock Style="{StaticResource TitleTextBlockStyle}" Text="Juices" />
+                <ScrollViewer
+                    CornerRadius="8"
+                    HorizontalScrollBarVisibility="Hidden"
+                    VerticalScrollBarVisibility="Disabled">
+                    <StackPanel
+                        x:Name="JuicesPanel"
+                        Orientation="Horizontal"
+                        Spacing="24" />
+                </ScrollViewer>
+            </StackPanel>
+            <StackPanel Grid.Row="1" Spacing="16">
+                <TextBlock Style="{StaticResource TitleTextBlockStyle}" Text="Milkshakes" />
+                <ScrollViewer
+                    CornerRadius="8"
+                    HorizontalScrollBarVisibility="Hidden"
+                    VerticalScrollBarVisibility="Disabled">
+                    <StackPanel
+                        x:Name="MilkshakesPanel"
+                        Orientation="Horizontal"
+                        Spacing="24" />
+                </ScrollViewer>
+            </StackPanel>
+            <StackPanel Grid.Row="2" Spacing="16">
+                <TextBlock Style="{StaticResource TitleTextBlockStyle}" Text="Smoothies" />
+                <ScrollViewer
+                    CornerRadius="8"
+                    HorizontalScrollBarVisibility="Hidden"
+                    VerticalScrollBarVisibility="Disabled">
+                    <StackPanel
+                        x:Name="SmoothiesPanel"
+                        Orientation="Horizontal"
+                        Spacing="24" />
+                </ScrollViewer>
+            </StackPanel>
+            <StackPanel Grid.Row="3" Spacing="16">
+                <TextBlock Style="{StaticResource TitleTextBlockStyle}" Text="Soft Drinks" />
+                <ScrollViewer
+                    CornerRadius="8"
+                    HorizontalScrollBarVisibility="Hidden"
+                    VerticalScrollBarVisibility="Disabled">
+                    <StackPanel
+                        x:Name="SoftDrinksPanel"
+                        Orientation="Horizontal"
+                        Spacing="24" />
+                </ScrollViewer>
+            </StackPanel>
+
+        </Grid>
+    </ScrollViewer>
+</Page>

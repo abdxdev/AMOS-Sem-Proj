@@ -1,0 +1,10 @@
+﻿{
+    "profiles": {
+      "mianApp10 (Package)": {
+        "commandName": "MsixPackage"
+      },
+      "mianApp10 (Unpackaged)": {
+        "commandName": "Project"
+      }
+    }
+}
