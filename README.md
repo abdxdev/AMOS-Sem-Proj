@@ -4,23 +4,21 @@
 
 ## Table of Contents
 
-- [Automated Menu Ordering System](#automated-menu-ordering-system)
-  - [Table of Contents](#table-of-contents)
-  - [Introduction](#introduction)
-  - [Features](#features)
-  - [Technologies](#technologies)
-    - [Frontend](#frontend)
-    - [Backend](#backend)
-  - [Installation](#installation)
-    - [Prerequisites](#prerequisites)
-      - [Visual Studio 2022](#visual-studio-2022)
-      - [Nuget Package Manager](#nuget-package-manager)
-    - [Setting up workspace](#setting-up-workspace)
-    - [License](#license)
+- [Introduction](#introduction)
+- [Features](#features)
+- [Technologies](#technologies)
+  - [Frontend](#frontend)
+  - [Backend](#backend)
+- [Installation](#installation)
+  - [Prerequisites](#prerequisites)
+    - [Visual Studio 2022](#visual-studio-2022)
+    - [Nuget Package Manager](#nuget-package-manager)
+  - [Setting up workspace](#setting-up-workspace)
+- [License](#license)
 
 ## Introduction
 
-The **Automated Menu Ordering System** is a modern solution for managing orders in restaurants or food establishments. The system allows customers to view the menu, select items, customize their orders, and complete the transaction efficiently. It simplifies the ordering process and enhances the customer experience by automating the flow from selection to payment.
+The Automated Menu Ordering System solves issues like long wait times, order mistakes, and reliance on waitstaff by allowing customers to select tables, browse menus, and place orders directly from a table screen. Customer can pay for their food. A manager oversees order fulfillment and overall restaurant operations, while an admin manages the menu, promotional deals, accounts, and branches.
 
 ## Features
 
@@ -100,6 +98,6 @@ Make sure you have the following installed:
 
    - Press `F5` to start the application in debug mode.
 
-### License
+## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
