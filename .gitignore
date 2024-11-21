@@ -10,6 +10,7 @@ obj/
 
 # Temporary files
 *.tmp
+temp.*
 
 # Environment files
 .env

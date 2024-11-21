@@ -1,0 +1,823 @@
+---
+title: Use Cases
+description: 'Explore the detailed use cases for the Automated Menu Ordering System.'
+---
+
+### Use Case 1: Sign In
+
+#### Primary Actors
+
+- Admin
+- Manager
+
+#### Goal
+
+To allow the admin, manager, or customer to sign in to the system.
+
+#### Precondition
+
+The user must have a valid account and is on the sign-in page.
+
+#### Postcondition
+
+The user is must authenticated and granted access to the system based on their role.
+
+#### Trigger
+
+The user enters their credentials and clicks the sign-in button.
+
+#### Basic Flow
+
+- The system displays the sign-in page with option to select the role (admin, manager, or customer).
+- The user selects the role (admin, manager, or customer).
+- The user enters their username and password.
+- If the user selects the customer role, the system asks for the table ID.
+- The user clicks the sign-in button.
+- If the user is an admin, the system logs in the user and redirects to the admin dashboard.
+- If the user is a manager, the system logs in the user and redirects to the manager dashboard.
+
+#### Alternative Flow
+
+- None
+
+#### Quality
+
+- Users should sign in quickly and securely, even with multiple sign-ins happening at once.
+- If credentials are incorrect, show a helpful, clear error message.
+- The user experience should be smooth and responsive on any device.
+
+#### Exception Flow
+
+- If the user enters invalid credentials, the system displays an error message and prompts the user to try again.
+
+### Use Case 2: Sign Out
+
+#### Primary Actors
+
+- Admin
+- Manager
+- Customer
+
+#### Goal
+
+To allow the admin, manager, or customer to sign out of the system.
+
+#### Precondition
+
+The user is must logged in to the system and is on the settings page.
+
+#### Postcondition
+
+The user is must logged out of the system and redirected to the sign-in page.
+
+#### Trigger
+
+The user clicks the sign-out button.
+
+#### Basic Flow
+
+- The user goes to the settings page.
+- The user clicks the sign-out button.
+- If the user is a customer, the system asks for manager's password to confirm sign out.
+- The user enters the manager's password.
+- The system logs out the user and redirects to the sign-in page.
+
+#### Alternative Flow
+
+- If the user is an admin or manager, the system logs out the user and redirects to the sign-in page.
+
+#### Quality
+
+- Signing out should be quick and simple for users.
+- The system should handle multiple sign-outs smoothly without issues.
+
+#### Exception Flow
+
+- If the user cancels the sign-out process, the system remains on the settings page.
+- If the user enters an incorrect password, the system displays an error message and prompts the user to try again.
+- If the user is a customer, then he needs manager permission to sign-out.
+
+### Use Case 3: Browse Menu
+
+#### Primary Actor
+
+Customer
+
+#### Goal
+
+To allow the customer to browse the restaurant's menu.
+
+#### Precondition
+
+The customer is must seated at the table with the system in customer mode.
+
+#### Postcondition
+
+The customer must view the menu items and select items to view details.
+
+#### Trigger
+
+The customer selects one of the main menu categories.
+
+#### Basic Flow
+
+- The customer selects a category from the navigation pane.
+- The customer can scroll through the list and view details of each item.
+
+#### Alternative Flow
+
+- If the customer needs assistance, they can call for help using the system.
+
+#### Quality
+
+- The interface should be easy to use, clear to read, and accessible to everyone.
+- Customers should be able to switch between categories and view items effortlessly.
+- The system should work smoothly, even with many people browsing at the same time.
+
+#### Exception Flow
+
+- If an item is out of stock, the system displays a notification to inform the customer.
+- Customers can call for help if they have any issues with the menu.
+
+### Use Case 4: Browse Deals and Promotions
+
+#### Primary Actor
+
+Customer
+
+#### Goal
+
+To allow the customer to view available deals and promotions.
+
+#### Precondition
+
+The customer is must seated at the table with the system in customer mode.
+
+#### Postcondition
+
+The customer can view details of available deals and promotions.
+
+#### Trigger
+
+The customer clicks on the "Home" button from the navigation pane.
+
+#### Basic Flow
+
+- The user navigates to the deals and promotions section in homepage.
+- The user can scroll through the carousel of deals and promotions.
+- The user can taps on a deal to view more details.
+
+#### Alternative Flow
+
+- The customer can call for help if they have any issues with the deals or promotions.
+
+#### Quality
+
+- Promotional details should be clear, with easy options to learn more or go straight to checkout.
+- Real-time promotions should be shown accurately, with no inconsistencies.
+- Customers should be able to add promotional items to their cart without any issues.
+
+#### Exception Flow
+
+None
+
+### Use Case 5: Add Item to Cart
+
+#### Primary Actor
+
+Customer
+
+#### Goal
+
+To allow the customer to add an item to the cart.
+
+#### Precondition
+
+The customer must have selected an item from the menu.
+
+#### Postcondition
+
+The item is must added to the cart.
+
+#### Trigger
+
+The customer selects the "+" button to open the add to cart dialog.
+
+#### Basic Flow
+
+- The customer selects an item from the menu by tapping on '+' icon.
+- The customer selects the size and quantity of the item.
+- The customer chooses any additional toppings or customizations.
+- The customer confirms the order by clicking the "Add to Cart" button.
+
+#### Alternative Flow
+
+- The customer can cancel the order by clicking the "Cancel" button.
+
+#### Quality
+
+- Choosing size, quantity, and toppings should be easy and responsive.
+- Items should appear in the cart instantly, with no lag.
+- Even if multiple customers add items at the same time, there should be no issues or conflicts.
+
+#### Exception Flow
+
+- If the customer tries to add an item that is out of stock, the system displays an error message.
+- Customers can call for help if they have any issues with their order.
+
+### Use Case 6: Place Order
+
+#### Primary Actor
+
+Customer
+
+#### Goal
+
+To allow the customer to place an order.
+
+#### Precondition
+
+The customer must have items in the cart.
+
+#### Postcondition
+
+The order is must sent to the manager's interface for processing.
+
+#### Trigger
+
+The customer clicks the "Pay price" button to complete the order.
+
+#### Basic Flow
+
+- The customer navigates to the cart page.
+- The customer reviews the order and clicks the "Pay price" button.
+- The system processes the payment and sends the order to the manager.
+- The customer receives a confirmation by placing the order in "Orders" section.
+
+#### Alternative Flow
+
+- The customer can remove items from the cart before placing the order.
+
+#### Quality
+
+- Customer orders should be processed quickly and securely.
+- After placing an order, customers should get clear confirmation and an estimated wait time.
+- Customers should easily edit or remove items before finalizing their order.
+
+#### Exception Flow
+
+- If there are no items in the cart, the system displays a message indicating no items to order.
+- If the payment fails, the system displays an error message and prompts the customer to try again.
+- Customers can call for help if they have any issues with their order.
+
+### Use Case 7: View Order Status
+
+#### Primary Actor
+
+Customer
+
+#### Goal
+
+To allow the customer to view the status of their order.
+
+#### Precondition
+
+The customer must have placed an order.
+
+#### Postcondition
+
+The customer can track the progress of their order.
+
+#### Trigger
+
+The customer clicks on the "Orders" section.
+
+#### Basic Flow
+
+- The system displays the list of current and past orders.
+- The system shows the status of each order (e.g., estimated time, ready, completed).
+
+#### Alternative Flow
+
+None
+
+#### Quality
+
+- Customers should get real-time updates on their order status.
+- The system should handle many users checking their orders at the same time without any issues.
+
+#### Exception Flow
+
+- If there are no current orders, the system displays a message indicating no orders in progress.
+- Customers can call for help if they have any issues with their order.
+
+### Use Case 8: Call for Help
+
+#### Primary Actor
+
+Customer
+
+#### Goal
+
+To allow the customer to call for help from the waitstaff.
+
+#### Precondition
+
+The customer must need assistance.
+
+#### Postcondition
+
+The waitstaff is must notified of the customer's request for help.
+
+#### Trigger
+
+The customer clicks on the "Call for Help" button.
+
+#### Basic Flow
+
+- The customer taps on the "Call for Help" button.
+- The system displays the call for help dialog.
+- The customer waits for the waitstaff to respond.
+
+#### Alternative Flow
+
+None
+
+#### Quality
+
+- Waitstaff should be notified quickly to ensure a prompt response.
+- The system should manage multiple help requests smoothly, without delays or mix-ups.
+
+#### Exception Flow
+
+- If the waitstaff does not respond promptly, the customer can try calling again.
+- If the issue is urgent, the customer can call the restaurant directly.
+- If the customer's issue is resolved, they can cancel the call for help.
+
+### Use Case 9: Provide Feedback
+
+#### Primary Actor
+
+Customer
+
+#### Goal
+
+To allow the customer to provide feedback on their dining experience.
+
+#### Precondition
+
+The manager must have changed the order status to "Completed."
+
+#### Postcondition
+
+The feedback is must submitted for review.
+
+#### Trigger
+
+The customer clicks on the "Write a Review" button.
+
+#### Basic Flow
+
+- The customer taps on the "Rate this item" button.
+- The system displays the review dialog with option to rate the meal.
+- The customer selects a star rating.
+- The customer taps on the "Submit" button to submit the feedback.
+
+#### Alternative Flow
+
+None
+
+#### Quality
+
+- Feedback should be securely submitted and stored.
+- Star ratings and text fields should be user-friendly and responsive.
+
+#### Exception Flow
+
+- The customer can cancel the review process if they change their mind.
+
+### Use Case 10: Manage Orders
+
+#### Primary Actor
+
+Manager
+
+#### Goal
+
+To allow the manager to oversee and manage customer orders.
+
+#### Precondition
+
+The manager is must logged in to the system.
+
+#### Postcondition
+
+The manager can track order status such as in-progress, ready, completed or, close the order.
+
+#### Trigger
+
+The manager clicks on the "Orders" section from the navigation pane.
+
+#### Basic Flow
+
+- The manager navigates to the orders page.
+- The manager changes the status of an order (e.g., from in-progress to ready).
+- The manager closes an order once it is completed.
+
+#### Alternative Flow
+
+None
+
+#### Quality
+
+- The system should show orders in real time, so managers can track them without delays.
+- Managers should be able to change order statuses smoothly, with updates for customers happening right away.
+- The system should manage multiple orders at the same time without any data conflicts.
+
+#### Exception Flow
+
+None
+
+### Use Case 11: Order History
+
+#### Primary Actor
+
+Manager
+
+#### Goal
+
+To allow the manager to view the history of customer orders.
+
+#### Precondition
+
+The manager is must logged in to the system.
+
+#### Postcondition
+
+The manager can access past orders for reporting and analysis.
+
+#### Trigger
+
+The manager clicks on the "History" section from the navigation pane.
+
+#### Basic Flow
+
+- The manager navigates to the order history page.
+- The manager can view details of each order, including items, total price, and customer feedback.
+
+#### Alternative Flow
+
+None
+
+#### Quality
+
+- The order history should be thorough, giving managers access to all relevant details.
+- The system should load order history data quickly, even when dealing with large amounts of information.
+
+#### Exception Flow
+
+- If there are no past orders, the system displays a message indicating no history available.
+
+### Use Case 12: Manage Availability of Menu Items
+
+#### Primary Actor
+
+Manager
+
+#### Goal
+
+To allow the manager to monitor and update the availability of menu items.
+
+#### Precondition
+
+The manager is must logged in to the system.
+
+#### Postcondition
+
+The manager can update the availability of menu items by marking them as in-stock or out-of-stock.
+
+#### Trigger
+
+The manager clicks on the "Menu" section from the navigation pane.
+
+#### Basic Flow
+
+- The manager navigates to the menu page.
+- The manager can update the availability status of menu items (e.g., in stock, out of stock).
+
+#### Alternative Flow
+
+None
+
+#### Quality
+
+- The system should let managers update menu item availability instantly, with no delays.
+- The interface should be user-friendly, making it easy to view and change the status of multiple items quickly.
+- Availability updates should be shown right away for customers browsing the menu.
+
+#### Exception Flow
+
+None
+
+### Use Case 13: Manage Menu
+
+#### Primary Actor
+
+Admin
+
+#### Goal
+
+To allow the admin to manage the restaurant's menu.
+
+#### Precondition
+
+The admin is must logged in to the system.
+
+#### Postcondition
+
+The admin can add, edit, or delete menu items.
+
+#### Trigger
+
+The admin clicks on the "Products" section from the navigation pane.
+
+#### Basic Flow
+
+- The admin navigates to the menu management page.
+- The admin can add a new item to the menu.
+- The admin can edit the details of an existing item.
+- The admin can delete an item from the menu.
+
+#### Alternative Flow
+
+None
+
+#### Quality
+
+- The system should enable admins to manage the menu efficiently, with changes showing up in real time.
+- The interface should allow for fast navigation, sorting, and searching of menu items.
+
+#### Exception Flow
+
+- If the admin tries to update or delete an item that is associated with an active order, the system displays a warning message.
+- If the admin tries to delete an item that is part of a promotional deal, the system displays a warning message.
+- If the admin tries to add an item that already exists in the menu, the system displays an error message.
+
+### Use Case 14: Manage Promotional Deals
+
+#### Primary Actor
+
+Admin
+
+#### Goal
+
+To allow the admin to manage promotional deals.
+
+#### Precondition
+
+The admin is must logged in to the system.
+
+#### Postcondition
+
+The admin can create, edit, or delete promotional deals.
+
+#### Trigger
+
+The admin clicks on the "Deals" section from the navigation pane.
+
+#### Basic Flow
+
+- The admin navigates to the deals and promotions page.
+- The admin can create a new deal by specifying the details.
+- The admin can edit the details of an existing deal.
+- The admin can delete a deal from the list.
+
+#### Alternative Flow
+
+None
+
+#### Quality
+
+- Promotions should update instantly in the customer interface.
+- Protects deals linked to active orders from deletion and provides clear warnings.
+- The system should handle multiple users managing deals at the same time without any issues.
+
+#### Exception Flow
+
+- If the admin tries to delete a deal that is associated with an active order, the system displays a warning message.
+- If the admin tries to create a deal with the same name as an existing deal, the system displays an error message.
+
+### Use Case 15: Manage User Accounts
+
+#### Primary Actor
+
+Admin
+
+#### Goal
+
+To allow the admin to manage user accounts.
+
+#### Precondition
+
+The admin is must logged in to the system.
+
+#### Postcondition
+
+The admin can add, edit, or delete user accounts.
+
+#### Trigger
+
+The admin clicks on the "Accounts" section from the navigation pane.
+
+#### Basic Flow
+
+- The admin navigates to the user account management page.
+- The admin can add a new user account by specifying the details such as name, role, and password.
+- The admin can edit the details of an existing user account.
+- The admin can delete a user account from the list.
+
+#### Alternative Flow
+
+None
+
+#### Quality
+
+- The system should enable user account management with as few steps as possible, making onboarding quick and easy.
+- Account details should be handled securely, with role-based access enforced throughout the system.
+
+#### Exception Flow
+
+- If the admin tries to delete an account that is associated with a branch, the system displays a warning message.
+- If the admin tries to create an account with the same username as an existing account, the system displays an error message.
+
+### Use Case 16: Manage Branches
+
+#### Primary Actor
+
+Admin
+
+#### Goal
+
+To allow the admin to manage multiple restaurant branches.
+
+#### Precondition
+
+The admin is must logged in to the system.
+
+#### Postcondition
+
+The admin can add, edit, or delete branch information.
+
+#### Trigger
+
+The admin clicks on the "Branches" section from the navigation pane.
+
+#### Basic Flow
+
+- The admin navigates to the branch management page.
+- The admin can add a new branch by specifying the details such as branch name, address, and contact information.
+- The admin can edit the details of an existing branch.
+- The admin can delete a branch from the list.
+
+#### Alternative Flow
+
+None
+
+#### Quality
+
+- The system should allow for efficient management of multiple branches, with updates happening in real time.
+- Branch data should be easy to edit and manage, featuring clear options for sorting and searching.
+
+#### Exception Flow
+
+- If the admin tries to delete a branch that is associated with active orders or user accounts, the system displays a warning message.
+- If the admin tries to add a branch with the same name or address as an existing branch, the system displays an error message. The admin is logged in to the system.
+
+### Use Case 17: Manage Table Assignments
+
+#### Primary Actor
+
+Admin
+
+#### Goal
+
+To allow the admin to manage table assignments.
+
+#### Precondition
+
+The admin is must logged in to the system.
+
+#### Postcondition
+
+The admin can assign tables to specific branches.
+
+#### Trigger
+
+The admin clicks on the "Tables" section from the navigation pane.
+
+#### Basic Flow
+
+- The admin navigates to the table assignment page.
+- The admin can assign a table to a specific branch.
+- The admin can reassign a table to a different branch.
+- The admin can remove a table assignment.
+
+#### Alternative Flow
+
+None
+
+#### Quality
+
+- The table assignment process should be fast and easy to use, with updates happening in real time.
+- The system should handle table assignments and reassignments promptly, with no delays.
+- It should prevent assigning tables to branches that don’t exist.
+
+#### Exception Flow
+
+- If the admin tries to assign a table that is already assigned, the system displays a warning message.
+- If the admin tries to remove a table assignment that is associated with active orders, the system displays a warning message.
+- If the admin tries to assign a table to a branch that does not exist, the system displays an error message.
+
+### Use Case 18: Change Theme
+
+#### Primary Actors
+
+- Admin
+- Manager
+- Customer
+
+#### Goal
+
+To allow users to change the theme of the application.
+
+#### Precondition
+
+The user is must logged in to the system.
+
+#### Postcondition
+
+The user's theme preference must be updated.
+
+#### Trigger
+
+The user clicks on the "Settings" section from the navigation pane.
+
+#### Basic Flow
+
+- The user navigates to the settings page.
+- The user can select the desired theme (e.g., light, dark, default).
+
+#### Alternative Flow
+
+- Managers and admins can change the theme for the entire system.
+
+#### Quality Requirements
+
+- Immediate and final application of theme changes.
+- Theme changes should not affect application functionality or performance.
+- Prevents conflicts with ongoing sessions during theme changes.
+
+#### Exception Flow
+
+None
+
+### Use Case 19: View Privacy Policy
+
+#### Primary Actors
+
+- Admin
+- Manager
+- Customer
+
+#### Goal
+
+To allow users to view the privacy policy of the application.
+
+#### Precondition
+
+The user is must logged in to the system.
+
+#### Postcondition
+
+The user can access the privacy policy.
+
+#### Trigger
+
+The user clicks on the "Settings" section from the navigation pane.
+
+#### Basic Flow
+
+- The user navigates to the settings page.
+- The user clicks on the privacy policy link to view the policy.
+
+#### Alternative Flow
+
+None
+
+#### Quality Requirements
+
+- The system should ensure that the privacy policy is displayed in a secure, read-only format.
+
+#### Exception Flow
+
+None

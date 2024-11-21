@@ -1,0 +1,67 @@
+{
+  "$schema": "https://mintlify.com/schema.json",
+  "name": "Automated Menu Ordering System",
+  "logo": {
+    "dark": "docs/logo/dark.svg",
+    "light": "docs/logo/light.svg"
+  },
+  "favicon": "docs/favicon.svg",
+  "colors": {
+    "primary": "#0D9373",
+    "light": "#07C983",
+    "dark": "#0D9373",
+    "anchors": {
+      "from": "#0D9373",
+      "to": "#07C983"
+    }
+  },
+  "topbarLinks": [
+    {
+      "name": "Support",
+      "url": "mailto:hi@mintlify.com"
+    }
+  ],
+  "topbarCtaButton": {
+    "name": "Dashboard",
+    "url": "https://dashboard.mintlify.com"
+  },
+
+  "navigation": [
+    {
+      "group": "Get Started",
+      "pages": [
+        "docs/get-started"
+      ]
+    },
+    {
+      "group": "Proposed Documentation",
+      "pages": [
+        "docs/proposed-documentation/introduction",
+        "docs/proposed-documentation/requirements",
+        "docs/proposed-documentation/wireframes",
+        "docs/proposed-documentation/use-cases",
+        "docs/proposed-documentation/user-stories",
+        "docs/proposed-documentation/storyboards",
+        "docs/proposed-documentation/planning"
+      ]
+    },
+    {
+      "group": "Installation Guide",
+      "pages": [
+        "docs/installation-guide/installation",
+        "docs/installation-guide/configuration"
+      ]
+    },
+    {
+      "group": "User Guide",
+      "pages": [
+        "docs/user-guide/overview"
+      ]
+    }
+  ],
+  "footerSocials": {
+    "x": "https://x.com/mintlify",
+    "github": "https://github.com/mintlify",
+    "linkedin": "https://linkedin.com/company/mintlify"
+  }
+}

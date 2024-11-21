@@ -1,0 +1,131 @@
+### Functional Requirements
+
+#### Actors
+
+There are three actors
+
+- Admin
+- Manager
+- Customer
+
+#### Admin Functional Requirements
+
+- The admin shall add menu items, including descriptions and prices.
+- The admin shall update menu items, including descriptions and prices.
+- The admin shall delete menu items.
+- The admin shall create promotional deals.
+- The admin shall modify promotional deals.
+- The admin shall remove promotional deals.
+- The admin shall manage user accounts.
+- The admin shall add user accounts.
+- The admin shall update user accounts.
+- The admin shall delete user accounts for customers.
+- The admin shall delete user accounts for managers.
+- The admin shall manage multiple restaurant branches.
+- The admin shall assign roles to managers.
+- The admin shall assign permissions to managers.
+
+#### Customer Functional Requirements
+
+- The customer shall view the menu with detailed item descriptions.
+- The customer shall view prices.
+- The customer shall view item availability.
+- The customer shall place orders directly from a table screen.
+- The customer shall customize their orders.
+- The customer shall receive real-time updates on order status.
+- The customer shall pay for their orders through integrated payment options.
+- The customer shall rate their meals.
+- The customer shall provide feedback.
+- The customer shall call for waiter assistance through the interface.
+
+#### Manager Functional Requirements
+
+- The manager shall track customer orders.
+- The manager shall oversee customer orders.
+- The manager shall view the history of customer orders.
+- The manager shall monitor the availability of menu items.
+- The manager shall update inventory levels.
+- The manager shall receive notifications for customer call requests.
+
+### Non-Functional Requirements
+
+#### Usability
+
+- The system must provide a consistent interface with familiar icons and labels to ensure ease of use and minimize confusion.
+- The system must offer a light and dark mode option, allowing users to toggle based on their preference.
+- The system must support region-specific currencies, ensuring users can make payments in their local currency.
+
+#### Reliability
+
+- The system must maintain an uptime of 99.9% during restaurant operating hours to ensure continuous service.
+- Daily and incremental backups must be automatically performed to safeguard user data.
+- Users must have access to reliable recovery tools in case of system or data failures.
+- Data must be securely stored in off-site locations to protect against local incidents.
+
+#### Performance
+
+- The system must provide sub-second response times for all user interactions, including menu navigation and order placement.
+- Real-time order updates must be visible to both customers and staff members.
+- The system must handle hundreds of concurrent users without performance degradation.
+- Backend queries must be optimized for fast data retrieval, ensuring smooth operation during peak usage.
+- The system must undergo regular load testing to maintain consistent performance under varying traffic levels.
+
+#### Security
+
+- Strong password policies must be enforced, requiring passwords of at least 8 characters with alphanumeric combinations.
+- Payment information must be secured through tokenization to prevent unauthorized access.
+- All sensitive user data must be encrypted both during transmission and at rest, providing comprehensive security for personal, account, and payment information.
+
+#### Scalability
+
+- The system must support the seamless addition of new restaurant branches without causing disruptions.
+- Cloud-hosted databases, such as PostgreSQL, must be utilized to efficiently handle increased data and traffic.
+- Auto-scaling features must be implemented to accommodate traffic spikes during peak times.
+- A reliable internet connection must be ensured for real-time order synchronization.
+
+#### Availability
+
+- The system must ensure that databases are hosted in geographically appropriate locations, such as in India, to comply with local regulations, reduce latency, and improve data access speeds for users in the region.
+- Regular backups must be stored securely in both primary and secondary locations to ensure data availability in case of a local incident.
+
+#### Maintainability
+
+- The system must have a modular design, allowing individual components like the UI, database, and payment gateways to be updated independently without affecting the entire system.
+- Comprehensive user guides and technical documentation must be provided and regularly updated for employees and developers.
+- Version control systems, such as GitHub, must be used for managing codebase changes, allowing easy tracking of changes and rollbacks when necessary.
+
+### Business Rules
+
+1. **Order Accuracy**: All customer orders must be double-checked by the system before final submission to minimize order errors.
+2. **Promotional Deals**: Only administrators are allowed to create and manage promotional deals, and these promotions must be visible to customers immediately after being activated.
+3. **Customer Feedback**: Customers may submit feedback once their order is marked as completed.
+4. **Order Processing Time**: Orders must be processed within a maximum time to ensure smooth kitchen operations.
+5. **Branch Expansion**: The system must be capable of scaling to accommodate additional restaurant branches without major code changes or performance issues.
+6. **Payment Processing**: Payments must be processed in real-time, and the system must support most used payment methods to ensure fast transactions.
+
+### Business Requirements
+
+1. **Reduce Customer Order Errors**: Implement an order verification feature that ensures all customer orders are verified for accuracy before submission, reducing order errors by 10% within the first year.
+2. **Manage Promotional Deals**: Build an admin interface that allows authorized personnel to create, activate, and deactivate promotional deals, contributing to a 10% sales increase and Rs. 1,000,000 in revenue within the first year.
+3. **Improve Customer Satisfaction**: Add features such as real-time order updates and post-order feedback submission, aiming for a 5% improvement in customer satisfaction ratings.
+4. **Increase Order Processing Efficiency**: Develop an order management system that streamlines order processing, reducing the time taken by 20%, which will result in faster kitchen operations and service.
+5. **Scalable for Expansion**: Ensure the system can easily scale to support at least 2 additional branches, contributing a potential Rs. 15,000,000 in annual revenue per branch.
+6. **Streamline Payment Process**: Implement a fast and secure payment gateway that reduces the payment processing time by 30%, increasing table turnover and adding Rs. 500,000 in yearly revenue.
+7. **Boost Customer Retention**: Develop a personalized promotions system and loyalty rewards feature, aiming for an 8% increase in customer retention and Rs. 400,000 in additional yearly revenue from repeat customers.
+
+### Physical Requirements
+
+1. **Table Screens or Tablets**: Each table must have a dedicated device for customers to browse menus, place orders, and make payments.
+2. **Laptops/PCs**: Managers and administrators must have laptops or PCs to monitor, manage, and update system operations including order tracking.
+3. **Internet Connection**: A high-speed internet connection must be available to ensure smooth data synchronization across all devices.
+4. **Server or Cloud Infrastructure**: The system must utilize a cloud-hosted server (e.g., Supabase) to store orders, user accounts, and other system data securely.
+
+### Development Constraints
+
+1. **Windows App Development**: The app must be built using WinUI 3 and the Windows App SDK to ensure modern and high-performance Windows applications[^3].
+2. **Fluent Design**: The app must follow Fluent Design System principles, incorporating elements like light, depth, motion, material, and scale for a fluid and intuitive experience[^4].
+3. **WinUI 3 Gallery & Template Studio**: Use the WinUI 3 Gallery for controls and Windows Template Studio for predefined templates to speed up development and ensure design consistency[^5][^6].
+4. **Windows 11 signature experiences**: Follow the Windows 11 signature experiences guidelines for app design, including Mica, rounded corners, and Acrylic for a modern and cohesive look[^7].
+5. **Responsive Layouts**: The app must adapt to different screen sizes and devices using Adaptive Triggers in WinUI to ensure a smooth experience across form factors[^8].
+6. **Performance Optimization**: Ensure the app performs efficiently by minimizing startup times and resource usage, using XAML Compiled Bindings for faster data binding[^9].
+

@@ -11,7 +11,7 @@ public class DatabaseService
             throw new System.ArgumentException("message", nameof(connectionString));
         try
         {
-            _connection = new NpgsqlConnection("Host=aws-0-ap-south-1.pooler.supabase.com;Port=6543;Username=postgres.rggwyrzykhjghiugcelz;Password=v8zLhigcJttMwx22;Database=amosdb;");
+            _connection = new NpgsqlConnection(connectionString);
             _connection.Open();
             Debug.WriteLine("Connection opened");
         }
@@ -21,21 +21,42 @@ public class DatabaseService
         }
     }
 
+    public bool IsConnectionOpen()
+    {
+        return _connection.State == System.Data.ConnectionState.Open;
+    }
+
+    public void OpenConnection()
+    {
+        if (!IsConnectionOpen())
+            _connection.Open();
+    }
+
     public NpgsqlConnection GetConnection()
     {
-        if (_connection.State == System.Data.ConnectionState.Closed)
-            _connection.Open();
+        OpenConnection();   
         return _connection;
     }
+
     public void CloseConnection()
     {
         _connection.Close();
     }
+
     public NpgsqlDataReader run_query(string query)
     {
-        var cmd = new NpgsqlCommand(query, GetConnection());
-        return cmd.ExecuteReader();
+        try
+        {
+            var cmd = new NpgsqlCommand(query, GetConnection());
+            return cmd.ExecuteReader();
+        }
+        catch (Npgsql.PostgresException ex)
+        {
+            Debug.WriteLine(ex.MessageText);
+            return null;
+        }
     }
+
     public void run_non_query(string query)
     {
         try
