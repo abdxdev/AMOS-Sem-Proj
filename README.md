@@ -1,4 +1,4 @@
-# Automated Menu Ordering System
+# ![](https://github.com/abdbbdii/Automated-Menu-Ordering-System/blob/main/src/Automated_Menu_Ordering_System/Assets/Square44x44Logo.targetsize-24_altform-unplated.png?raw=true) Automated Menu Ordering System
 
 ![GitHub](docs/images/automated_menu_ordering_system.png)
 
