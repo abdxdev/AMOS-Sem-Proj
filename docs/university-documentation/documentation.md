@@ -224,8 +224,9 @@ There are three actors
 ## Wireframes
 
 ### Navigation
+/docs/images/wireframes
 
-![image](https://raw.githubusercontent.com/abdbbdii/assets/refs/heads/main/diagrams/Navigation.png)
+![image](https://raw.githubusercontent.com/abdbbdii/Automated-Menu-Ordering-System/refs/heads/main/docs/images/wireframes/Navigation.png)
 
 | Component | Admin                                                   | Manager                                                  | Customer                                                  |
 | --------- | ------------------------------------------------------- | -------------------------------------------------------- | --------------------------------------------------------- |
@@ -240,7 +241,7 @@ There are three actors
 
 ### Settings Page
 
-![image](https://raw.githubusercontent.com/abdbbdii/assets/refs/heads/main/diagrams/Settings.png)
+![image](https://raw.githubusercontent.com/abdbbdii/Automated-Menu-Ordering-System/refs/heads/main/docs/images/wireframes/Settings.png)
 
 | Component | Admin                                                                              | Manager                                                                             | Customer                                                                             |
 | --------- | ---------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------ |
@@ -250,7 +251,7 @@ There are three actors
 
 ### Sign In Page
 
-![image](https://raw.githubusercontent.com/abdbbdii/assets/refs/heads/main/diagrams/Signin.png)
+![image](https://raw.githubusercontent.com/abdbbdii/Automated-Menu-Ordering-System/refs/heads/main/docs/images/wireframes/Signin.png)
 
 | Component | Admin                                                       | Manager                                                    |
 | --------- | ----------------------------------------------------------- | ---------------------------------------------------------- |
@@ -263,7 +264,7 @@ There are three actors
 
 ### Home Page
 
-![image](https://raw.githubusercontent.com/abdbbdii/assets/refs/heads/main/diagrams/Customer-Home.png)
+![image](https://raw.githubusercontent.com/abdbbdii/Automated-Menu-Ordering-System/refs/heads/main/docs/images/wireframes/Customer-Home.png)
 
 | Component | Customer                                                                      |
 | --------- | ----------------------------------------------------------------------------- |
@@ -278,7 +279,7 @@ There are three actors
 
 ### Category Page
 
-![image](https://raw.githubusercontent.com/abdbbdii/assets/refs/heads/main/diagrams/Customer-Category.png)
+![image](https://raw.githubusercontent.com/abdbbdii/Automated-Menu-Ordering-System/refs/heads/main/docs/images/wireframes/Customer-Category.png)
 
 | Component | Customer                                                                    |
 | --------- | --------------------------------------------------------------------------- |
@@ -286,7 +287,7 @@ There are three actors
 
 ### Cart Page
 
-![image](https://raw.githubusercontent.com/abdbbdii/assets/refs/heads/main/diagrams/Customer-Cart.png)
+![image](https://raw.githubusercontent.com/abdbbdii/Automated-Menu-Ordering-System/refs/heads/main/docs/images/wireframes/Customer-Cart.png)
 
 | Component | Customer                                                                                       |
 | --------- | ---------------------------------------------------------------------------------------------- |
@@ -299,7 +300,7 @@ There are three actors
 
 ### Call for Help Dialog
 
-![image](https://raw.githubusercontent.com/abdbbdii/assets/refs/heads/main/diagrams/Customer-CallForHelpDialog.png)
+![image](https://raw.githubusercontent.com/abdbbdii/Automated-Menu-Ordering-System/refs/heads/main/docs/images/wireframes/Customer-CallForHelpDialog.png)
 
 | Component | Customer                                                      |
 | --------- | ------------------------------------------------------------- |
@@ -307,7 +308,7 @@ There are three actors
 
 ### Add to Cart Dialog
 
-![image](https://raw.githubusercontent.com/abdbbdii/assets/refs/heads/main/diagrams/Customer-AddToCartDialog.png)
+![image](https://raw.githubusercontent.com/abdbbdii/Automated-Menu-Ordering-System/refs/heads/main/docs/images/wireframes/Customer-AddToCartDialog.png)
 
 | Component | Customer                                                                             |
 | --------- | ------------------------------------------------------------------------------------ |
@@ -321,7 +322,7 @@ There are three actors
 
 ### Sign out Dialog
 
-![image](https://raw.githubusercontent.com/abdbbdii/assets/refs/heads/main/diagrams/Customer-SignoutDialog.png)
+![image](https://raw.githubusercontent.com/abdbbdii/Automated-Menu-Ordering-System/refs/heads/main/docs/images/wireframes/Customer-SignoutDialog.png)
 
 | Component | Customer                                                       |
 | --------- | -------------------------------------------------------------- |
@@ -330,7 +331,7 @@ There are three actors
 
 ### Deal Details Dialog
 
-![image](https://raw.githubusercontent.com/abdbbdii/assets/refs/heads/main/diagrams/Customer-DealDetailsDialog.png)
+![image](https://raw.githubusercontent.com/abdbbdii/Automated-Menu-Ordering-System/refs/heads/main/docs/images/wireframes/Customer-DealDetailsDialog.png)
 
 | Component | Customer                                         |
 | --------- | ------------------------------------------------ |
@@ -338,7 +339,7 @@ There are three actors
 
 ### Rate Item Dialog
 
-![image](https://raw.githubusercontent.com/abdbbdii/assets/refs/heads/main/diagrams/Customer-RateItemDialog.png)
+![image](https://raw.githubusercontent.com/abdbbdii/Automated-Menu-Ordering-System/refs/heads/main/docs/images/wireframes/Customer-RateItemDialog.png)
 
 | Component | Customer                                         |
 | --------- | ------------------------------------------------ |
@@ -348,7 +349,7 @@ There are three actors
 
 ### Orders Page
 
-![image](https://raw.githubusercontent.com/abdbbdii/assets/refs/heads/main/diagrams/Manager-Orders.png)
+![image](https://raw.githubusercontent.com/abdbbdii/Automated-Menu-Ordering-System/refs/heads/main/docs/images/wireframes/Manager-Orders.png)
 
 | Component | Manager                                                                                        |
 | --------- | ---------------------------------------------------------------------------------------------- |
@@ -365,7 +366,7 @@ There are three actors
 
 ### History Page
 
-![image](https://raw.githubusercontent.com/abdbbdii/assets/refs/heads/main/diagrams/Manager-History.png)
+![image](https://raw.githubusercontent.com/abdbbdii/Automated-Menu-Ordering-System/refs/heads/main/docs/images/wireframes/Manager-History.png)
 
 | Component | Manager                                                           |
 | --------- | ----------------------------------------------------------------- |
@@ -374,7 +375,7 @@ There are three actors
 
 ### Menu Page
 
-![image](https://raw.githubusercontent.com/abdbbdii/assets/refs/heads/main/diagrams/Manager-Menu.png)
+![image](https://raw.githubusercontent.com/abdbbdii/Automated-Menu-Ordering-System/refs/heads/main/docs/images/wireframes/Manager-Menu.png)
 
 | Component | Manager                                                               |
 | --------- | --------------------------------------------------------------------- |
@@ -383,7 +384,7 @@ There are three actors
 
 ### Accounts Page
 
-![image](https://raw.githubusercontent.com/abdbbdii/assets/refs/heads/main/diagrams/Admin-Accounts.png)
+![image](https://raw.githubusercontent.com/abdbbdii/Automated-Menu-Ordering-System/refs/heads/main/docs/images/wireframes/Admin-Accounts.png)
 
 | Component | Admin                                                               |
 | --------- | ------------------------------------------------------------------- |
@@ -394,7 +395,7 @@ There are three actors
 
 ### Branches Page
 
-![image](https://raw.githubusercontent.com/abdbbdii/assets/refs/heads/main/diagrams/Admin-Branches.png)
+![image](https://raw.githubusercontent.com/abdbbdii/Automated-Menu-Ordering-System/refs/heads/main/docs/images/wireframes/Admin-Branches.png)
 
 | Component | Admin                                                              |
 | --------- | ------------------------------------------------------------------ |
@@ -404,7 +405,7 @@ There are three actors
 
 ### Tables Page
 
-![image](https://raw.githubusercontent.com/abdbbdii/assets/refs/heads/main/diagrams/Admin-Tables.png)
+![image](https://raw.githubusercontent.com/abdbbdii/Automated-Menu-Ordering-System/refs/heads/main/docs/images/wireframes/Admin-Tables.png)
 
 | Component | Admin                                                             |
 | --------- | ----------------------------------------------------------------- |
@@ -414,7 +415,7 @@ There are three actors
 
 ### Products Page
 
-![image](https://raw.githubusercontent.com/abdbbdii/assets/refs/heads/main/diagrams/Admin-Products.png)
+![image](https://raw.githubusercontent.com/abdbbdii/Automated-Menu-Ordering-System/refs/heads/main/docs/images/wireframes/Admin-Products.png)
 
 | Component | Admin                                                               |
 | --------- | ------------------------------------------------------------------- |
@@ -424,7 +425,7 @@ There are three actors
 
 ### Deals Page
 
-![image](https://raw.githubusercontent.com/abdbbdii/assets/refs/heads/main/diagrams/Admin-Deals.png)
+![image](https://raw.githubusercontent.com/abdbbdii/Automated-Menu-Ordering-System/refs/heads/main/docs/images/wireframes/Admin-Deals.png)
 
 | Component | Admin                                                            |
 | --------- | ---------------------------------------------------------------- |
@@ -435,7 +436,7 @@ There are three actors
 
 ### Deal Items Dialog
 
-![image](https://raw.githubusercontent.com/abdbbdii/assets/refs/heads/main/diagrams/Admin-DealItemsDialog.png)
+![image](https://raw.githubusercontent.com/abdbbdii/Automated-Menu-Ordering-System/refs/heads/main/docs/images/wireframes/Admin-DealItemsDialog.png)
 
 | Component | Admin                                                                          |
 | --------- | ------------------------------------------------------------------------------ |
@@ -445,7 +446,7 @@ There are three actors
 
 ### Write custom query Dialog
 
-![image](https://raw.githubusercontent.com/abdbbdii/assets/refs/heads/main/diagrams/Admin-WriteCustomQueryDialog.png)
+![image](https://raw.githubusercontent.com/abdbbdii/Automated-Menu-Ordering-System/refs/heads/main/docs/images/wireframes/Admin-WriteCustomQueryDialog.png)
 
 | Component | Admin                                                      |
 | --------- | ---------------------------------------------------------- |
@@ -1480,37 +1481,37 @@ None
 
 The following storyboards illustrate the user interactions for the admin interface, including managing accounts, branches, tables, products, deals, and custom queries.
 
-![image](https://raw.githubusercontent.com/abdbbdii/assets/refs/heads/main/diagrams/Admin-Storyboards.svg)
+![image](https://raw.githubusercontent.com/abdbbdii/Automated-Menu-Ordering-System/refs/heads/main/docs/images/storyboards/Admin-Storyboards.svg)
 
 ### Manager Story Boards
 
 The following storyboards illustrate the user interactions for the manager interface, including managing orders, viewing history, and changing item status.
 
-![image](https://raw.githubusercontent.com/abdbbdii/assets/refs/heads/main/diagrams/Manager-Storyboards.svg)
+![image](https://raw.githubusercontent.com/abdbbdii/Automated-Menu-Ordering-System/refs/heads/main/docs/images/storyboards/Manager-Storyboards.svg)
 
 ### Customer Story Boards
 
 The following storyboards illustrate the user interactions for the customer interface, including browsing the menu, adding items to the cart, and placing orders.
 
-![image](https://raw.githubusercontent.com/abdbbdii/assets/refs/heads/main/diagrams/Customer-Storyboards.svg)
+![image](https://raw.githubusercontent.com/abdbbdii/Automated-Menu-Ordering-System/refs/heads/main/docs/images/storyboards/Customer-Storyboards.svg)
 
 ### Common Story Boards
 
 The following storyboards illustrate common interactions across all user roles, including signing in, signing out and settings.
 
-![image](https://raw.githubusercontent.com/abdbbdii/assets/refs/heads/main/diagrams/Common-Storyboards.svg)
+![image](https://raw.githubusercontent.com/abdbbdii/Automated-Menu-Ordering-System/refs/heads/main/docs/images/storyboards/Common-Storyboards.svg)
 
 ### Combined Story Boards
 
 The following storyboards illustrate the combined interactions for all user roles, including admin, manager, and customer interfaces.
 
-![image](https://raw.githubusercontent.com/abdbbdii/assets/refs/heads/main/diagrams/Combined-Storyboards.svg)
+![image](https://raw.githubusercontent.com/abdbbdii/Automated-Menu-Ordering-System/refs/heads/main/docs/images/storyboards/Combined-Storyboards.svg)
 
 ## Proposed Methodology/System
 
 We are using the **Agile methodology** with an **iterative and incremental approach** for the development of the Automated Menu Ordering System. This ensures user feedback, continuous testing, and improvement throughout the process.
 
-![image](https://raw.githubusercontent.com/abdbbdii/assets/refs/heads/main/images/AgileMethodology.png)
+![image](https://raw.githubusercontent.com/abdbbdii/Automated-Menu-Ordering-System/refs/heads/main/docs/images/other-diagrams/AgileMethodology.png)
 
 ### Key Steps
 
@@ -1530,19 +1531,19 @@ We are using the **Agile methodology** with an **iterative and incremental appro
 
 Ziosk tabletop tablets are used in restaurants to provide customers with digital menus, ordering, and payment options. Customers can browse the menu, customize their orders, and pay directly from the tablet. This system has been successful in improving order accuracy, reducing wait times, and increasing customer satisfaction[^10][^11].
 
-![image](https://raw.githubusercontent.com/abdbbdii/assets/refs/heads/main/images/ZioskTabletopTablets.png)
+![image](https://raw.githubusercontent.com/abdbbdii/Automated-Menu-Ordering-System/refs/heads/main/docs/images/pics/ZioskTabletopTablets.png)
 
 ### McDonald’s Self-Service Kiosks
 
 Offers self-service kiosks for ordering food. Customers can browse the menu, customize their orders, and pay directly at the kiosk. This system has improved order accuracy and reduced wait times for customers. Though they are usually positioned in the restaurant rather than at tables[^12].
 
-![image](https://raw.githubusercontent.com/abdbbdii/assets/refs/heads/main/images/McDonaldsSelfServiceKiosks.png)
+![image](https://raw.githubusercontent.com/abdbbdii/Automated-Menu-Ordering-System/refs/heads/main/docs/images/pics/McDonaldsSelfServiceKiosks.png)
 
 ### Chili’s Grill & Bar
 
 Offers a tablet-based ordering system for customers. The system allows customers to browse the menu, place orders, and pay directly from the tablet. This company has seen increased customer satisfaction and faster service times with this technology. Our system is also inspired by this concept of digital ordering[^13].
 
-![image](https://raw.githubusercontent.com/abdbbdii/assets/refs/heads/main/images/ChilisTabletOrdering.png)
+![image](https://raw.githubusercontent.com/abdbbdii/Automated-Menu-Ordering-System/refs/heads/main/docs/images/pics/ChilisTabletOrdering.png)
 
 ## Team Members Individual Tasks
 
@@ -1584,7 +1585,7 @@ Offers a tablet-based ordering system for customers. The system allows customers
 
 The project timeline is divided into several phases, including planning, design, development, testing, and documentation. Each phase has specific tasks and milestones to ensure the project progresses smoothly and meets deadlines.
 
-![image](https://raw.githubusercontent.com/abdbbdii/assets/refs/heads/main/diagrams/GanttChart.png)
+![image](https://raw.githubusercontent.com/abdbbdii/Automated-Menu-Ordering-System/refs/heads/main/docs/images/other-diagrams/GanttChart.png)
 
 ## Data Gathering Approach
 
