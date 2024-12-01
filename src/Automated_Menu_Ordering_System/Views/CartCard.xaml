@@ -8,10 +8,6 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
     mc:Ignorable="d">
-    <!--
-        d:DesignHeight="150"
-        d:DesignWidth="400"
-    -->
 
     <Grid
         Height="120"
@@ -48,12 +44,14 @@
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
             <Button
+                x:Name="DeleteButton"
                 Grid.Row="0"
                 Width="40"
                 Height="40"
                 Padding="0"
                 HorizontalAlignment="Right"
-                VerticalAlignment="Top">
+                VerticalAlignment="Top"
+                Click="DeleteButton_Click">
                 <SymbolIcon Symbol="Delete" />
             </Button>
             <TextBlock

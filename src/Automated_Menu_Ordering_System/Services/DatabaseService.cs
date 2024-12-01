@@ -211,4 +211,22 @@ WHERE
 ";
         return run_query(query);
     }
+    public void pay_bill(int tableId)
+    {
+        var query = $@"
+UPDATE PlacedOrder
+SET is_paid = TRUE
+WHERE table_id = {tableId};
+";
+        run_non_query(query);
+    }
+
+    public void delete_order(int orderId)
+    {
+        var query = $@"
+DELETE FROM PlacedOrder
+WHERE id = {orderId};
+";
+        run_non_query(query);
+    }
 }

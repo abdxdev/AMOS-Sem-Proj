@@ -19,58 +19,82 @@
             <StackPanel Spacing="56">
 
                 <StackPanel
-                    x:Name="UnpaidOrdersPanel"
-                    Spacing="12"
-                    Visibility="Collapsed">
+                    Padding="16"
+                    Background="{ThemeResource CardBackgroundFillColorDefault}"
+                    CornerRadius="8"
+                    Spacing="20">
+
                     <TextBlock
                         Margin="0,0,0,16"
                         Style="{StaticResource TitleTextBlockStyle}"
                         Text="Pending" />
+                    <StackPanel
+                        x:Name="UnpaidOrdersPanel"
+                        Spacing="12"
+                        Visibility="Collapsed" />
+                    <MenuFlyoutSeparator x:Name="PaymentAreaBar" />
+                    <Grid x:Name="PaymentArea">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <TextBlock
+                            Grid.Column="0"
+                            Style="{ThemeResource SubtitleTextBlockStyle}"
+                            Text="Complete pending orders: " />
+                        <Button
+                            x:Name="PayButton"
+                            Grid.Column="1"
+                            MinWidth="200"
+                            HorizontalAlignment="Right"
+                            Click="PayButton_Click"
+                            Style="{ThemeResource AccentButtonStyle}" />
+                    </Grid>
                 </StackPanel>
-                <MenuFlyoutSeparator />
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto" />
-                        <ColumnDefinition Width="*" />
-                    </Grid.ColumnDefinitions>
-                    <TextBlock
-                        Grid.Column="0"
-                        Style="{ThemeResource SubtitleTextBlockStyle}"
-                        Text="Complete pending orders: " />
-                    <Button
-                        Grid.Column="1"
-                        HorizontalAlignment="Right"
-                        Content="Pay Rs. 123" />
-                </Grid>
 
                 <StackPanel
-                    x:Name="InProgressOrdersPanel"
-                    Spacing="12"
-                    Visibility="Collapsed">
+                    Padding="16"
+                    Background="{ThemeResource CardBackgroundFillColorDefault}"
+                    CornerRadius="8"
+                    Spacing="20">
                     <TextBlock
                         Margin="0,0,0,16"
                         Style="{StaticResource TitleTextBlockStyle}"
                         Text="In Progress" />
+                    <StackPanel
+                        x:Name="InProgressOrdersPanel"
+                        Spacing="12"
+                        Visibility="Collapsed" />
                 </StackPanel>
 
                 <StackPanel
-                    x:Name="ReadyOrdersPanel"
-                    Spacing="12"
-                    Visibility="Collapsed">
+                    Padding="16"
+                    Background="{ThemeResource CardBackgroundFillColorDefault}"
+                    CornerRadius="8"
+                    Spacing="20">
                     <TextBlock
                         Margin="0,0,0,16"
                         Style="{StaticResource TitleTextBlockStyle}"
                         Text="Ready" />
+                    <StackPanel
+                        x:Name="ReadyOrdersPanel"
+                        Spacing="12"
+                        Visibility="Collapsed" />
                 </StackPanel>
 
                 <StackPanel
-                    x:Name="CompletedOrdersPanel"
-                    Spacing="12"
-                    Visibility="Collapsed">
+                    Padding="16"
+                    Background="{ThemeResource CardBackgroundFillColorDefault}"
+                    CornerRadius="8"
+                    Spacing="20">
                     <TextBlock
                         Margin="0,0,0,16"
                         Style="{StaticResource TitleTextBlockStyle}"
                         Text="Completed" />
+                    <StackPanel
+                        x:Name="CompletedOrdersPanel"
+                        Spacing="12"
+                        Visibility="Collapsed" />
                 </StackPanel>
 
             </StackPanel>
