@@ -116,6 +116,7 @@ public sealed partial class SigninPage : Page
                 _localSettingsService.SaveSettingAsync("keepSignIn", keepSignInCheckBox.IsChecked);
                 if (userType == "Customer")
                 {
+                    // TODO show only customer side
                     _navigationService.NavigateTo(pageKey: typeof(HomeViewModel).FullName);
                 }
                 else if (userType == "Admin")
@@ -124,7 +125,7 @@ public sealed partial class SigninPage : Page
                 }
                 else if (userType == "Manager")
                 {
-                    _navigationService.NavigateTo(pageKey: typeof(SettingsViewModel).FullName);
+                    _navigationService.NavigateTo(pageKey: typeof(OrdersViewModel).FullName);
                 }
             }
         }

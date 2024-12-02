@@ -22,6 +22,7 @@ public class PageService : IPageService
         Configure<DrinksViewModel, DrinksPage>();
         Configure<SettingsViewModel, SettingsPage>();
         Configure<CartViewModel, CartPage>();
+        Configure<OrdersViewModel, OrdersPage>();
     }
 
     public Type GetPageType(string key)
