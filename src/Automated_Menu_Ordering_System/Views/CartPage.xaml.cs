@@ -1,8 +1,8 @@
 ﻿using Automated_Menu_Ordering_System.Contracts.Services;
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml;
-using System.Diagnostics;
 using Npgsql;
+using System.Diagnostics;
 
 namespace Automated_Menu_Ordering_System.Views;
 
@@ -48,25 +48,35 @@ public sealed partial class CartPage : Page
                     Order = order,
                     ParentPage = this
                 };
+                Debug.WriteLine(reader["product_name"].ToString() + ": " + reader["order_id"].ToString());
 
                 if (reader["is_paid"].ToString() == "False")
                 {
+                    card.ChangeToUnpaid();
                     UnpaidOrdersPanel.Children.Add(card);
                     UnpaidOrdersPanel.Visibility = Visibility.Visible;
                     totalPrice += float.Parse(reader["total_price"].ToString());
                 }
                 else if (reader["status"].ToString() == "in_progress")
                 {
+                    card.ChangeToInProgress();
                     InProgressOrdersPanel.Children.Add(card);
                     InProgressOrdersPanel.Visibility = Visibility.Visible;
                 }
-                else if (reader["ready"].ToString() == "ready")
+                else if (reader["status"].ToString() == "ready")
                 {
+                    card.ChangeToReady();
                     ReadyOrdersPanel.Children.Add(card);
                     ReadyOrdersPanel.Visibility = Visibility.Visible;
                 }
                 else if (reader["status"].ToString() == "completed")
                 {
+                    Debug.WriteLine(reader["rating"].ToString());
+                    var rating = reader["rating"].ToString();
+                    if (rating == "")
+                        card.ChangeToCompleted(-1);
+                    else
+                        card.ChangeToCompleted(float.Parse(rating));
                     CompletedOrdersPanel.Children.Add(card);
                     CompletedOrdersPanel.Visibility = Visibility.Visible;
                 }

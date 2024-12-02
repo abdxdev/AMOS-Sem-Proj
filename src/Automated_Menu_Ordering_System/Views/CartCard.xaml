@@ -55,12 +55,42 @@
                 <SymbolIcon Symbol="Delete" />
             </Button>
             <TextBlock
+                x:Name="StatusTextBlock"
                 Grid.Row="0"
                 HorizontalAlignment="Right"
                 VerticalAlignment="Top"
                 Style="{StaticResource SubtitleTextBlockStyle}"
                 Text="{x:Bind Order.EstimatedTime}"
                 Visibility="Collapsed" />
+            <Button
+                x:Name="RateThisMealButton"
+                Grid.Row="0"
+                Height="40"
+                Padding="0"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Top"
+                Click="RateThisMealButton_Click"
+                Visibility="Collapsed">
+                <StackPanel
+                    Padding="20,0"
+                    Orientation="Horizontal"
+                    Spacing="10">
+                    <SymbolIcon RenderTransformOrigin="0.5,0.5" Symbol="Edit">
+                        <SymbolIcon.RenderTransform>
+                            <ScaleTransform ScaleX="0.7" ScaleY="0.7" />
+                        </SymbolIcon.RenderTransform>
+                    </SymbolIcon>
+                    <TextBlock Text="Rate this Meal" />
+                </StackPanel>
+            </Button>
+            <RatingControl
+                x:Name="RatingControl"
+                Grid.Row="0"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Top"
+                IsReadOnly="True"
+                Visibility="Collapsed" />
+
             <TextBlock
                 Grid.Row="1"
                 HorizontalAlignment="Right"

@@ -64,6 +64,17 @@ public class DatabaseService
         cmd.ExecuteNonQuery();
     }
 
+    public static void PrintReader(NpgsqlDataReader reader)
+    {
+        while (reader.Read())
+        {
+            for (var i = 0; i < reader.FieldCount; i++)
+            {
+                Debug.WriteLine($"{reader.GetName(i)}: {reader[i]}");
+            }
+        }
+    }
+
     public NpgsqlDataReader get_product_by_category_and_subcategory(string? category, string? subcategory = null)
     {
         string? where_clause;
@@ -192,6 +203,7 @@ SELECT
     o.description,
     o.is_paid,
     o.status,
+    o.rating,
     p.id AS product_id,
     p.name AS product_name,
     p.description AS product_description,
@@ -207,8 +219,7 @@ FROM
 LEFT JOIN Product p ON o.item_id = p.id AND o.is_deal = FALSE
 LEFT JOIN Deal d ON o.item_id = d.id AND o.is_deal = TRUE
 WHERE
-    o.table_id = {tableId};
-";
+    o.table_id = {tableId} AND o.status != 'closed';";
         return run_query(query);
     }
     public void pay_bill(int tableId)
@@ -225,6 +236,15 @@ WHERE table_id = {tableId};
     {
         var query = $@"
 DELETE FROM PlacedOrder
+WHERE id = {orderId};
+";
+        run_non_query(query);
+    }
+    public void rate_order(int orderId, float rating)
+    {
+        var query = $@"
+UPDATE PlacedOrder
+SET rating = {rating}
 WHERE id = {orderId};
 ";
         run_non_query(query);
