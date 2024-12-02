@@ -3,10 +3,17 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:dataGrid="using:Syncfusion.UI.Xaml.DataGrid"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    DataContext="{Binding RelativeSource={RelativeSource Self}}"
     mc:Ignorable="d">
 
     <Grid x:Name="ContentArea">
-        
+        <dataGrid:SfDataGrid
+            x:Name="sfDataGrid"
+            AllowEditing="True"
+            AllowFiltering="True"
+            AutoGenerateColumns="True"
+            ItemsSource="{Binding Orders}" />
     </Grid>
 </Page>

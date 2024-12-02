@@ -88,7 +88,7 @@
                 </NavigationViewItem>
                 <NavigationViewItem x:Uid="Shell_Orders" helpers:NavigationHelper.NavigateTo="Automated_Menu_Ordering_System.ViewModels.OrdersViewModel">
                     <NavigationViewItem.Icon>
-                        <FontIcon FontFamily="{StaticResource SymbolThemeFontFamily}" Glyph="&#xe7c3;"/>
+                        <FontIcon FontFamily="{StaticResource SymbolThemeFontFamily}" Glyph="&#xe7c3;" />
                     </NavigationViewItem.Icon>
                 </NavigationViewItem>
             </NavigationView.MenuItems>

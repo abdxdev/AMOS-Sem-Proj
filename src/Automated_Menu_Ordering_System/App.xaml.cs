@@ -78,7 +78,7 @@ public partial class App : Application
             services.AddSingleton<DatabaseService>(provider =>
             {
                 // Load the .env file
-                string envFilePath = Path.Combine(Path.GetFullPath(Path.Combine(AppContext.BaseDirectory, @"..\..\..\..\..\..\..\")), ".env");
+                string envFilePath = Path.Combine(Path.GetFullPath(Path.Combine(AppContext.BaseDirectory, @"..\..\..\..\..\")), ".env");
                 if (File.Exists(envFilePath))
                 {
                     DotNetEnv.Env.Load(envFilePath);
