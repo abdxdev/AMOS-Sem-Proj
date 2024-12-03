@@ -100,6 +100,10 @@ public partial class App : Application
             services.AddSingleton<IFileService, FileService>();
 
             // Views and ViewModels
+            services.AddTransient<MenuViewModel>();
+            services.AddTransient<MenuPage>();
+            services.AddTransient<HistoryViewModel>();
+            services.AddTransient<HistoryPage>();
             services.AddTransient<OrdersViewModel>();
             services.AddTransient<OrdersPage>();
             services.AddTransient<CartViewModel>();

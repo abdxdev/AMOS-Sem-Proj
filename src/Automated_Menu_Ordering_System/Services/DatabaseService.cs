@@ -111,6 +111,7 @@ GROUP BY
 ";
         return run_query(query);
     }
+
     public NpgsqlDataReader get_deals()
     {
         var query = $@"
@@ -132,7 +133,8 @@ GROUP BY
 ";
         return run_query(query);
     }
-    public NpgsqlDataReader get_account(string userType, string userId, string userPassword)
+
+    public int get_account_id(string userType, string userId, string userPassword)
     {
         string? where_clause;
         if (userPassword == null)
@@ -147,24 +149,34 @@ FROM
     Account a
 {where_clause};
 ";
-        return run_query(query);
+        var reader = run_query(query);
+        reader.Read();
+        if (!reader.HasRows)
+        {
+            reader.Close();
+            return -1;
+        }
+        var accountId = reader.GetInt32(0);
+        reader.Close();
+        return accountId;
     }
-    public NpgsqlDataReader get_sittingtables(string? id = null)
-    {
-        var where_clause = "";
-        if (id != null)
-            where_clause = $@"WHERE t.id = {id}";
 
+    public bool does_table_exist(int tableId)
+    {
         var query = $@"
-SELECT
-    t.id,
-    t.branch_id
-FROM
-    SittingTable t
-{where_clause};
+SELECT EXISTS (
+    SELECT 1
+    FROM SittingTable
+    WHERE id = {tableId}
+);
 ";
-        return run_query(query);
+        var reader = run_query(query);
+        reader.Read();
+        var exists = reader.GetBoolean(0);
+        reader.Close();
+        return exists;
     }
+
     public NpgsqlDataReader get_manager_by_table_id(string tableId)
     {
         var query = $@"
@@ -199,6 +211,7 @@ SELECT
     o.estimated_time,
     o.is_deal,
     o.total_price,
+    o.table_id,
     o.created_at,
     o.description,
     o.is_paid,
@@ -219,9 +232,11 @@ FROM
 LEFT JOIN Product p ON o.item_id = p.id AND o.is_deal = FALSE
 LEFT JOIN Deal d ON o.item_id = d.id AND o.is_deal = TRUE
 WHERE
-    o.table_id = {tableId} AND o.status != 'closed';";
+    o.table_id = {tableId} AND o.status != 'closed';
+";
         return run_query(query);
     }
+
     public void pay_bill(int tableId)
     {
         var query = $@"
@@ -230,6 +245,50 @@ SET is_paid = TRUE
 WHERE table_id = {tableId};
 ";
         run_non_query(query);
+    }
+
+    public NpgsqlDataReader get_placed_orders_by_branch_id(int branchId)
+    {
+        var query = $@"
+SELECT 
+    o.id AS order_id,
+    o.item_id,
+    o.quantity,
+    o.estimated_time,
+    o.is_deal,
+    o.total_price,
+    o.table_id,
+    o.created_at,
+    o.description,
+    o.is_paid,
+    o.status,
+    o.rating,
+    p.id AS product_id,
+    p.name AS product_name,
+    p.description AS product_description,
+    p.image_url AS product_image_url,
+    p.price AS product_price,
+    d.id AS deal_id,
+    d.name AS deal_name,
+    d.description AS deal_description,
+    d.image_url AS deal_image_url,
+    d.price AS deal_price
+FROM
+    PlacedOrder o
+LEFT JOIN Product p ON o.item_id = p.id AND o.is_deal = FALSE
+LEFT JOIN Deal d ON o.item_id = d.id AND o.is_deal = TRUE
+WHERE
+    o.status != 'closed' AND
+    o.table_id IN (
+        SELECT 
+            id
+        FROM
+            SittingTable
+        WHERE
+            branch_id = {branchId}
+    );
+";
+        return run_query(query);
     }
 
     public void delete_order(int orderId)
@@ -248,5 +307,124 @@ SET rating = {rating}
 WHERE id = {orderId};
 ";
         run_non_query(query);
+    }
+    public void update_order_status(int orderId, string status)
+    {
+        var query = $@"
+UPDATE PlacedOrder
+SET status = '{status}'
+WHERE id = {orderId};
+";
+        run_non_query(query);
+    }
+
+    public NpgsqlDataReader get_closed_orders_by_branch_id(int branchId)
+    {
+        var query = $@"
+SELECT 
+    o.id AS order_id,
+    o.item_id,
+    o.quantity,
+    o.estimated_time,
+    o.is_deal,
+    o.total_price,
+    o.created_at,
+    o.description,
+    o.is_paid,
+    o.table_id,
+    o.status,
+    o.rating,
+    p.id AS product_id,
+    p.name AS product_name,
+    p.description AS product_description,
+    p.image_url AS product_image_url,
+    p.price AS product_price,
+    d.id AS deal_id,
+    d.name AS deal_name,
+    d.description AS deal_description,
+    d.image_url AS deal_image_url,
+    d.price AS deal_price
+FROM
+    PlacedOrder o
+LEFT JOIN Product p ON o.item_id = p.id AND o.is_deal = FALSE
+LEFT JOIN Deal d ON o.item_id = d.id AND o.is_deal = TRUE
+WHERE
+    o.status = 'closed'
+    AND o.table_id IN (
+        SELECT 
+            id
+        FROM
+            SittingTable
+        WHERE
+            branch_id = {branchId}
+    );
+";
+        return run_query(query);
+    }
+    //TODO: its manager id not branch id
+    public NpgsqlDataReader get_menu_by_branch_id(int branchId)
+    {
+        var query = $@"
+SELECT 
+    p.id AS product_id,
+    p.name AS product_name,
+    p.description AS product_description,
+    p.image_url AS product_image_url,
+    p.price AS product_price,
+    p.estimated_time AS product_estimated_time,
+    p.category AS product_category,
+    p.subcategory AS product_subcategory,
+    p.discount_percent AS product_discount_percent,
+    CASE
+        WHEN i.branch_id IS NULL THEN FALSE
+        ELSE TRUE
+    END AS is_out_of_stock
+FROM
+    Product p
+LEFT JOIN IsOutOfStock i ON p.id = i.product_id AND i.branch_id = {branchId};
+";
+        return run_query(query);
+    }
+
+    public void change_item_out_of_stock_value(int itemId, int branchId, bool isOutOfStock)
+    {
+        string query;
+        if (isOutOfStock)
+            query = $@"
+INSERT INTO IsOutOfStock (product_id, branch_id)
+VALUES ({itemId}, {branchId});
+";
+        else
+            query = $@"
+DELETE FROM IsOutOfStock
+WHERE product_id = {itemId} AND branch_id = {branchId};
+";
+        run_non_query(query);
+    }
+    public int get_user_id_by_username_and_password(string username, string password)
+    {
+        var query = $@"
+SELECT id 
+FROM Account 
+WHERE username = {username} AND password = {password};
+";
+        var reader = run_query(query);
+        reader.Read();
+        var userId = reader.GetInt32(0);
+        reader.Close();
+        return userId;
+    }
+    public int get_branch_id_by_manager_id(int managerId)
+    {
+        var query = $@"
+SELECT branch_id
+FROM Account
+WHERE id = {managerId};
+";
+        var reader = run_query(query);
+        reader.Read();
+        var branchId = reader.GetInt32(0);
+        reader.Close();
+        return branchId;
     }
 }

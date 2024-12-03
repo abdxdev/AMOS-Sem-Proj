@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
-using System.Runtime.InteropServices.WindowsRuntime;
 using Automated_Menu_Ordering_System.Contracts.Services;
 using Microsoft.UI.Xaml.Controls;
 using Syncfusion.UI.Xaml.DataGrid;
@@ -9,7 +8,7 @@ using WinUIEx;
 
 namespace Automated_Menu_Ordering_System.Views;
 
-public class PlacedOrder
+public class HistoryItem
 {
     public int Id
     {
@@ -35,53 +34,47 @@ public class PlacedOrder
     {
         get; set;
     }
+    public int Rating
+    {
+        get; set;
+    }
     public string Description
-    {
-        get; set;
-    }
-    public bool IsPaid
-    {
-        get; set;
-    }
-    public string Status
     {
         get; set;
     }
 }
 
-public sealed partial class OrdersPage : Page
+public sealed partial class HistoryPage : Page
 {
     private readonly ILocalSettingsService _localSettingsService;
 
-    public ObservableCollection<PlacedOrder> Orders
+    public ObservableCollection<HistoryItem> HistoryItems
     {
         get; private set;
     }
 
-    public OrdersPage()
+    public HistoryPage()
     {
         this.InitializeComponent();
         _localSettingsService = App.GetService<ILocalSettingsService>();
-        Orders = new ObservableCollection<PlacedOrder>();
-        //this.sfDataGrid.AddNewRowInitiating += SfDataGrid_AddNewRowInitiating;
+        HistoryItems = new ObservableCollection<HistoryItem>();
         LoadData();
     }
 
     public async void LoadData()
     {
         var BranchId = await _localSettingsService.ReadSettingAsync<int>("branchId");
-
-        var reader = App.GetService<DatabaseService>().get_placed_orders_by_branch_id(BranchId);
+        var reader = App.GetService<DatabaseService>().get_closed_orders_by_branch_id(BranchId);
 
         if (!reader.HasRows)
         {
             reader.Close();
             return;
         }
-        Orders.Clear();
+        HistoryItems.Clear();
         while (reader.Read())
         {
-            var order = new PlacedOrder
+            var historyItem = new HistoryItem
             {
                 Id = Convert.ToInt32(reader["order_id"]),
                 ItemName = reader["is_deal"].ToString() == "True" ? reader["deal_name"].ToString() : reader["product_name"].ToString(),
@@ -89,40 +82,12 @@ public sealed partial class OrdersPage : Page
                 Quantity = Convert.ToInt32(reader["quantity"]),
                 TotalPrice = Convert.ToInt32(reader["total_price"]),
                 CreatedAt = Convert.ToDateTime(reader["created_at"]),
+                Rating = Convert.ToInt32(reader["rating"]),
                 Description = reader["description"].ToString(),
-                IsPaid = Convert.ToBoolean(reader["is_paid"]),
-                Status = reader["status"].ToString()
             };
-            Orders.Add(order);
+            HistoryItems.Add(historyItem);
         }
         reader.Close();
-        sfDataGrid.ItemsSource = Orders;
+        sfDataGrid.ItemsSource = HistoryItems;
     }
-
-    private void ChangeStatusComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
-    {
-        var newStatus = (string)ChangeStatusComboBox.SelectedItem;
-        if (newStatus == null)
-        {
-            ChangeStatusComboBox.SelectedIndex = 0;
-            return;
-        }
-        if (newStatus == "Choose Status")
-        {
-            ChangeStatusComboBox.SelectedIndex = 0;
-            return;
-        }
-        var selectedOrders = sfDataGrid.SelectedItems.OfType<PlacedOrder>().ToList();
-        foreach (var selectedOrder in selectedOrders)
-        {
-            App.GetService<DatabaseService>().update_order_status(selectedOrder.Id, newStatus);
-        }
-        LoadData();
-        ChangeStatusComboBox.SelectedIndex = 0;
-    }
-    //void SfDataGrid_AddNewRowInitiating(object sender, AddNewRowInitiatingEventArgs e)
-    //{
-    //    var order = e.NewObject as PlacedOrder;
-    //    order.Id = Orders.Count + 1;
-    //}
 }

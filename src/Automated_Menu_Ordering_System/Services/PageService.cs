@@ -23,6 +23,8 @@ public class PageService : IPageService
         Configure<SettingsViewModel, SettingsPage>();
         Configure<CartViewModel, CartPage>();
         Configure<OrdersViewModel, OrdersPage>();
+        Configure<HistoryViewModel, HistoryPage>();
+        Configure<MenuViewModel, MenuPage>();
     }
 
     public Type GetPageType(string key)

@@ -188,4 +188,10 @@
   <data name="Shell_Orders.Content" xml:space="preserve">
     <value>Orders</value>
   </data>
+  <data name="Shell_History.Content" xml:space="preserve">
+    <value>History</value>
+  </data>
+  <data name="Shell_Menu.Content" xml:space="preserve">
+    <value>Menu</value>
+  </data>
 </root>

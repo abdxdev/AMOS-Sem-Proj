@@ -48,7 +48,6 @@ public sealed partial class CartPage : Page
                     Order = order,
                     ParentPage = this
                 };
-                Debug.WriteLine(reader["product_name"].ToString() + ": " + reader["order_id"].ToString());
 
                 if (reader["is_paid"].ToString() == "False")
                 {
@@ -71,7 +70,6 @@ public sealed partial class CartPage : Page
                 }
                 else if (reader["status"].ToString() == "completed")
                 {
-                    Debug.WriteLine(reader["rating"].ToString());
                     var rating = reader["rating"].ToString();
                     if (rating == "")
                         card.ChangeToCompleted(-1);

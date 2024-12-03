@@ -19,7 +19,8 @@ public sealed partial class SigninPage : Page
     private readonly ILocalSettingsService _localSettingsService;
     private readonly INavigationService _navigationService;
 
-    public SigninPage() {
+    public SigninPage()
+    {
         InitializeComponent();
         ViewModel = App.GetService<SigninViewModel>();
         AppName_TextBlock.Text = "AppDisplayName".GetLocalized();
@@ -61,44 +62,49 @@ public sealed partial class SigninPage : Page
             UserPasswordBox.PlaceholderText = $"{selectedItem} Password";
         }
     }
-    private bool checkUser(string userType, string userId, string? userPassword)
+    private int checkUserAndGetAccountId(string userType, string userId, string? userPassword)
     {
-        NpgsqlDataReader? reader;
         if (userType == "customer")
         {
-            reader = App.GetService<DatabaseService>().get_sittingtables(userId);
-            if (reader.HasRows)
+            int tableId;
+            try
             {
-                reader.Close();
-                return true;
+                tableId = int.Parse(userId);
+            }
+            catch (Exception e)
+            {
+                ErrorTextBlock.Visibility = Visibility.Visible;
+                ErrorTextBlock.Text = "Invalid table id!";
+                return -1;
+            }
+            if (App.GetService<DatabaseService>().does_table_exist(tableId))
+            {
+                return tableId;
             }
             else
             {
-                reader.Close();
                 ErrorTextBlock.Visibility = Visibility.Visible;
                 ErrorTextBlock.Text = "Table not found!";
-                return false;
+                return -1;
             }
         }
         else
         {
-            reader = App.GetService<DatabaseService>().get_account(userType, userId, userPassword);
-            if (reader.HasRows)
+            int accountId = App.GetService<DatabaseService>().get_account_id(userType, userId, userPassword);
+            if (accountId != -1)
             {
-                reader.Close();
-                return true;
+                return accountId;
             }
             else
             {
-                reader.Close();
                 ErrorTextBlock.Visibility = Visibility.Visible;
                 ErrorTextBlock.Text = "Invalid username or password!";
-                return false;
+                return -1;
             }
         }
     }
 
-    private void checkAndNavigate(string userType, string userId, string userPassword)
+    private async void checkAndNavigate(string userType, string userId, string userPassword)
     {
         if (string.IsNullOrEmpty(userType) || string.IsNullOrEmpty(userId) || (string.IsNullOrEmpty(userPassword) && userType != "Customer"))
         {
@@ -108,12 +114,15 @@ public sealed partial class SigninPage : Page
         }
         try
         {
-            if (checkUser(userType.ToLower(), userId, userPassword))
+            var accountId = checkUserAndGetAccountId(userType.ToLower(), userId, userPassword);
+            if (accountId != -1)
             {
-                _localSettingsService.SaveSettingAsync("userId", userId);
-                _localSettingsService.SaveSettingAsync("userType", userType);
-                _localSettingsService.SaveSettingAsync("userPassword", userPassword);
-                _localSettingsService.SaveSettingAsync("keepSignIn", keepSignInCheckBox.IsChecked);
+                //TODO Confusing as userId is actually username and accountId is userId
+                await _localSettingsService.SaveSettingAsync("userId", userId);
+                await _localSettingsService.SaveSettingAsync("userType", userType);
+                await _localSettingsService.SaveSettingAsync("accountId", accountId.ToString());
+                await _localSettingsService.SaveSettingAsync("userPassword", userPassword);
+                await _localSettingsService.SaveSettingAsync("keepSignIn", keepSignInCheckBox.IsChecked);
                 if (userType == "Customer")
                 {
                     // TODO show only customer side
@@ -125,6 +134,8 @@ public sealed partial class SigninPage : Page
                 }
                 else if (userType == "Manager")
                 {
+                    var branchId = App.GetService<DatabaseService>().get_branch_id_by_manager_id(accountId);
+                    await _localSettingsService.SaveSettingAsync("branchId", branchId.ToString());
                     _navigationService.NavigateTo(pageKey: typeof(OrdersViewModel).FullName);
                 }
             }

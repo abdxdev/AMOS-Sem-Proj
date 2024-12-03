@@ -8,12 +8,48 @@
     DataContext="{Binding RelativeSource={RelativeSource Self}}"
     mc:Ignorable="d">
 
-    <Grid x:Name="ContentArea">
+    <StackPanel>
+        <ComboBox
+            x:Name="ChangeStatusComboBox"
+            HorizontalAlignment="Right"
+            SelectedIndex="0"
+            SelectionChanged="ChangeStatusComboBox_SelectionChanged"
+            Text="Change Status">
+            <x:String>Choose Status</x:String>
+            <x:String>in_progress</x:String>
+            <x:String>ready</x:String>
+            <x:String>completed</x:String>
+            <x:String>closed</x:String>
+        </ComboBox>
+
         <dataGrid:SfDataGrid
             x:Name="sfDataGrid"
+            Grid.ColumnSpan="100"
+            AllowFiltering="True"
+            AllowResizingColumns="True"
+            AllowResizingHiddenColumns="True"
+            AllowSorting="True"
+            AutoGenerateColumns="True"
+            ColumnWidthMode="AutoWithLastColumnFill"
+            GridLinesVisibility="Both"
+            RowHeight="50"
+            SelectionMode="Extended" />
+        <!--<dataGrid:SfDataGrid
+            x:Name="sfDataGrid"
+            Grid.ColumnSpan="100"
+            AddNewRowInitiating="SfDataGrid_AddNewRowInitiating"
+            AddNewRowPosition="Top"
             AllowEditing="True"
             AllowFiltering="True"
+            AllowResizingColumns="True"
+            AllowResizingHiddenColumns="True"
+            AllowSorting="True"
+            AllowDeleting="True"
             AutoGenerateColumns="True"
-            ItemsSource="{Binding Orders}" />
-    </Grid>
+            ColumnWidthMode="AutoWithLastColumnFill"
+            GridLinesVisibility="Both"
+            NewItemPlaceholderPosition="AtBeginning"
+            RowHeight="50"
+            SelectionMode="Extended" />-->
+    </StackPanel>
 </Page>
