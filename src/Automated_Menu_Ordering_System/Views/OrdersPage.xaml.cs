@@ -27,7 +27,7 @@ public class PlacedOrder
     {
         get; set;
     }
-    public int TotalPrice
+    public decimal TotalPrice
     {
         get; set;
     }
@@ -86,7 +86,7 @@ public sealed partial class OrdersPage : Page
                 ItemName = reader["is_deal"].ToString() == "True" ? reader["deal_name"].ToString() : reader["product_name"].ToString(),
                 TableId = Convert.ToInt32(reader["table_id"]),
                 Quantity = Convert.ToInt32(reader["quantity"]),
-                TotalPrice = Convert.ToInt32(reader["total_price"]),
+                TotalPrice = Convert.ToDecimal(reader["total_price"]),
                 CreatedAt = Convert.ToDateTime(reader["created_at"]),
                 Description = reader["description"].ToString(),
                 IsPaid = Convert.ToBoolean(reader["is_paid"]),

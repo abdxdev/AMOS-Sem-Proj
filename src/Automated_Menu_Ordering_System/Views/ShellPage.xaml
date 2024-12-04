@@ -53,82 +53,82 @@
                     helpers:NavigationHelper.NavigateTo="Automated_Menu_Ordering_System.ViewModels.SigninViewModel"
                     Visibility="Collapsed">
                     <NavigationViewItem.Icon>
-                        <FontIcon FontFamily="{StaticResource SymbolThemeFontFamily}" Glyph="&#xE77B;" />
+                        <SymbolIcon Symbol="Contact" />
                     </NavigationViewItem.Icon>
                 </NavigationViewItem>
                 <NavigationViewItem x:Uid="Shell_Home" helpers:NavigationHelper.NavigateTo="Automated_Menu_Ordering_System.ViewModels.HomeViewModel">
                     <NavigationViewItem.Icon>
-                        <FontIcon FontFamily="{StaticResource SymbolThemeFontFamily}" Glyph="&#xE80F;" />
+                        <SymbolIcon Symbol="Home" />
                     </NavigationViewItem.Icon>
                 </NavigationViewItem>
                 <NavigationViewItem x:Uid="Shell_Pizzas" helpers:NavigationHelper.NavigateTo="Automated_Menu_Ordering_System.ViewModels.PizzasViewModel">
                     <NavigationViewItem.Icon>
-                        <FontIcon FontFamily="{StaticResource SymbolThemeFontFamily}" Glyph="&#xE7BF;" />
+                        <SymbolIcon Symbol="Page" />
                     </NavigationViewItem.Icon>
                 </NavigationViewItem>
                 <NavigationViewItem x:Uid="Shell_Burgers" helpers:NavigationHelper.NavigateTo="Automated_Menu_Ordering_System.ViewModels.BurgersViewModel">
                     <NavigationViewItem.Icon>
-                        <FontIcon FontFamily="{StaticResource SymbolThemeFontFamily}" Glyph="&#xe7c3;" />
+                        <SymbolIcon Symbol="Page" />
                     </NavigationViewItem.Icon>
                 </NavigationViewItem>
                 <NavigationViewItem x:Uid="Shell_Desserts" helpers:NavigationHelper.NavigateTo="Automated_Menu_Ordering_System.ViewModels.DessertsViewModel">
                     <NavigationViewItem.Icon>
-                        <FontIcon FontFamily="{StaticResource SymbolThemeFontFamily}" Glyph="&#xe7c3;" />
+                        <SymbolIcon Symbol="Page" />
                     </NavigationViewItem.Icon>
                 </NavigationViewItem>
                 <NavigationViewItem x:Uid="Shell_Drinks" helpers:NavigationHelper.NavigateTo="Automated_Menu_Ordering_System.ViewModels.DrinksViewModel">
                     <NavigationViewItem.Icon>
-                        <FontIcon FontFamily="{StaticResource SymbolThemeFontFamily}" Glyph="&#xe7c3;" />
+                        <SymbolIcon Symbol="Page" />
                     </NavigationViewItem.Icon>
                 </NavigationViewItem>
                 <NavigationViewItem x:Uid="Shell_Cart" helpers:NavigationHelper.NavigateTo="Automated_Menu_Ordering_System.ViewModels.CartViewModel">
                     <NavigationViewItem.Icon>
-                        <FontIcon FontFamily="{StaticResource SymbolThemeFontFamily}" Glyph="&#xe7c3;" />
+                        <SymbolIcon Symbol="Shop" />
                     </NavigationViewItem.Icon>
                 </NavigationViewItem>
                 <NavigationViewItem x:Uid="Shell_Orders" helpers:NavigationHelper.NavigateTo="Automated_Menu_Ordering_System.ViewModels.OrdersViewModel">
                     <NavigationViewItem.Icon>
-                        <FontIcon FontFamily="{StaticResource SymbolThemeFontFamily}" Glyph="&#xe7c3;" />
+                        <SymbolIcon Symbol="AllApps" />
                     </NavigationViewItem.Icon>
                 </NavigationViewItem>
                 <NavigationViewItem x:Uid="Shell_History" helpers:NavigationHelper.NavigateTo="Automated_Menu_Ordering_System.ViewModels.HistoryViewModel">
                     <NavigationViewItem.Icon>
-                        <FontIcon FontFamily="{StaticResource SymbolThemeFontFamily}" Glyph="&#xe7c3;" />
+                        <SymbolIcon Symbol="Refresh" />
                     </NavigationViewItem.Icon>
                 </NavigationViewItem>
                 <NavigationViewItem x:Uid="Shell_Menu" helpers:NavigationHelper.NavigateTo="Automated_Menu_Ordering_System.ViewModels.MenuViewModel">
                     <NavigationViewItem.Icon>
-                        <FontIcon FontFamily="{StaticResource SymbolThemeFontFamily}" Glyph="&#xe7c3;" />
+                        <SymbolIcon Symbol="List" />
                     </NavigationViewItem.Icon>
                 </NavigationViewItem>
                 <NavigationViewItem x:Uid="Shell_Accounts" helpers:NavigationHelper.NavigateTo="Automated_Menu_Ordering_System.ViewModels.AccountsViewModel">
                     <NavigationViewItem.Icon>
-                        <FontIcon FontFamily="{StaticResource SymbolThemeFontFamily}" Glyph="&#xe7c3;" />
+                        <SymbolIcon Symbol="Contact" />
                     </NavigationViewItem.Icon>
                 </NavigationViewItem>
                 <NavigationViewItem x:Uid="Shell_Branches" helpers:NavigationHelper.NavigateTo="Automated_Menu_Ordering_System.ViewModels.BranchesViewModel">
                     <NavigationViewItem.Icon>
-                        <FontIcon FontFamily="{StaticResource SymbolThemeFontFamily}" Glyph="&#xe7c3;" />
+                        <SymbolIcon Symbol="Map" />
                     </NavigationViewItem.Icon>
                 </NavigationViewItem>
                 <NavigationViewItem x:Uid="Shell_SittingTables" helpers:NavigationHelper.NavigateTo="Automated_Menu_Ordering_System.ViewModels.SittingTablesViewModel">
                     <NavigationViewItem.Icon>
-                        <FontIcon FontFamily="{StaticResource SymbolThemeFontFamily}" Glyph="&#xe7c3;" />
+                        <SymbolIcon Symbol="OtherUser" />
                     </NavigationViewItem.Icon>
                 </NavigationViewItem>
                 <NavigationViewItem x:Uid="Shell_Products" helpers:NavigationHelper.NavigateTo="Automated_Menu_Ordering_System.ViewModels.ProductsViewModel">
                     <NavigationViewItem.Icon>
-                        <FontIcon FontFamily="{StaticResource SymbolThemeFontFamily}" Glyph="&#xe7c3;" />
+                        <SymbolIcon Symbol="AllApps" />
                     </NavigationViewItem.Icon>
                 </NavigationViewItem>
                 <NavigationViewItem x:Uid="Shell_Deals" helpers:NavigationHelper.NavigateTo="Automated_Menu_Ordering_System.ViewModels.DealsViewModel">
                     <NavigationViewItem.Icon>
-                        <FontIcon FontFamily="{StaticResource SymbolThemeFontFamily}" Glyph="&#xe7c3;" />
+                        <SymbolIcon Symbol="AllApps" />
                     </NavigationViewItem.Icon>
                 </NavigationViewItem>
                 <NavigationViewItem x:Uid="Shell_DealProducts" helpers:NavigationHelper.NavigateTo="Automated_Menu_Ordering_System.ViewModels.DealProductsViewModel">
                     <NavigationViewItem.Icon>
-                        <FontIcon FontFamily="{StaticResource SymbolThemeFontFamily}" Glyph="&#xe7c3;" />
+                        <SymbolIcon Symbol="AllApps" />
                     </NavigationViewItem.Icon>
                 </NavigationViewItem>
             </NavigationView.MenuItems>
@@ -156,7 +156,7 @@
                 </behaviors:NavigationViewHeaderBehavior>
             </i:Interaction.Behaviors>
             <Grid Margin="{StaticResource NavigationViewPageContentMargin}">
-                <Frame x:Name="NavigationFrame" />
+                <Frame x:Name="NavigationFrame" Margin="0,0,0,52" />
             </Grid>
         </NavigationView>
     </Grid>

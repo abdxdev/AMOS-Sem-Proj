@@ -8,7 +8,7 @@
     DataContext="{Binding RelativeSource={RelativeSource Self}}"
     mc:Ignorable="d">
 
-    <Grid>
+    <Grid RowSpacing="20">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
@@ -16,12 +16,32 @@
         <StackPanel Grid.Row="0" Orientation="Horizontal">
             <Button
                 x:Name="MakeInStockButton"
-                Click="MakeInStockButton_Click"
-                Content="Make In Stock" />
+                Background="Transparent"
+                BorderBrush="Transparent"
+                Click="MakeInStockButton_Click">
+                <StackPanel Orientation="Horizontal" Spacing="5">
+                    <SymbolIcon RenderTransformOrigin="0.5,0.5" Symbol="Accept">
+                        <SymbolIcon.RenderTransform>
+                            <ScaleTransform ScaleX="0.7" ScaleY="0.7" />
+                        </SymbolIcon.RenderTransform>
+                    </SymbolIcon>
+                    <TextBlock Text="Make In Stock" />
+                </StackPanel>
+            </Button>
             <Button
                 x:Name="MakeOutOfStockButton"
-                Click="MakeOutOfStockButton_Click"
-                Content="Make Out of Stock" />
+                Background="Transparent"
+                BorderBrush="Transparent"
+                Click="MakeOutOfStockButton_Click">
+                <StackPanel Orientation="Horizontal" Spacing="5">
+                    <SymbolIcon RenderTransformOrigin="0.5,0.5" Symbol="Cancel">
+                        <SymbolIcon.RenderTransform>
+                            <ScaleTransform ScaleX="0.7" ScaleY="0.7" />
+                        </SymbolIcon.RenderTransform>
+                    </SymbolIcon>
+                    <TextBlock Text="Make Out of Stock" />
+                </StackPanel>
+            </Button>
         </StackPanel>
         <dataGrid:SfDataGrid
             x:Name="sfDataGrid"

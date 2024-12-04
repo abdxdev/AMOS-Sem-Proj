@@ -102,7 +102,7 @@ public sealed partial class ProductsPage : Page
                 Description = reader["description"]?.ToString(),
                 ImageUrl = reader["image_url"]?.ToString(),
                 Price = Convert.ToDecimal(reader["price"]),
-                EstimatedTime = Convert.ToInt32(reader["estimated_time"]),
+                EstimatedTime = reader["estimated_time"] == DBNull.Value ? 0 : Convert.ToInt32(reader["estimated_time"]),
                 Category = reader["category"].ToString(),
                 Subcategory = reader["subcategory"]?.ToString(),
                 DiscountPercent = reader["discount_percent"] == DBNull.Value ? 0 : Convert.ToDecimal(reader["discount_percent"]),

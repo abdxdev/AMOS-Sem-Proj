@@ -18,7 +18,7 @@ public class MenuItem
     {
         get; set;
     }
-    public int Price
+    public decimal Price
     {
         get; set;
     }
@@ -75,7 +75,7 @@ public sealed partial class MenuPage : Page
             {
                 Id = Convert.ToInt32(reader["product_id"]),
                 ItemName = reader["product_name"].ToString(),
-                Price = Convert.ToInt32(reader["product_price"]),
+                Price = Convert.ToDecimal(reader["product_price"]),
                 Category = reader["product_category"].ToString(),
                 Subcategory = reader["product_subcategory"].ToString(),
                 Description = reader["product_description"].ToString(),
