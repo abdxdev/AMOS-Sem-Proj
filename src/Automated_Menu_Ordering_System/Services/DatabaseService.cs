@@ -113,7 +113,7 @@ GROUP BY
         return run_query(query);
     }
 
-    public NpgsqlDataReader get_deals()
+    public NpgsqlDataReader get_all_deals()
     {
         var query = $@"
 SELECT
@@ -455,6 +455,7 @@ VALUES ('{username}', '{password}', '{accountType}', {branchId});
 ";
         run_non_query(query);
     }
+
     public void delete_account(int accountId)
     {
         var query = $@"
@@ -463,6 +464,7 @@ WHERE id = {accountId};
 ";
         run_non_query(query);
     }
+
     public void update_account(int accountId, string username, string password, string accountType, int branchId)
     {
         string query;
@@ -480,6 +482,7 @@ WHERE id = {accountId};
 ";
         run_non_query(query);
     }
+
     public NpgsqlDataReader get_branches()
     {
         var query = $@"
@@ -487,5 +490,192 @@ SELECT *
 FROM Branch;
 ";
         return run_query(query);
+    }
+
+    public void insert_branch(string name)
+    {
+        var query = $@"
+INSERT INTO Branch (name)
+VALUES ('{name}');
+";
+        run_non_query(query);
+    }
+
+    public void delete_branch(int branchId)
+    {
+        var query = $@"
+DELETE FROM Branch
+WHERE id = {branchId};
+";
+        run_non_query(query);
+    }
+
+    public void update_branch(int branchId, string name)
+    {
+        var query = $@"
+UPDATE Branch
+SET name = '{name}'
+WHERE id = {branchId};
+";
+        run_non_query(query);
+    }
+
+    public NpgsqlDataReader get_sitting_tables()
+    {
+        var query = $@"
+SELECT *
+FROM SittingTable;
+";
+        return run_query(query);
+    }
+
+    public void insert_sitting_table(int branchId)
+    {
+        var query = $@"
+INSERT INTO SittingTable (branch_id)
+VALUES ({branchId});
+";
+        run_non_query(query);
+    }
+
+    public void delete_sitting_table(int tableId)
+    {
+        var query = $@"
+DELETE FROM SittingTable
+WHERE id = {tableId};
+";
+        run_non_query(query);
+    }
+
+    public void update_sitting_table(int tableId, int branchId)
+    {
+        var query = $@"
+UPDATE SittingTable
+SET branch_id = {branchId}
+WHERE id = {tableId};
+";
+        run_non_query(query);
+    }
+
+    public NpgsqlDataReader get_products()
+    {
+        var query = $@"
+SELECT *
+FROM Product;
+";
+        return run_query(query);
+    }
+
+    public void insert_product(string name, string description, string imageUrl, decimal price, int estimatedTime, string category, string subcategory, decimal discountPercent)
+    {
+        var query = $@"
+INSERT INTO Product (name, description, image_url, price, estimated_time, category, subcategory, discount_percent)
+VALUES ('{name}', '{description}', '{imageUrl}', {price}, {estimatedTime}, '{category}', '{subcategory}', {discountPercent});
+";
+        run_non_query(query);
+    }
+
+    public void delete_product(int productId)
+    {
+        var query = $@"
+DELETE FROM Product
+WHERE id = {productId};
+";
+        run_non_query(query);
+    }
+
+    public void update_product(int productId, string name, string description, string imageUrl, decimal price, int estimatedTime, string category, string subcategory, decimal discountPercent)
+    {
+        var query = $@"
+UPDATE Product
+SET name = '{name}',
+    description = '{description}',
+    image_url = '{imageUrl}',
+    price = {price},
+    estimated_time = {estimatedTime},
+    category = '{category}',
+    subcategory = '{subcategory}',
+    discount_percent = {discountPercent}
+WHERE id = {productId};
+";
+        run_non_query(query);
+    }
+
+    public NpgsqlDataReader get_deals()
+    {
+        var query = $@"
+SELECT *
+FROM Deal;
+";
+        return run_query(query);
+    }
+
+    public void insert_deal(string name, string description, string imageUrl, decimal price)
+    {
+        var query = $@"
+INSERT INTO Deal (name, description, image_url, price)
+VALUES ('{name}', '{description}', '{imageUrl}', {price});
+";
+        run_non_query(query);
+    }
+
+    public void delete_deal(int dealId)
+    {
+        var query = $@"
+DELETE FROM Deal
+WHERE id = {dealId};
+";
+        run_non_query(query);
+    }
+
+    public void update_deal(int dealId, string name, string description, string imageUrl, decimal price)
+    {
+        var query = $@"
+UPDATE Deal
+SET name = '{name}',
+    description = '{description}',
+    image_url = '{imageUrl}',
+    price = {price}
+WHERE id = {dealId};
+";
+        run_non_query(query);
+    }
+
+    public NpgsqlDataReader get_deal_products()
+    {
+        var query = $@"
+SELECT *
+FROM DealProduct;
+";
+        return run_query(query);
+    }
+
+    public void insert_deal_product(int dealId, int productId)
+    {
+        var query = $@"
+INSERT INTO DealProduct (deal_id, product_id)
+VALUES ({dealId}, {productId});
+";
+        run_non_query(query);
+    }
+
+    public void delete_deal_product(int dealId, int productId)
+    {
+        var query = $@"
+DELETE FROM DealProduct
+WHERE deal_id = {dealId} AND product_id = {productId};
+";
+        run_non_query(query);
+    }
+
+    public void update_deal_product(int oldDealId, int oldProductId, int newDealId, int newProductId)
+    {
+        var query = $@"
+UPDATE DealProduct
+SET deal_id = {newDealId},
+    product_id = {newProductId}
+WHERE deal_id = {oldDealId} AND product_id = {oldProductId};
+";
+        run_non_query(query);
     }
 }

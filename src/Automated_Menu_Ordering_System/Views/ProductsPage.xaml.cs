@@ -10,7 +10,7 @@ using Npgsql;
 
 namespace Automated_Menu_Ordering_System.Views;
 
-public class Branch
+public class Product
 {
     public int Id
     {
@@ -20,12 +20,44 @@ public class Branch
     {
         get; set;
     }
+    public string Description
+    {
+        get; set;
+    }
+    public string ImageUrl
+    {
+        get; set;
+    }
+    public decimal Price
+    {
+        get; set;
+    }
+    public int EstimatedTime
+    {
+        get; set;
+    }
+    public string Category
+    {
+        get; set;
+    }
+    public string Subcategory
+    {
+        get; set;
+    }
+    public decimal DiscountPercent
+    {
+        get; set;
+    }
+    public DateTime CreatedAt
+    {
+        get; set;
+    }
 }
 
-public sealed partial class BranchesPage : Page
+public sealed partial class ProductsPage : Page
 {
 
-    public ObservableCollection<Branch> Branches
+    public ObservableCollection<Product> Products
     {
         get; private set;
     }
@@ -35,7 +67,7 @@ public sealed partial class BranchesPage : Page
         get; set;
     }
 
-    private Branch? BranchBeingAdded
+    private Product? ProductBeingAdded
     {
         get; set;
     }
@@ -45,41 +77,49 @@ public sealed partial class BranchesPage : Page
         get; set;
     }
 
-    public BranchesPage()
+    public ProductsPage()
     {
         this.InitializeComponent();
-        Branches = new ObservableCollection<Branch>();
+        Products = new ObservableCollection<Product>();
         LoadData();
     }
 
     public async void LoadData()
     {
-        var reader = App.GetService<DatabaseService>().get_branches();
+        var reader = App.GetService<DatabaseService>().get_products();
         if (!reader.HasRows)
         {
             reader.Close();
             return;
         }
-        Branches.Clear();
+        Products.Clear();
         while (reader.Read())
         {
-            var branch = new Branch
+            var product = new Product
             {
                 Id = Convert.ToInt32(reader["id"]),
-                Name = reader["name"].ToString()
+                Name = reader["name"].ToString(),
+                Description = reader["description"]?.ToString(),
+                ImageUrl = reader["image_url"]?.ToString(),
+                Price = Convert.ToDecimal(reader["price"]),
+                EstimatedTime = Convert.ToInt32(reader["estimated_time"]),
+                Category = reader["category"].ToString(),
+                Subcategory = reader["subcategory"]?.ToString(),
+                DiscountPercent = reader["discount_percent"] == DBNull.Value ? 0 : Convert.ToDecimal(reader["discount_percent"]),
+                CreatedAt = Convert.ToDateTime(reader["created_at"])
             };
-            Branches.Add(branch);
+            Products.Add(product);
         }
         reader.Close();
-        sfDataGrid.ItemsSource = Branches;
+        sfDataGrid.ItemsSource = Products;
     }
 
-    private void StartEdit(Branch branch)
+    private void StartEdit(Product product)
     {
-        BranchBeingAdded = branch;
+        ProductBeingAdded = product;
         CurrentlyAddingNewItem = true;
-        sfDataGrid.SelectedItem = branch;
-        sfDataGrid.View.MoveCurrentTo(branch);
+        sfDataGrid.SelectedItem = product;
+        sfDataGrid.View.MoveCurrentTo(product);
         sfDataGrid.AllowDeleting = false;
         sfDataGrid.AllowEditing = true;
         sfDataGrid.Columns[0].IsReadOnly = true;
@@ -90,7 +130,7 @@ public sealed partial class BranchesPage : Page
 
     private void EndEdit()
     {
-        BranchBeingAdded = null;
+        ProductBeingAdded = null;
         CurrentlyAddingNewItem = false;
         sfDataGrid.AllowEditing = false;
         sfDataGrid.AllowDeleting = true;
@@ -99,29 +139,37 @@ public sealed partial class BranchesPage : Page
         ButtonsPanel.Visibility = Visibility.Visible;
     }
 
-    private void Delete(Branch branch)
+    private void Delete(Product product)
     {
-        App.GetService<DatabaseService>().delete_branch(branch.Id);
+        App.GetService<DatabaseService>().delete_product(product.Id);
     }
 
     private void AddButton_Click(object sender, RoutedEventArgs e)
     {
-        var newBranch = new Branch
+        var newProduct = new Product
         {
             Id = 0,
-            Name = ""
+            Name = "",
+            Description = "",
+            ImageUrl = "",
+            Price = 0.0m,
+            EstimatedTime = 0,
+            Category = "",
+            Subcategory = "",
+            DiscountPercent = 0.0m,
+            CreatedAt = DateTime.Now
         };
-        Branches.Add(newBranch);
+        Products.Add(newProduct);
         IsEditingNew = true;
-        StartEdit(newBranch);
+        StartEdit(newProduct);
     }
 
     private void EditButton_Click(object sender, RoutedEventArgs e)
     {
-        if (sfDataGrid.SelectedItem is Branch branch)
+        if (sfDataGrid.SelectedItem is Product product)
         {
             IsEditingNew = false;
-            StartEdit(branch);
+            StartEdit(product);
         }
     }
 
@@ -138,10 +186,10 @@ public sealed partial class BranchesPage : Page
         {
             foreach (var item in sfDataGrid.SelectedItems)
             {
-                if (item is Branch branch)
+                if (item is Product product)
                 {
-                    Delete(branch);
-                    Branches.Remove(branch);
+                    Delete(product);
+                    Products.Remove(product);
                 }
             }
         }
@@ -164,24 +212,24 @@ public sealed partial class BranchesPage : Page
         };
 
 
-        if (sfDataGrid.SelectedItem is Branch branch)
+        if (sfDataGrid.SelectedItem is Product product)
         {
             try
             {
                 if (IsEditingNew)
-                    App.GetService<DatabaseService>().insert_branch(branch.Name);
+                    App.GetService<DatabaseService>().insert_product(product.Name, product.Description, product.ImageUrl, product.Price, product.EstimatedTime, product.Category, product.Subcategory, product.DiscountPercent);
                 else
-                    App.GetService<DatabaseService>().update_branch(branch.Id, branch.Name);
+                    App.GetService<DatabaseService>().update_product(product.Id, product.Name, product.Description, product.ImageUrl, product.Price, product.EstimatedTime, product.Category, product.Subcategory, product.DiscountPercent);
             }
             catch (Exception ex)
             {
                 errorDialog.Content = ex.Message;
                 await errorDialog.ShowAsync();
-                Branches.Remove(branch);
+                Products.Remove(product);
             }
         }
         EndEdit();
-        Branches.Clear();
+        Products.Clear();
         LoadData();
     }
 
@@ -189,14 +237,14 @@ public sealed partial class BranchesPage : Page
     {
         if (CurrentlyAddingNewItem)
         {
-            Branches.Remove(BranchBeingAdded);
+            Products.Remove(ProductBeingAdded);
         }
         EndEdit();
     }
 
     private void RefreshButton_Click(object sender, RoutedEventArgs e)
     {
-        Branches.Clear();
+        Products.Clear();
         LoadData();
     }
 
@@ -204,7 +252,7 @@ public sealed partial class BranchesPage : Page
     {
         if (CurrentlyAddingNewItem)
         {
-            sfDataGrid.SelectedItem = BranchBeingAdded;
+            sfDataGrid.SelectedItem = ProductBeingAdded;
         }
     }
 
@@ -221,9 +269,9 @@ public sealed partial class BranchesPage : Page
         {
             foreach (var item in sfDataGrid.SelectedItems)
             {
-                if (item is Branch branch)
+                if (item is Product product)
                 {
-                    Delete(branch);
+                    Delete(product);
                 }
             }
         }

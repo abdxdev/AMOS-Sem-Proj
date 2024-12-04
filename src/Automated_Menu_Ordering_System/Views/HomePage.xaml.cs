@@ -51,7 +51,7 @@ public sealed partial class HomePage : Page
                 });
             }
             reader.Close();
-            reader = App.GetService<DatabaseService>().get_deals();
+            reader = App.GetService<DatabaseService>().get_all_deals();
             while (reader.Read())
             {
                 DealPanel.Items.Add(new FlipViewItem

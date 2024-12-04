@@ -10,22 +10,22 @@ using Npgsql;
 
 namespace Automated_Menu_Ordering_System.Views;
 
-public class Branch
+public class SittingTable
 {
     public int Id
     {
         get; set;
     }
-    public string Name
+    public int BranchId
     {
         get; set;
     }
 }
 
-public sealed partial class BranchesPage : Page
+public sealed partial class SittingTablesPage : Page
 {
 
-    public ObservableCollection<Branch> Branches
+    public ObservableCollection<SittingTable> SittingTables
     {
         get; private set;
     }
@@ -35,7 +35,7 @@ public sealed partial class BranchesPage : Page
         get; set;
     }
 
-    private Branch? BranchBeingAdded
+    private SittingTable? SittingTableBeingAdded
     {
         get; set;
     }
@@ -45,41 +45,41 @@ public sealed partial class BranchesPage : Page
         get; set;
     }
 
-    public BranchesPage()
+    public SittingTablesPage()
     {
         this.InitializeComponent();
-        Branches = new ObservableCollection<Branch>();
+        SittingTables = new ObservableCollection<SittingTable>();
         LoadData();
     }
 
     public async void LoadData()
     {
-        var reader = App.GetService<DatabaseService>().get_branches();
+        var reader = App.GetService<DatabaseService>().get_sitting_tables();
         if (!reader.HasRows)
         {
             reader.Close();
             return;
         }
-        Branches.Clear();
+        SittingTables.Clear();
         while (reader.Read())
         {
-            var branch = new Branch
+            var sittingTable = new SittingTable
             {
                 Id = Convert.ToInt32(reader["id"]),
-                Name = reader["name"].ToString()
+                BranchId = Convert.ToInt32(reader["branch_id"])
             };
-            Branches.Add(branch);
+            SittingTables.Add(sittingTable);
         }
         reader.Close();
-        sfDataGrid.ItemsSource = Branches;
+        sfDataGrid.ItemsSource = SittingTables;
     }
 
-    private void StartEdit(Branch branch)
+    private void StartEdit(SittingTable sittingTable)
     {
-        BranchBeingAdded = branch;
+        SittingTableBeingAdded = sittingTable;
         CurrentlyAddingNewItem = true;
-        sfDataGrid.SelectedItem = branch;
-        sfDataGrid.View.MoveCurrentTo(branch);
+        sfDataGrid.SelectedItem = sittingTable;
+        sfDataGrid.View.MoveCurrentTo(sittingTable);
         sfDataGrid.AllowDeleting = false;
         sfDataGrid.AllowEditing = true;
         sfDataGrid.Columns[0].IsReadOnly = true;
@@ -90,7 +90,7 @@ public sealed partial class BranchesPage : Page
 
     private void EndEdit()
     {
-        BranchBeingAdded = null;
+        SittingTableBeingAdded = null;
         CurrentlyAddingNewItem = false;
         sfDataGrid.AllowEditing = false;
         sfDataGrid.AllowDeleting = true;
@@ -99,29 +99,29 @@ public sealed partial class BranchesPage : Page
         ButtonsPanel.Visibility = Visibility.Visible;
     }
 
-    private void Delete(Branch branch)
+    private void Delete(SittingTable sittingTable)
     {
-        App.GetService<DatabaseService>().delete_branch(branch.Id);
+        App.GetService<DatabaseService>().delete_sitting_table(sittingTable.Id);
     }
 
     private void AddButton_Click(object sender, RoutedEventArgs e)
     {
-        var newBranch = new Branch
+        var newSittingTable = new SittingTable
         {
             Id = 0,
-            Name = ""
+            BranchId = 0
         };
-        Branches.Add(newBranch);
+        SittingTables.Add(newSittingTable);
         IsEditingNew = true;
-        StartEdit(newBranch);
+        StartEdit(newSittingTable);
     }
 
     private void EditButton_Click(object sender, RoutedEventArgs e)
     {
-        if (sfDataGrid.SelectedItem is Branch branch)
+        if (sfDataGrid.SelectedItem is SittingTable sittingTable)
         {
             IsEditingNew = false;
-            StartEdit(branch);
+            StartEdit(sittingTable);
         }
     }
 
@@ -138,10 +138,10 @@ public sealed partial class BranchesPage : Page
         {
             foreach (var item in sfDataGrid.SelectedItems)
             {
-                if (item is Branch branch)
+                if (item is SittingTable sittingTable)
                 {
-                    Delete(branch);
-                    Branches.Remove(branch);
+                    Delete(sittingTable);
+                    SittingTables.Remove(sittingTable);
                 }
             }
         }
@@ -164,24 +164,24 @@ public sealed partial class BranchesPage : Page
         };
 
 
-        if (sfDataGrid.SelectedItem is Branch branch)
+        if (sfDataGrid.SelectedItem is SittingTable sittingTable)
         {
             try
             {
                 if (IsEditingNew)
-                    App.GetService<DatabaseService>().insert_branch(branch.Name);
+                    App.GetService<DatabaseService>().insert_sitting_table(sittingTable.BranchId);
                 else
-                    App.GetService<DatabaseService>().update_branch(branch.Id, branch.Name);
+                    App.GetService<DatabaseService>().update_sitting_table(sittingTable.Id, sittingTable.BranchId);
             }
             catch (Exception ex)
             {
                 errorDialog.Content = ex.Message;
                 await errorDialog.ShowAsync();
-                Branches.Remove(branch);
+                SittingTables.Remove(sittingTable);
             }
         }
         EndEdit();
-        Branches.Clear();
+        SittingTables.Clear();
         LoadData();
     }
 
@@ -189,14 +189,14 @@ public sealed partial class BranchesPage : Page
     {
         if (CurrentlyAddingNewItem)
         {
-            Branches.Remove(BranchBeingAdded);
+            SittingTables.Remove(SittingTableBeingAdded);
         }
         EndEdit();
     }
 
     private void RefreshButton_Click(object sender, RoutedEventArgs e)
     {
-        Branches.Clear();
+        SittingTables.Clear();
         LoadData();
     }
 
@@ -204,7 +204,7 @@ public sealed partial class BranchesPage : Page
     {
         if (CurrentlyAddingNewItem)
         {
-            sfDataGrid.SelectedItem = BranchBeingAdded;
+            sfDataGrid.SelectedItem = SittingTableBeingAdded;
         }
     }
 
@@ -221,9 +221,9 @@ public sealed partial class BranchesPage : Page
         {
             foreach (var item in sfDataGrid.SelectedItems)
             {
-                if (item is Branch branch)
+                if (item is SittingTable sittingTable)
                 {
-                    Delete(branch);
+                    Delete(sittingTable);
                 }
             }
         }

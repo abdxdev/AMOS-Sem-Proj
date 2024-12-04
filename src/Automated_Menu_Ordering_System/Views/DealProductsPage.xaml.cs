@@ -10,22 +10,22 @@ using Npgsql;
 
 namespace Automated_Menu_Ordering_System.Views;
 
-public class Branch
+public class DealProduct
 {
-    public int Id
+    public int DealId
     {
         get; set;
     }
-    public string Name
+    public int ProductId
     {
         get; set;
     }
 }
 
-public sealed partial class BranchesPage : Page
+public sealed partial class DealProductsPage : Page
 {
 
-    public ObservableCollection<Branch> Branches
+    public ObservableCollection<DealProduct> DealProducts
     {
         get; private set;
     }
@@ -35,7 +35,7 @@ public sealed partial class BranchesPage : Page
         get; set;
     }
 
-    private Branch? BranchBeingAdded
+    private DealProduct? DealProductBeingAdded
     {
         get; set;
     }
@@ -45,44 +45,44 @@ public sealed partial class BranchesPage : Page
         get; set;
     }
 
-    public BranchesPage()
+    public DealProductsPage()
     {
         this.InitializeComponent();
-        Branches = new ObservableCollection<Branch>();
+        DealProducts = new ObservableCollection<DealProduct>();
         LoadData();
     }
 
     public async void LoadData()
     {
-        var reader = App.GetService<DatabaseService>().get_branches();
+        var reader = App.GetService<DatabaseService>().get_deal_products();
         if (!reader.HasRows)
         {
             reader.Close();
             return;
         }
-        Branches.Clear();
+        DealProducts.Clear();
         while (reader.Read())
         {
-            var branch = new Branch
+            var dealProduct = new DealProduct
             {
-                Id = Convert.ToInt32(reader["id"]),
-                Name = reader["name"].ToString()
+                DealId = Convert.ToInt32(reader["deal_id"]),
+                ProductId = Convert.ToInt32(reader["product_id"])
             };
-            Branches.Add(branch);
+            DealProducts.Add(dealProduct);
         }
         reader.Close();
-        sfDataGrid.ItemsSource = Branches;
+        sfDataGrid.ItemsSource = DealProducts;
     }
 
-    private void StartEdit(Branch branch)
+    private void StartEdit(DealProduct dealProduct)
     {
-        BranchBeingAdded = branch;
+        DealProductBeingAdded = dealProduct;
         CurrentlyAddingNewItem = true;
-        sfDataGrid.SelectedItem = branch;
-        sfDataGrid.View.MoveCurrentTo(branch);
+        sfDataGrid.SelectedItem = dealProduct;
+        sfDataGrid.View.MoveCurrentTo(dealProduct);
         sfDataGrid.AllowDeleting = false;
         sfDataGrid.AllowEditing = true;
-        sfDataGrid.Columns[0].IsReadOnly = true;
+        //sfDataGrid.Columns[0].IsReadOnly = true;
 
         HiddenButtons.Visibility = Visibility.Visible;
         ButtonsPanel.Visibility = Visibility.Collapsed;
@@ -90,7 +90,7 @@ public sealed partial class BranchesPage : Page
 
     private void EndEdit()
     {
-        BranchBeingAdded = null;
+        DealProductBeingAdded = null;
         CurrentlyAddingNewItem = false;
         sfDataGrid.AllowEditing = false;
         sfDataGrid.AllowDeleting = true;
@@ -99,29 +99,29 @@ public sealed partial class BranchesPage : Page
         ButtonsPanel.Visibility = Visibility.Visible;
     }
 
-    private void Delete(Branch branch)
+    private void Delete(DealProduct dealProduct)
     {
-        App.GetService<DatabaseService>().delete_branch(branch.Id);
+        App.GetService<DatabaseService>().delete_deal_product(dealProduct.DealId, dealProduct.ProductId);
     }
 
     private void AddButton_Click(object sender, RoutedEventArgs e)
     {
-        var newBranch = new Branch
+        var newDealProduct = new DealProduct
         {
-            Id = 0,
-            Name = ""
+            DealId = 0,
+            ProductId = 0
         };
-        Branches.Add(newBranch);
+        DealProducts.Add(newDealProduct);
         IsEditingNew = true;
-        StartEdit(newBranch);
+        StartEdit(newDealProduct);
     }
 
     private void EditButton_Click(object sender, RoutedEventArgs e)
     {
-        if (sfDataGrid.SelectedItem is Branch branch)
+        if (sfDataGrid.SelectedItem is DealProduct dealProduct)
         {
             IsEditingNew = false;
-            StartEdit(branch);
+            StartEdit(dealProduct);
         }
     }
 
@@ -138,10 +138,10 @@ public sealed partial class BranchesPage : Page
         {
             foreach (var item in sfDataGrid.SelectedItems)
             {
-                if (item is Branch branch)
+                if (item is DealProduct dealProduct)
                 {
-                    Delete(branch);
-                    Branches.Remove(branch);
+                    Delete(dealProduct);
+                    DealProducts.Remove(dealProduct);
                 }
             }
         }
@@ -164,24 +164,26 @@ public sealed partial class BranchesPage : Page
         };
 
 
-        if (sfDataGrid.SelectedItem is Branch branch)
+        if (sfDataGrid.SelectedItem is DealProduct dealProduct)
         {
             try
             {
                 if (IsEditingNew)
-                    App.GetService<DatabaseService>().insert_branch(branch.Name);
+                    App.GetService<DatabaseService>().insert_deal_product(dealProduct.DealId, dealProduct.ProductId);
                 else
-                    App.GetService<DatabaseService>().update_branch(branch.Id, branch.Name);
+                {
+                    //App.GetService<DatabaseService>().update_deal_product(dealProduct.ProductId, dealProduct.DealId); TODO: Implement this
+                }
             }
             catch (Exception ex)
             {
                 errorDialog.Content = ex.Message;
                 await errorDialog.ShowAsync();
-                Branches.Remove(branch);
+                DealProducts.Remove(dealProduct);
             }
         }
         EndEdit();
-        Branches.Clear();
+        DealProducts.Clear();
         LoadData();
     }
 
@@ -189,14 +191,14 @@ public sealed partial class BranchesPage : Page
     {
         if (CurrentlyAddingNewItem)
         {
-            Branches.Remove(BranchBeingAdded);
+            DealProducts.Remove(DealProductBeingAdded);
         }
         EndEdit();
     }
 
     private void RefreshButton_Click(object sender, RoutedEventArgs e)
     {
-        Branches.Clear();
+        DealProducts.Clear();
         LoadData();
     }
 
@@ -204,7 +206,7 @@ public sealed partial class BranchesPage : Page
     {
         if (CurrentlyAddingNewItem)
         {
-            sfDataGrid.SelectedItem = BranchBeingAdded;
+            sfDataGrid.SelectedItem = DealProductBeingAdded;
         }
     }
 
@@ -221,9 +223,9 @@ public sealed partial class BranchesPage : Page
         {
             foreach (var item in sfDataGrid.SelectedItems)
             {
-                if (item is Branch branch)
+                if (item is DealProduct dealProduct)
                 {
-                    Delete(branch);
+                    Delete(dealProduct);
                 }
             }
         }

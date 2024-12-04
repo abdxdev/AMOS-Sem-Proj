@@ -8,7 +8,7 @@
     DataContext="{Binding RelativeSource={RelativeSource Self}}"
     mc:Ignorable="d">
 
-    <Grid>
+    <Grid RowSpacing="20">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
@@ -16,53 +16,111 @@
 
         <StackPanel Grid.Row="0" Orientation="Horizontal">
 
-            <Button x:Name="AddButton" Click="AddButton_Click">
-                <StackPanel Orientation="Horizontal">
-                    <SymbolIcon RenderTransformOrigin="0.5,0.5" Symbol="Add">
-                        <SymbolIcon.RenderTransform>
-                            <ScaleTransform ScaleX="0.7" ScaleY="0.7" />
-                        </SymbolIcon.RenderTransform>
-                    </SymbolIcon>
-                    <TextBlock Text="Add" />
-                </StackPanel>
-            </Button>
+            <StackPanel
+                x:Name="ButtonsPanel"
+                HorizontalAlignment="Right"
+                Orientation="Horizontal">
 
-            <Button x:Name="DeleteButton" Click="DeleteButton_Click">
-                <StackPanel Orientation="Horizontal">
-                    <SymbolIcon RenderTransformOrigin="0.5,0.5" Symbol="Delete">
-                        <SymbolIcon.RenderTransform>
-                            <ScaleTransform ScaleX="0.7" ScaleY="0.7" />
-                        </SymbolIcon.RenderTransform>
-                    </SymbolIcon>
-                    <TextBlock Text="Delete" />
-                </StackPanel>
-            </Button>
+                <Button
+                    x:Name="AddButton"
+                    Background="Transparent"
+                    BorderBrush="Transparent"
+                    Click="AddButton_Click">
+                    <StackPanel Orientation="Horizontal" Spacing="5">
+                        <SymbolIcon RenderTransformOrigin="0.5,0.5" Symbol="Add">
+                            <SymbolIcon.RenderTransform>
+                                <ScaleTransform ScaleX="0.7" ScaleY="0.7" />
+                            </SymbolIcon.RenderTransform>
+                        </SymbolIcon>
+                        <TextBlock Text="Add" />
+                    </StackPanel>
+                </Button>
 
-            <Button x:Name="EditButton" Click="EditButton_Click">
-                <StackPanel Orientation="Horizontal">
-                    <SymbolIcon RenderTransformOrigin="0.5,0.5" Symbol="Edit">
-                        <SymbolIcon.RenderTransform>
-                            <ScaleTransform ScaleX="0.7" ScaleY="0.7" />
-                        </SymbolIcon.RenderTransform>
-                    </SymbolIcon>
-                    <TextBlock Text="Edit" />
-                </StackPanel>
-            </Button>
+                <Button
+                    x:Name="DeleteButton"
+                    Background="Transparent"
+                    BorderBrush="Transparent"
+                    Click="DeleteButton_Click">
+                    <StackPanel Orientation="Horizontal" Spacing="5">
+                        <SymbolIcon RenderTransformOrigin="0.5,0.5" Symbol="Delete">
+                            <SymbolIcon.RenderTransform>
+                                <ScaleTransform ScaleX="0.7" ScaleY="0.7" />
+                            </SymbolIcon.RenderTransform>
+                        </SymbolIcon>
+                        <TextBlock Text="Delete" />
+                    </StackPanel>
+                </Button>
 
-            <Button
-                x:Name="DoneButton"
-                Click="DoneButton_Click"
-                Style="{ThemeResource AccentButtonStyle}"
+                <Button
+                    x:Name="EditButton"
+                    Background="Transparent"
+                    BorderBrush="Transparent"
+                    Click="EditButton_Click">
+                    <StackPanel Orientation="Horizontal" Spacing="5">
+                        <SymbolIcon RenderTransformOrigin="0.5,0.5" Symbol="Edit">
+                            <SymbolIcon.RenderTransform>
+                                <ScaleTransform ScaleX="0.7" ScaleY="0.7" />
+                            </SymbolIcon.RenderTransform>
+                        </SymbolIcon>
+                        <TextBlock Text="Edit" />
+                    </StackPanel>
+                </Button>
+
+                <AppBarSeparator />
+
+                <Button
+                    x:Name="RefreshButton"
+                    Background="Transparent"
+                    BorderBrush="Transparent"
+                    Click="RefreshButton_Click">
+                    <StackPanel Orientation="Horizontal" Spacing="5">
+                        <SymbolIcon RenderTransformOrigin="0.5,0.5" Symbol="Refresh">
+                            <SymbolIcon.RenderTransform>
+                                <ScaleTransform ScaleX="0.7" ScaleY="0.7" />
+                            </SymbolIcon.RenderTransform>
+                        </SymbolIcon>
+                        <TextBlock Text="Refresh" />
+                    </StackPanel>
+                </Button>
+
+            </StackPanel>
+
+            <StackPanel
+                x:Name="HiddenButtons"
+                Orientation="Horizontal"
                 Visibility="Collapsed">
-                <StackPanel Orientation="Horizontal">
-                    <SymbolIcon RenderTransformOrigin="0.5,0.5" Symbol="Accept">
-                        <SymbolIcon.RenderTransform>
-                            <ScaleTransform ScaleX="0.7" ScaleY="0.7" />
-                        </SymbolIcon.RenderTransform>
-                    </SymbolIcon>
-                    <TextBlock Text="Done" />
-                </StackPanel>
-            </Button>
+
+                <Button
+                    x:Name="DoneButton"
+                    Background="Transparent"
+                    BorderBrush="Transparent"
+                    Click="DoneButton_Click">
+                    <StackPanel Orientation="Horizontal" Spacing="5">
+                        <SymbolIcon RenderTransformOrigin="0.5,0.5" Symbol="Accept">
+                            <SymbolIcon.RenderTransform>
+                                <ScaleTransform ScaleX="0.7" ScaleY="0.7" />
+                            </SymbolIcon.RenderTransform>
+                        </SymbolIcon>
+                        <TextBlock Text="Done" />
+                    </StackPanel>
+                </Button>
+
+                <Button
+                    x:Name="CancelButton"
+                    Background="Transparent"
+                    BorderBrush="Transparent"
+                    Click="CancelButton_Click">
+                    <StackPanel Orientation="Horizontal" Spacing="5">
+                        <SymbolIcon RenderTransformOrigin="0.5,0.5" Symbol="Cancel">
+                            <SymbolIcon.RenderTransform>
+                                <ScaleTransform ScaleX="0.7" ScaleY="0.7" />
+                            </SymbolIcon.RenderTransform>
+                        </SymbolIcon>
+                        <TextBlock Text="Cancel" />
+                    </StackPanel>
+                </Button>
+
+            </StackPanel>
 
         </StackPanel>
 

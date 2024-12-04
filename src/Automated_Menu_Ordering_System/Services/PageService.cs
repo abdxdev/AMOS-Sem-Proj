@@ -27,6 +27,10 @@ public class PageService : IPageService
         Configure<MenuViewModel, MenuPage>();
         Configure<AccountsViewModel, AccountsPage>();
         Configure<BranchesViewModel, BranchesPage>();
+        Configure<SittingTablesViewModel, SittingTablesPage>();
+        Configure<ProductsViewModel, ProductsPage>();
+        Configure<DealsViewModel, DealsPage>();
+        Configure<DealProductsViewModel, DealProductsPage>();
     }
 
     public Type GetPageType(string key)

@@ -200,4 +200,16 @@
   <data name="Shell_Branches.Content" xml:space="preserve">
     <value>Branches</value>
   </data>
+  <data name="Shell_SittingTables.Content" xml:space="preserve">
+    <value>SittingTables</value>
+  </data>
+  <data name="Shell_Products.Content" xml:space="preserve">
+    <value>Products</value>
+  </data>
+  <data name="Shell_Deals.Content" xml:space="preserve">
+    <value>Deals</value>
+  </data>
+  <data name="Shell_DealProducts.Content" xml:space="preserve">
+    <value>DealProducts</value>
+  </data>
 </root>

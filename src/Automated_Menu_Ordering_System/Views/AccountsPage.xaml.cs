@@ -104,10 +104,8 @@ public sealed partial class AccountsPage : Page
         sfDataGrid.AllowEditing = true;
         sfDataGrid.Columns[0].IsReadOnly = true;
 
-        DoneButton.Visibility = Visibility.Visible;
-        EditButton.IsEnabled = false;
-        AddButton.IsEnabled = false;
-        DeleteButton.IsEnabled = false;
+        HiddenButtons.Visibility = Visibility.Visible;
+        ButtonsPanel.Visibility = Visibility.Collapsed;
     }
 
     private void EndEdit()
@@ -116,10 +114,9 @@ public sealed partial class AccountsPage : Page
         CurrentlyAddingNewItem = false;
         sfDataGrid.AllowEditing = false;
         sfDataGrid.AllowDeleting = true;
-        DoneButton.Visibility = Visibility.Collapsed;
-        EditButton.IsEnabled = true;
-        AddButton.IsEnabled = true;
-        DeleteButton.IsEnabled = true;
+
+        HiddenButtons.Visibility = Visibility.Collapsed;
+        ButtonsPanel.Visibility = Visibility.Visible;
     }
 
     private void Delete(Account account)
@@ -208,6 +205,21 @@ public sealed partial class AccountsPage : Page
             }
         }
         EndEdit();
+        Accounts.Clear();
+        LoadData();
+    }
+
+    private void CancelButton_Click(object sender, RoutedEventArgs e)
+    {
+        if (CurrentlyAddingNewItem)
+        {
+            Accounts.Remove(AccountBeingAdded);
+        }
+        EndEdit();
+    }
+
+    private void RefreshButton_Click(object sender, RoutedEventArgs e)
+    {
         Accounts.Clear();
         LoadData();
     }
