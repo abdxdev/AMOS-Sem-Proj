@@ -1,20 +1,22 @@
-# ![](https://github.com/abdbbdii/Automated-Menu-Ordering-System/blob/main/src/Automated_Menu_Ordering_System/Assets/Square44x44Logo.targetsize-24_altform-unplated.png?raw=true) Automated Menu Ordering System
+# ![icon](https://github.com/abdbbdii/Automated-Menu-Ordering-System/blob/main/src/Automated_Menu_Ordering_System/Assets/Square44x44Logo.targetsize-24_altform-unplated.png?raw=true) Automated Menu Ordering System
 
 ![GitHub](docs/images/automated_menu_ordering_system.png)
 
 ## Table of Contents
 
-- [Introduction](#introduction)
-- [Features](#features)
-- [Technologies](#technologies)
-  - [Frontend](#frontend)
-  - [Backend](#backend)
-- [Installation](#installation)
-  - [Prerequisites](#prerequisites)
-    - [Visual Studio 2022](#visual-studio-2022)
-    - [Nuget Package Manager](#nuget-package-manager)
-  - [Setting up workspace](#setting-up-workspace)
-- [License](#license)
+- [ Automated Menu Ordering System](#-automated-menu-ordering-system)
+  - [Table of Contents](#table-of-contents)
+  - [Introduction](#introduction)
+  - [Features](#features)
+  - [Technologies](#technologies)
+    - [Frontend](#frontend)
+    - [Backend](#backend)
+  - [Installation](#installation)
+    - [Prerequisites](#prerequisites)
+      - [Visual Studio 2022](#visual-studio-2022)
+      - [Nuget Package Manager](#nuget-package-manager)
+    - [Setting up workspace](#setting-up-workspace)
+  - [License](#license)
 
 ## Introduction
 
@@ -58,6 +60,7 @@ Make sure you have the following installed:
 
 - Npgsql
 - EnvDotNet
+- SyncFusion
 
 ### Setting up workspace
 
@@ -85,6 +88,7 @@ Make sure you have the following installed:
 
    ```bash
    DATABASE_CONNECTION='Host=localhost;Port=5432;Username=postgres;Password=your_password;Database=your_database;'
+   SYNC_FUSION_LICENSE='your_license_key'
    ```
 
    _Replace parameters with your PostgreSQL database credentials._

@@ -6,6 +6,7 @@ using Automated_Menu_Ordering_System.Contracts.Services;
 using System.Diagnostics;
 using Npgsql;
 using Automated_Menu_Ordering_System.Helpers;
+using CommunityToolkit.Mvvm.Messaging;
 
 namespace Automated_Menu_Ordering_System.Views;
 
@@ -123,9 +124,10 @@ public sealed partial class SigninPage : Page
                 await _localSettingsService.SaveSettingAsync("accountId", accountId.ToString());
                 await _localSettingsService.SaveSettingAsync("userPassword", userPassword);
                 await _localSettingsService.SaveSettingAsync("keepSignIn", keepSignInCheckBox.IsChecked);
+
+                ShowPageFor(userType);
                 if (userType == "Customer")
                 {
-                    // TODO show only customer side
                     _navigationService.NavigateTo(pageKey: typeof(HomeViewModel).FullName);
                 }
                 else if (userType == "Admin")
@@ -134,6 +136,7 @@ public sealed partial class SigninPage : Page
                 }
                 else if (userType == "Manager")
                 {
+                    // Visibility.Visible for all manager pane items
                     var branchId = App.GetService<DatabaseService>().get_branch_id_by_manager_id(accountId);
                     await _localSettingsService.SaveSettingAsync("branchId", branchId.ToString());
                     _navigationService.NavigateTo(pageKey: typeof(OrdersViewModel).FullName);
@@ -145,6 +148,63 @@ public sealed partial class SigninPage : Page
             Debug.WriteLine(ex.ToString());
         }
     }
+
+    private void ShowPageFor(string accountType)
+    {
+
+        var navigationItems = new Dictionary<string, List<string>>
+        {
+            {
+                "Customer", new List<string>
+                {
+                    "HomeNavItem",
+                    "PizzasNavItem",
+                    "BurgersNavItem",
+                    "DessertsNavItem",
+                    "DrinksNavItem",
+                    "CartNavItem"
+                }
+            },
+            {
+                "Manager", new List<string>
+                {
+                    "OrdersNavItem",
+                    "MenuNavItem",
+                    "HistoryNavItem"
+                }
+            },
+            {
+                "Admin", new List<string>
+                {
+                    "AccountsNavItem",
+                    "BranchesNavItem",
+                    "SittingTablesNavItem",
+                    "ProductsNavItem",
+                    "DealsNavItem",
+                    "DealProductsNavItem"
+                }
+            }
+        };
+
+        foreach (var item in navigationItems)
+        {
+            if (item.Key == accountType)
+            {
+                foreach (var navItem in item.Value)
+                {
+                    WeakReferenceMessenger.Default.Send(new NavigationItemVisibilityMessage(navItem, true));
+                }
+            }
+            else
+            {
+                foreach (var navItem in item.Value)
+                {
+                    WeakReferenceMessenger.Default.Send(new NavigationItemVisibilityMessage(navItem, false));
+                }
+            }
+        }
+    }
+
     private void PrimaryButton_Click(object sender, RoutedEventArgs e)
     {
         ErrorTextBlock.Visibility = Visibility.Collapsed;

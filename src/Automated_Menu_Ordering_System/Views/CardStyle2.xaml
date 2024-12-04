@@ -8,7 +8,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
     mc:Ignorable="d">
-
+    <!--  TODO: not working  -->
     <StackPanel
         Height="150"
         Background="{ThemeResource LayerOnAcrylicFillColorDefaultBrush}"

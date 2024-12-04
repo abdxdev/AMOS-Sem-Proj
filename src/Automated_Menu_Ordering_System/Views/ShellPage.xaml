@@ -48,7 +48,6 @@
                 https://docs.microsoft.com/windows/apps/design/style/segoe-fluent-icons-font#icon-list
                 -->
                 <NavigationViewItem
-                    x:Name="SigninNavigationViewItem"
                     x:Uid="Shell_Signin"
                     helpers:NavigationHelper.NavigateTo="Automated_Menu_Ordering_System.ViewModels.SigninViewModel"
                     Visibility="Collapsed">
@@ -56,77 +55,137 @@
                         <SymbolIcon Symbol="Contact" />
                     </NavigationViewItem.Icon>
                 </NavigationViewItem>
-                <NavigationViewItem x:Uid="Shell_Home" helpers:NavigationHelper.NavigateTo="Automated_Menu_Ordering_System.ViewModels.HomeViewModel">
+                <NavigationViewItem
+                    x:Name="HomeNavItem"
+                    x:Uid="Shell_Home"
+                    helpers:NavigationHelper.NavigateTo="Automated_Menu_Ordering_System.ViewModels.HomeViewModel"
+                    x:FieldModifier="public">
                     <NavigationViewItem.Icon>
                         <SymbolIcon Symbol="Home" />
                     </NavigationViewItem.Icon>
                 </NavigationViewItem>
-                <NavigationViewItem x:Uid="Shell_Pizzas" helpers:NavigationHelper.NavigateTo="Automated_Menu_Ordering_System.ViewModels.PizzasViewModel">
+                <NavigationViewItem
+                    x:Name="PizzasNavItem"
+                    x:Uid="Shell_Pizzas"
+                    helpers:NavigationHelper.NavigateTo="Automated_Menu_Ordering_System.ViewModels.PizzasViewModel"
+                    x:FieldModifier="public">
                     <NavigationViewItem.Icon>
                         <SymbolIcon Symbol="Page" />
                     </NavigationViewItem.Icon>
                 </NavigationViewItem>
-                <NavigationViewItem x:Uid="Shell_Burgers" helpers:NavigationHelper.NavigateTo="Automated_Menu_Ordering_System.ViewModels.BurgersViewModel">
+                <NavigationViewItem
+                    x:Name="BurgersNavItem"
+                    x:Uid="Shell_Burgers"
+                    helpers:NavigationHelper.NavigateTo="Automated_Menu_Ordering_System.ViewModels.BurgersViewModel"
+                    x:FieldModifier="public">
                     <NavigationViewItem.Icon>
                         <SymbolIcon Symbol="Page" />
                     </NavigationViewItem.Icon>
                 </NavigationViewItem>
-                <NavigationViewItem x:Uid="Shell_Desserts" helpers:NavigationHelper.NavigateTo="Automated_Menu_Ordering_System.ViewModels.DessertsViewModel">
+                <NavigationViewItem
+                    x:Name="DessertsNavItem"
+                    x:Uid="Shell_Desserts"
+                    helpers:NavigationHelper.NavigateTo="Automated_Menu_Ordering_System.ViewModels.DessertsViewModel"
+                    x:FieldModifier="public">
                     <NavigationViewItem.Icon>
                         <SymbolIcon Symbol="Page" />
                     </NavigationViewItem.Icon>
                 </NavigationViewItem>
-                <NavigationViewItem x:Uid="Shell_Drinks" helpers:NavigationHelper.NavigateTo="Automated_Menu_Ordering_System.ViewModels.DrinksViewModel">
+                <NavigationViewItem
+                    x:Name="DrinksNavItem"
+                    x:Uid="Shell_Drinks"
+                    helpers:NavigationHelper.NavigateTo="Automated_Menu_Ordering_System.ViewModels.DrinksViewModel"
+                    x:FieldModifier="public">
                     <NavigationViewItem.Icon>
                         <SymbolIcon Symbol="Page" />
                     </NavigationViewItem.Icon>
                 </NavigationViewItem>
-                <NavigationViewItem x:Uid="Shell_Cart" helpers:NavigationHelper.NavigateTo="Automated_Menu_Ordering_System.ViewModels.CartViewModel">
+                <NavigationViewItem
+                    x:Name="CartNavItem"
+                    x:Uid="Shell_Cart"
+                    helpers:NavigationHelper.NavigateTo="Automated_Menu_Ordering_System.ViewModels.CartViewModel"
+                    x:FieldModifier="public">
                     <NavigationViewItem.Icon>
                         <SymbolIcon Symbol="Shop" />
                     </NavigationViewItem.Icon>
                 </NavigationViewItem>
-                <NavigationViewItem x:Uid="Shell_Orders" helpers:NavigationHelper.NavigateTo="Automated_Menu_Ordering_System.ViewModels.OrdersViewModel">
+                <NavigationViewItem
+                    x:Name="OrdersNavItem"
+                    x:Uid="Shell_Orders"
+                    helpers:NavigationHelper.NavigateTo="Automated_Menu_Ordering_System.ViewModels.OrdersViewModel"
+                    x:FieldModifier="public">
                     <NavigationViewItem.Icon>
                         <SymbolIcon Symbol="AllApps" />
                     </NavigationViewItem.Icon>
                 </NavigationViewItem>
-                <NavigationViewItem x:Uid="Shell_History" helpers:NavigationHelper.NavigateTo="Automated_Menu_Ordering_System.ViewModels.HistoryViewModel">
+                <NavigationViewItem
+                    x:Name="MenuNavItem"
+                    x:Uid="Shell_History"
+                    helpers:NavigationHelper.NavigateTo="Automated_Menu_Ordering_System.ViewModels.HistoryViewModel"
+                    x:FieldModifier="public">
                     <NavigationViewItem.Icon>
                         <SymbolIcon Symbol="Refresh" />
                     </NavigationViewItem.Icon>
                 </NavigationViewItem>
-                <NavigationViewItem x:Uid="Shell_Menu" helpers:NavigationHelper.NavigateTo="Automated_Menu_Ordering_System.ViewModels.MenuViewModel">
+                <NavigationViewItem
+                    x:Name="HistoryNavItem"
+                    x:Uid="Shell_Menu"
+                    helpers:NavigationHelper.NavigateTo="Automated_Menu_Ordering_System.ViewModels.MenuViewModel"
+                    x:FieldModifier="public">
                     <NavigationViewItem.Icon>
                         <SymbolIcon Symbol="List" />
                     </NavigationViewItem.Icon>
                 </NavigationViewItem>
-                <NavigationViewItem x:Uid="Shell_Accounts" helpers:NavigationHelper.NavigateTo="Automated_Menu_Ordering_System.ViewModels.AccountsViewModel">
+                <NavigationViewItem
+                    x:Name="AccountsNavItem"
+                    x:Uid="Shell_Accounts"
+                    helpers:NavigationHelper.NavigateTo="Automated_Menu_Ordering_System.ViewModels.AccountsViewModel"
+                    x:FieldModifier="public">
                     <NavigationViewItem.Icon>
                         <SymbolIcon Symbol="Contact" />
                     </NavigationViewItem.Icon>
                 </NavigationViewItem>
-                <NavigationViewItem x:Uid="Shell_Branches" helpers:NavigationHelper.NavigateTo="Automated_Menu_Ordering_System.ViewModels.BranchesViewModel">
+                <NavigationViewItem
+                    x:Name="BranchesNavItem"
+                    x:Uid="Shell_Branches"
+                    helpers:NavigationHelper.NavigateTo="Automated_Menu_Ordering_System.ViewModels.BranchesViewModel"
+                    x:FieldModifier="public">
                     <NavigationViewItem.Icon>
                         <SymbolIcon Symbol="Map" />
                     </NavigationViewItem.Icon>
                 </NavigationViewItem>
-                <NavigationViewItem x:Uid="Shell_SittingTables" helpers:NavigationHelper.NavigateTo="Automated_Menu_Ordering_System.ViewModels.SittingTablesViewModel">
+                <NavigationViewItem
+                    x:Name="SittingTablesNavItem"
+                    x:Uid="Shell_SittingTables"
+                    helpers:NavigationHelper.NavigateTo="Automated_Menu_Ordering_System.ViewModels.SittingTablesViewModel"
+                    x:FieldModifier="public">
                     <NavigationViewItem.Icon>
                         <SymbolIcon Symbol="OtherUser" />
                     </NavigationViewItem.Icon>
                 </NavigationViewItem>
-                <NavigationViewItem x:Uid="Shell_Products" helpers:NavigationHelper.NavigateTo="Automated_Menu_Ordering_System.ViewModels.ProductsViewModel">
+                <NavigationViewItem
+                    x:Name="ProductsNavItem"
+                    x:Uid="Shell_Products"
+                    helpers:NavigationHelper.NavigateTo="Automated_Menu_Ordering_System.ViewModels.ProductsViewModel"
+                    x:FieldModifier="public">
                     <NavigationViewItem.Icon>
                         <SymbolIcon Symbol="AllApps" />
                     </NavigationViewItem.Icon>
                 </NavigationViewItem>
-                <NavigationViewItem x:Uid="Shell_Deals" helpers:NavigationHelper.NavigateTo="Automated_Menu_Ordering_System.ViewModels.DealsViewModel">
+                <NavigationViewItem
+                    x:Name="DealsNavItem"
+                    x:Uid="Shell_Deals"
+                    helpers:NavigationHelper.NavigateTo="Automated_Menu_Ordering_System.ViewModels.DealsViewModel"
+                    x:FieldModifier="public">
                     <NavigationViewItem.Icon>
                         <SymbolIcon Symbol="AllApps" />
                     </NavigationViewItem.Icon>
                 </NavigationViewItem>
-                <NavigationViewItem x:Uid="Shell_DealProducts" helpers:NavigationHelper.NavigateTo="Automated_Menu_Ordering_System.ViewModels.DealProductsViewModel">
+                <NavigationViewItem
+                    x:Name="DealProductsNavItem"
+                    x:Uid="Shell_DealProducts"
+                    helpers:NavigationHelper.NavigateTo="Automated_Menu_Ordering_System.ViewModels.DealProductsViewModel"
+                    x:FieldModifier="public">
                     <NavigationViewItem.Icon>
                         <SymbolIcon Symbol="AllApps" />
                     </NavigationViewItem.Icon>
@@ -158,6 +217,7 @@
             <Grid Margin="{StaticResource NavigationViewPageContentMargin}">
                 <Frame x:Name="NavigationFrame" Margin="0,0,0,52" />
             </Grid>
+
         </NavigationView>
     </Grid>
 </Page>

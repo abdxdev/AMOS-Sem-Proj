@@ -18,6 +18,7 @@ using Syncfusion.Licensing;
 namespace Automated_Menu_Ordering_System;
 
 // To learn more about WinUI 3, see https://docs.microsoft.com/windows/apps/winui/winui3/.
+
 public partial class App : Application
 {
     // The .NET Generic Host provides dependency injection, configuration, logging, and other services.
@@ -29,6 +30,11 @@ public partial class App : Application
     {
         get;
     }
+
+    // public ShellPage ShellPageInstance
+    // {
+    //     get; set;
+    // }
 
     public static T GetService<T>()
         where T : class
@@ -43,7 +49,10 @@ public partial class App : Application
 
     public static WindowEx MainWindow { get; } = new MainWindow();
 
-    public static UIElement? AppTitlebar { get; set; }
+    public static UIElement? AppTitlebar
+    {
+        get; set;
+    }
 
     public static DatabaseService DatabaseService => GetService<DatabaseService>();
     //public static DatabaseService? DatabaseService
@@ -90,7 +99,7 @@ public partial class App : Application
                     throw new FileNotFoundException($"Environment file not found at: {envFilePath}");
                 }
 
-            // register syncfusion:
+                // register syncfusion:
                 string syncfusionLicense = Environment.GetEnvironmentVariable("SYNC_FUSION_LICENSE");
                 SyncfusionLicenseProvider.RegisterLicense(syncfusionLicense);
                 // Get the connection string from environment variables
@@ -161,9 +170,8 @@ public partial class App : Application
     protected async override void OnLaunched(LaunchActivatedEventArgs args)
     {
         base.OnLaunched(args);
-
         App.GetService<IAppNotificationService>().Show(string.Format("AppNotificationSamplePayload".GetLocalized(), AppContext.BaseDirectory));
-
         await App.GetService<IActivationService>().ActivateAsync(args);
+        // ShellPageInstance = GetService<ShellPage>();
     }
 }

@@ -23,8 +23,6 @@
             <ColumnDefinition Width="Auto" />
         </Grid.ColumnDefinitions>
 
-        <!--  hello screen  -->
-
         <StackPanel
             Grid.Column="0"
             Width="400"
@@ -48,8 +46,6 @@
                 TextWrapping="Wrap" />
 
         </StackPanel>
-
-        <!--  login screen  -->
 
         <Grid
             Grid.Column="1"
@@ -79,23 +75,6 @@
                         Style="{StaticResource SubtitleTextBlockStyle}"
                         Text="Sign in as" />
 
-                    <!--<ComboBox
-                        Grid.Column="1"
-                        HorizontalAlignment="Right"
-                        SelectedIndex="0">
-                        <StackPanel Orientation="Horizontal" Spacing="12">
-                            <FontIcon Glyph="&#xE77B;" />
-                            <TextBlock Text="Admin" />
-                        </StackPanel>
-                        <StackPanel Orientation="Horizontal" Spacing="12">
-                            <FontIcon Glyph="&#xE716;" />
-                            <TextBlock Text="Employee" />
-                        </StackPanel>
-                        <StackPanel Orientation="Horizontal" Spacing="12">
-                            <FontIcon Glyph="&#xE70A;" />
-                            <TextBlock Text="Customer" />
-                        </StackPanel>
-                    </ComboBox>-->
                     <ComboBox
                         x:Name="UserTypeComboBox"
                         Grid.Column="1"

@@ -7,11 +7,30 @@ using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Input;
 using Microsoft.UI.Xaml.Media;
 
+using CommunityToolkit.Mvvm.Messaging;
+
 using Windows.System;
 
 namespace Automated_Menu_Ordering_System.Views;
 
-// TODO: Update NavigationViewItem titles and icons in ShellPage.xaml.
+public class NavigationItemVisibilityMessage
+{
+    public string ItemName
+    {
+        get;
+    }
+    public bool IsVisible
+    {
+        get;
+    }
+
+    public NavigationItemVisibilityMessage(string itemName, bool isVisible)
+    {
+        ItemName = itemName;
+        IsVisible = isVisible;
+    }
+}
+
 public sealed partial class ShellPage : Page
 {
     public ShellViewModel ViewModel
@@ -24,6 +43,10 @@ public sealed partial class ShellPage : Page
         ViewModel = viewModel;
         InitializeComponent();
 
+        WeakReferenceMessenger.Default.Register<NavigationItemVisibilityMessage>(this, (r, m) =>
+        {
+            SetNavigationItemVisibility(m.ItemName, m.IsVisible);
+        });
         ViewModel.NavigationService.Frame = NavigationFrame;
         ViewModel.NavigationViewService.Initialize(NavigationViewControl);
 
@@ -82,13 +105,16 @@ public sealed partial class ShellPage : Page
 
         args.Handled = result;
     }
-    //public void HideNavigationPane()
-    //{
-    //    NavigationViewControl.IsPaneVisible = false;
-    //}
 
-    //public void ShowNavigationPane()
-    //{
-    //    NavigationViewControl.IsPaneVisible = true;
-    //}
+    public void SetNavigationItemVisibility(string itemName, bool isVisible)
+    {
+        var item = NavigationViewControl.MenuItems
+                      .OfType<NavigationViewItem>()
+                      .FirstOrDefault(x => x.Name == itemName);
+
+        if (item != null)
+        {
+            item.Visibility = isVisible ? Visibility.Visible : Visibility.Collapsed;
+        }
+    }
 }
