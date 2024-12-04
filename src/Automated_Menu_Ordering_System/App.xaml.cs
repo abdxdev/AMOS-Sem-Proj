@@ -13,6 +13,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.UI.Xaml;
 
+using Syncfusion.Licensing;
+
 namespace Automated_Menu_Ordering_System;
 
 // To learn more about WinUI 3, see https://docs.microsoft.com/windows/apps/winui/winui3/.
@@ -88,6 +90,9 @@ public partial class App : Application
                     throw new FileNotFoundException($"Environment file not found at: {envFilePath}");
                 }
 
+            // register syncfusion:
+                string syncfusionLicense = Environment.GetEnvironmentVariable("SYNC_FUSION_LICENSE");
+                SyncfusionLicenseProvider.RegisterLicense(syncfusionLicense);
                 // Get the connection string from environment variables
                 string connectionString = Environment.GetEnvironmentVariable("DATABASE_CONNECTION")
                     ?? throw new ArgumentNullException("DATABASE_CONNECTION", "Database connection string is not set in environment variables.");
@@ -100,6 +105,10 @@ public partial class App : Application
             services.AddSingleton<IFileService, FileService>();
 
             // Views and ViewModels
+            services.AddTransient<BranchesViewModel>();
+            services.AddTransient<BranchesPage>();
+            services.AddTransient<AccountsViewModel>();
+            services.AddTransient<AccountsPage>();
             services.AddTransient<MenuViewModel>();
             services.AddTransient<MenuPage>();
             services.AddTransient<HistoryViewModel>();

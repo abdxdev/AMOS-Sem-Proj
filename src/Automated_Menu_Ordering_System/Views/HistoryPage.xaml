@@ -8,10 +8,9 @@
     DataContext="{Binding RelativeSource={RelativeSource Self}}"
     mc:Ignorable="d">
 
-    <StackPanel>
+    <Grid>
         <dataGrid:SfDataGrid
             x:Name="sfDataGrid"
-            Grid.ColumnSpan="100"
             AllowFiltering="True"
             AllowResizingColumns="True"
             AllowResizingHiddenColumns="True"
@@ -21,5 +20,5 @@
             GridLinesVisibility="Both"
             RowHeight="50"
             SelectionMode="Extended" />
-    </StackPanel>
+    </Grid>
 </Page>

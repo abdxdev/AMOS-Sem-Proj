@@ -8,9 +8,14 @@
     DataContext="{Binding RelativeSource={RelativeSource Self}}"
     mc:Ignorable="d">
 
-    <StackPanel>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
         <ComboBox
             x:Name="ChangeStatusComboBox"
+            Grid.Row="0"
             HorizontalAlignment="Right"
             SelectedIndex="0"
             SelectionChanged="ChangeStatusComboBox_SelectionChanged"
@@ -24,7 +29,7 @@
 
         <dataGrid:SfDataGrid
             x:Name="sfDataGrid"
-            Grid.ColumnSpan="100"
+            Grid.Row="1"
             AllowFiltering="True"
             AllowResizingColumns="True"
             AllowResizingHiddenColumns="True"
@@ -34,22 +39,5 @@
             GridLinesVisibility="Both"
             RowHeight="50"
             SelectionMode="Extended" />
-        <!--<dataGrid:SfDataGrid
-            x:Name="sfDataGrid"
-            Grid.ColumnSpan="100"
-            AddNewRowInitiating="SfDataGrid_AddNewRowInitiating"
-            AddNewRowPosition="Top"
-            AllowEditing="True"
-            AllowFiltering="True"
-            AllowResizingColumns="True"
-            AllowResizingHiddenColumns="True"
-            AllowSorting="True"
-            AllowDeleting="True"
-            AutoGenerateColumns="True"
-            ColumnWidthMode="AutoWithLastColumnFill"
-            GridLinesVisibility="Both"
-            NewItemPlaceholderPosition="AtBeginning"
-            RowHeight="50"
-            SelectionMode="Extended" />-->
-    </StackPanel>
+    </Grid>
 </Page>

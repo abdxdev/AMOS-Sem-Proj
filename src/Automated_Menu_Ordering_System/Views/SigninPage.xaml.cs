@@ -62,7 +62,7 @@ public sealed partial class SigninPage : Page
             UserPasswordBox.PlaceholderText = $"{selectedItem} Password";
         }
     }
-    private int checkUserAndGetAccountId(string userType, string userId, string? userPassword)
+    private int CheckUserAndGetAccountId(string userType, string userId, string? userPassword)
     {
         if (userType == "customer")
         {
@@ -114,7 +114,7 @@ public sealed partial class SigninPage : Page
         }
         try
         {
-            var accountId = checkUserAndGetAccountId(userType.ToLower(), userId, userPassword);
+            var accountId = CheckUserAndGetAccountId(userType.ToLower(), userId, userPassword);
             if (accountId != -1)
             {
                 //TODO Confusing as userId is actually username and accountId is userId
@@ -130,7 +130,7 @@ public sealed partial class SigninPage : Page
                 }
                 else if (userType == "Admin")
                 {
-                    _navigationService.NavigateTo(pageKey: typeof(CartViewModel).FullName);
+                    _navigationService.NavigateTo(pageKey: typeof(AccountsViewModel).FullName);
                 }
                 else if (userType == "Manager")
                 {

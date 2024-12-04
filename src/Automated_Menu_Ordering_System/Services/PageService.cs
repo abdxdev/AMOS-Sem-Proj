@@ -25,6 +25,8 @@ public class PageService : IPageService
         Configure<OrdersViewModel, OrdersPage>();
         Configure<HistoryViewModel, HistoryPage>();
         Configure<MenuViewModel, MenuPage>();
+        Configure<AccountsViewModel, AccountsPage>();
+        Configure<BranchesViewModel, BranchesPage>();
     }
 
     public Type GetPageType(string key)

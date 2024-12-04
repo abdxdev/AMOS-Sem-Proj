@@ -31,6 +31,7 @@
 		<PackageReference Include="Microsoft.Xaml.Behaviors.WinUI.Managed" Version="2.0.9" />
 		<PackageReference Include="Npgsql" Version="9.0.1" />
 		<PackageReference Include="Syncfusion.Grid.WinUI" Version="27.2.4" />
+		<PackageReference Include="Syncfusion.Licensing" Version="27.2.5" />
 		<PackageReference Include="WinUIEx" Version="2.3.2" />
 	</ItemGroup>
 	<ItemGroup>
@@ -43,6 +44,9 @@
 	</ItemGroup>
 	<ItemGroup Condition="'$(DisableMsixProjectCapabilityAddedByProject)'!='true' and '$(EnableMsixTooling)'=='true'">
 		<ProjectCapability Include="Msix" />
+	</ItemGroup>
+	<ItemGroup>
+	  <Folder Include="Models\" />
 	</ItemGroup>
 	<PropertyGroup Condition="'$(DisableHasPackageAndPublishMenuAddedByProject)'!='true' and '$(EnableMsixTooling)'=='true'">
 		<HasPackageAndPublishMenu>true</HasPackageAndPublishMenu>

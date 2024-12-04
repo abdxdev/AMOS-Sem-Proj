@@ -63,7 +63,6 @@ public sealed partial class OrdersPage : Page
         this.InitializeComponent();
         _localSettingsService = App.GetService<ILocalSettingsService>();
         Orders = new ObservableCollection<PlacedOrder>();
-        //this.sfDataGrid.AddNewRowInitiating += SfDataGrid_AddNewRowInitiating;
         LoadData();
     }
 
@@ -120,9 +119,4 @@ public sealed partial class OrdersPage : Page
         LoadData();
         ChangeStatusComboBox.SelectedIndex = 0;
     }
-    //void SfDataGrid_AddNewRowInitiating(object sender, AddNewRowInitiatingEventArgs e)
-    //{
-    //    var order = e.NewObject as PlacedOrder;
-    //    order.Id = Orders.Count + 1;
-    //}
 }

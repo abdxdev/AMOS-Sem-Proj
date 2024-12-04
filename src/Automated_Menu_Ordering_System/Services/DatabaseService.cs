@@ -60,6 +60,7 @@ public class DatabaseService
 
     public void run_non_query(string query)
     {
+        Debug.WriteLine(query);
         var cmd = new NpgsqlCommand(query, GetConnection());
         cmd.ExecuteNonQuery();
     }
@@ -290,7 +291,7 @@ WHERE
 ";
         return run_query(query);
     }
-
+    // TODO remove create account button from sign in
     public void delete_order(int orderId)
     {
         var query = $@"
@@ -401,6 +402,7 @@ WHERE product_id = {itemId} AND branch_id = {branchId};
 ";
         run_non_query(query);
     }
+
     public int get_user_id_by_username_and_password(string username, string password)
     {
         var query = $@"
@@ -414,6 +416,7 @@ WHERE username = {username} AND password = {password};
         reader.Close();
         return userId;
     }
+
     public int get_branch_id_by_manager_id(int managerId)
     {
         var query = $@"
@@ -426,5 +429,63 @@ WHERE id = {managerId};
         var branchId = reader.GetInt32(0);
         reader.Close();
         return branchId;
+    }
+
+    public NpgsqlDataReader get_accounts()
+    {
+        var query = $@"
+SELECT *
+FROM Account;
+";
+        return run_query(query);
+    }
+
+    public void insert_account(string username, string password, string accountType, int? branchId)
+    {
+        string query;
+        if (accountType == "admin")
+            query = $@"
+INSERT INTO Account (username, password, acc_type, branch_id)
+VALUES ('{username}', '{password}', '{accountType}', NULL);
+";
+        else
+            query = $@"
+INSERT INTO Account (username, password, acc_type, branch_id)
+VALUES ('{username}', '{password}', '{accountType}', {branchId});
+";
+        run_non_query(query);
+    }
+    public void delete_account(int accountId)
+    {
+        var query = $@"
+DELETE FROM Account
+WHERE id = {accountId};
+";
+        run_non_query(query);
+    }
+    public void update_account(int accountId, string username, string password, string accountType, int branchId)
+    {
+        string query;
+        if (accountType == "admin")
+            query = $@"
+UPDATE Account
+SET username = '{username}', password = '{password}', acc_type = '{accountType}', branch_id = NULL
+WHERE id = {accountId};
+";
+        else
+            query = $@"
+UPDATE Account
+SET username = '{username}', password = '{password}', acc_type = '{accountType}', branch_id = {branchId}
+WHERE id = {accountId};
+";
+        run_non_query(query);
+    }
+    public NpgsqlDataReader get_branches()
+    {
+        var query = $@"
+SELECT *
+FROM Branch;
+";
+        return run_query(query);
     }
 }
