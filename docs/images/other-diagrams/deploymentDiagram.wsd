@@ -1,0 +1,65 @@
+@startuml deploymentDiagram
+skinparam rectangle {
+    BackgroundColor<<device>> White
+    BorderColor<<device>> Black
+}
+
+node "Customer Device" as customerDevice <<device>> {
+    node ".NET 8 Runtime" as dotnetCustomer <<execution environment>> {
+        component "WinUI 3 Desktop App" as customerApp {
+            artifact "Customer Module" as customer <<artifact>>
+            artifact "Shopping Cart" as cart <<artifact>>
+            artifact "Order Processing" as order <<artifact>>
+            artifact "Feedback System" as feedback <<artifact>>
+            artifact "Status Tracking" as statusTracker <<artifact>>
+        }
+    }
+}
+
+node "Admin Device" as adminDevice <<device>> {
+    node ".NET 8 Runtime" as dotnetAdmin <<execution environment>> {
+        component "WinUI 3 Desktop App" as adminApp {
+            artifact "Admin Module" as admin <<artifact>>
+            artifact "Product Management" as productAdmin <<artifact>>
+            artifact "User Management" as userAdmin <<artifact>>
+            artifact "Branch Management" as branchAdmin <<artifact>>
+            artifact "Deal Management" as dealAdmin <<artifact>>
+            artifact "Table Management" as tableAdmin <<artifact>>
+        }
+    }
+}
+
+node "Manager Device" as managerDevice <<device>> {
+    node ".NET 8 Runtime" as dotnetManager <<execution environment>> {
+        component "WinUI 3 Desktop App" as managerApp {
+            artifact "Manager Module" as manager <<artifact>>
+            artifact "Order Management" as orderManager <<artifact>>
+            artifact "History Viewer" as history <<artifact>>
+        }
+    }
+}
+
+cloud "Internet" as internet
+
+node "Cloud Infrastructure" as cloud {
+    node "PostgreSQL Database Server" as dbserver {
+        database "PostgreSQL Database" as db {
+            [User Data]
+            [Product Data]
+            [Order Data]
+            [Feedback Data]
+            [Branch Data]
+            [Deal Data]
+            [Table Data]
+        }
+    }
+}
+
+customerDevice -down-> internet : Port 8080
+adminDevice -down-> internet : Port 8080
+managerDevice -down-> internet : Port 8080
+internet -down-> cloud : HTTPS/SSL
+customerApp ..> db : "Entity Framework Core"
+adminApp ..> db : "Entity Framework Core"
+managerApp ..> db : "Entity Framework Core"
+@enduml
