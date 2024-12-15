@@ -1,14 +1,14 @@
 ## Use Case Diagram
 
-![Use Case Diagram](other-diagrams/usecaseDiagram.svg)
+![Use Case Diagram](https://raw.githubusercontent.com/abdbbdii/Automated-Menu-Ordering-System/refs/heads/main/docs/images/other-diagrams/usecaseDiagram.svg)
 
 ## Class Diagram
 
-![Class Diagram](other-diagrams/classDiagram.svg)
+![Class Diagram](https://raw.githubusercontent.com/abdbbdii/Automated-Menu-Ordering-System/refs/heads/main/docs/images/other-diagrams/classDiagram.svg)
 
 ## Deployment Diagram
 
-![Deployment Diagram](other-diagrams/deploymentDiagram.png)
+![Deployment Diagram](https://raw.githubusercontent.com/abdbbdii/Automated-Menu-Ordering-System/refs/heads/main/docs/images/other-diagrams/deploymentDiagram.png)
 
 ## Sequence Diagrams
 
@@ -16,79 +16,79 @@
 
 #### Login
 
-![Login - Admin](<sequence-diagrams/Admin SD for login.png>)
+![Login - Admin](https://raw.githubusercontent.com/abdbbdii/Automated-Menu-Ordering-System/refs/heads/main/docs/images/sequence-diagrams/Admin%20SD%20for%20login.png)
 
 #### Logout
 
-![Logout - Admin](<sequence-diagrams/Admin SD for logout.png>)
+![Logout - Admin](https://raw.githubusercontent.com/abdbbdii/Automated-Menu-Ordering-System/refs/heads/main/docs/images/sequence-diagrams/Admin%20SD%20for%20logout.png)
 
 #### Manage User Accounts
 
-![Manage User Accounts - Admin](<sequence-diagrams/Admin SD for manage user accounts.png>)
+![Manage User Accounts - Admin](https://raw.githubusercontent.com/abdbbdii/Automated-Menu-Ordering-System/refs/heads/main/docs/images/sequence-diagrams/Admin%20SD%20for%20manage%20user%20accounts.png)
 
 #### Manage Manage Branches
 
-![Manage Branches - Admin](<sequence-diagrams/Admin SD for manage branches.png>)
+![Manage Branches - Admin](https://raw.githubusercontent.com/abdbbdii/Automated-Menu-Ordering-System/refs/heads/main/docs/images/sequence-diagrams/Admin%20SD%20for%20manage%20branches.png)
 
 #### Manage Manage Menu
 
-![Manage Menu - Admin](<sequence-diagrams/Admin SD for manage menu.png>)
+![Manage Menu - Admin](https://raw.githubusercontent.com/abdbbdii/Automated-Menu-Ordering-System/refs/heads/main/docs/images/sequence-diagrams/Admin%20SD%20for%20manage%20menu.png)
 
 #### Manage Deals and Promotions
 
-![Manage Deals and Promotions - Admin](<sequence-diagrams/Admin SD for manage deals and promotions.png>)
+![Manage Deals and Promotions - Admin](https://raw.githubusercontent.com/abdbbdii/Automated-Menu-Ordering-System/refs/heads/main/docs/images/sequence-diagrams/Admin%20SD%20for%20manage%20deals%20and%20promotions.png)
 
 ### User: Manager
 
 #### Login
 
-![Login - Manager](<sequence-diagrams/Manager SD for login.png>)
+![Login - Manager](https://raw.githubusercontent.com/abdbbdii/Automated-Menu-Ordering-System/refs/heads/main/docs/images/sequence-diagrams/Manager%20SD%20for%20login.png)
 
 #### Logout
 
-![Logout - Manager](<sequence-diagrams/Manager SD for logout.png>)
+![Logout - Manager](https://raw.githubusercontent.com/abdbbdii/Automated-Menu-Ordering-System/refs/heads/main/docs/images/sequence-diagrams/Manager%20SD%20for%20logout.png)
 
 #### Manage Availability
 
-![Manage Availability - Manager](<sequence-diagrams/Manager SD for manage availability.png>)
+![Manage Availability - Manager](https://raw.githubusercontent.com/abdbbdii/Automated-Menu-Ordering-System/refs/heads/main/docs/images/sequence-diagrams/Manager%20SD%20for%20manage%20availability.png)
 
 #### Manage Orders
 
-![Manage Orders - Manager](<sequence-diagrams/Manager SD for manage orders.svg>)
+![Manage Orders - Manager](https://raw.githubusercontent.com/abdbbdii/Automated-Menu-Ordering-System/refs/heads/main/docs/images/sequence-diagrams/Manager%20SD%20for%20manage%20orders.svg)
 
 #### View Order History
 
-![View Order History - Manager](<sequence-diagrams/Manager SD for view order history.png>)
+![View Order History - Manager](https://raw.githubusercontent.com/abdbbdii/Automated-Menu-Ordering-System/refs/heads/main/docs/images/sequence-diagrams/Manager%20SD%20for%20view%20order%20history.png)
 
 ### User: Customer
 
 #### Browse Menu
 
-![Browse Menu - Customer](<sequence-diagrams/Customer SD for browse menu.png>)
+![Browse Menu - Customer](https://raw.githubusercontent.com/abdbbdii/Automated-Menu-Ordering-System/refs/heads/main/docs/images/sequence-diagrams/Customer%20SD%20for%20browse%20menu.png)
 
 #### Browse Deals and Promotion
 
-![Browse Deals and Promotion - Customer](<sequence-diagrams/Customer SD for browse deals and promotion.png>)
+![Browse Deals and Promotion - Customer](https://raw.githubusercontent.com/abdbbdii/Automated-Menu-Ordering-System/refs/heads/main/docs/images/sequence-diagrams/Customer%20SD%20for%20browse%20deals%20and%20promotion.png)
 
 #### Add Item to Cart
 
-![Add Item to Cart - Customer](<sequence-diagrams/Customer SD for add item to cart.png>)
+![Add Item to Cart - Customer](https://raw.githubusercontent.com/abdbbdii/Automated-Menu-Ordering-System/refs/heads/main/docs/images/sequence-diagrams/Customer%20SD%20for%20add%20item%20to%20cart.png)
 
 #### Place Order
 
-![Place Order - Customer](<sequence-diagrams/Customer SD for place order.png>)
+![Place Order - Customer](https://raw.githubusercontent.com/abdbbdii/Automated-Menu-Ordering-System/refs/heads/main/docs/images/sequence-diagrams/Customer%20SD%20for%20place%20order.png)
 
 #### View Order Status
 
-![View Order Status - Customer](<sequence-diagrams/Customer SD for view order status.png>)
+![View Order Status - Customer](https://raw.githubusercontent.com/abdbbdii/Automated-Menu-Ordering-System/refs/heads/main/docs/images/sequence-diagrams/Customer%20SD%20for%20view%20order%20status.png)
 
 #### Give Feedback
 
-![Give Feedback - Customer](<sequence-diagrams/Customer SD for give feedback.png>)
+![Give Feedback - Customer](https://raw.githubusercontent.com/abdbbdii/Automated-Menu-Ordering-System/refs/heads/main/docs/images/sequence-diagrams/Customer%20SD%20for%20give%20feedback.png)
 
 ## Package Diagram
 
-![Package Diagram](other-diagrams/packageDiagram.png)
+![Package Diagram](https://raw.githubusercontent.com/abdbbdii/Automated-Menu-Ordering-System/refs/heads/main/docs/images/other-diagrams/packageDiagram.png)
 
 ## Collaboration Diagrams
 
@@ -96,79 +96,79 @@
 
 #### Login
 
-![Login - Admin](<collaboration-diagrams/Admin CD login.png>)
+![Login - Admin](https://raw.githubusercontent.com/abdbbdii/Automated-Menu-Ordering-System/refs/heads/main/docs/images/collaboration-diagrams/Admin%20CD%20login.png)
 
 #### Logout
 
-![Logout - Admin](<collaboration-diagrams/Admin CD logout.png>)
+![Logout - Admin](https://raw.githubusercontent.com/abdbbdii/Automated-Menu-Ordering-System/refs/heads/main/docs/images/collaboration-diagrams/Admin%20CD%20logout.png)
 
 #### Manage User Accounts
 
-![Manage User Accounts - Admin](<collaboration-diagrams/Admin CD manage user accounts.png>)
+![Manage User Accounts - Admin](https://raw.githubusercontent.com/abdbbdii/Automated-Menu-Ordering-System/refs/heads/main/docs/images/collaboration-diagrams/Admin%20CD%20manage%20user%20accounts.png)
 
 #### Manage Branches
 
-![Manage Branches - Admin](<collaboration-diagrams/Admin CD manage branches.png>)
+![Manage Branches - Admin](https://raw.githubusercontent.com/abdbbdii/Automated-Menu-Ordering-System/refs/heads/main/docs/images/collaboration-diagrams/Admin%20CD%20manage%20branches.png)
 
 #### Manage Table Assignments
 
-![Manage Table Assignment - Admin](<collaboration-diagrams/Admin CD manage table assignments.png>)
+![Manage Table Assignment - Admin](https://raw.githubusercontent.com/abdbbdii/Automated-Menu-Ordering-System/refs/heads/main/docs/images/collaboration-diagrams/Admin%20CD%20manage%20table%20assignments.png)
 
 #### Manage Menu
 
-![Manage Menu - Admin](<collaboration-diagrams/Admin CD manage menu.png>)
+![Manage Menu - Admin](https://raw.githubusercontent.com/abdbbdii/Automated-Menu-Ordering-System/refs/heads/main/docs/images/collaboration-diagrams/Admin%20CD%20manage%20menu.png)
 
 #### Manage Deals and Promotions
 
-![Manage Deals and Promotions - Admin](<collaboration-diagrams/Admin CD manage deals and promotions.png>)
+![Manage Deals and Promotions - Admin](https://raw.githubusercontent.com/abdbbdii/Automated-Menu-Ordering-System/refs/heads/main/docs/images/collaboration-diagrams/Admin%20CD%20manage%20deals%20and%20promotions.png)
 
 ### User: Manager
 
 #### Login
 
-![Login - Manager](<collaboration-diagrams/Manager CD login.png>)
+![Login - Manager](https://raw.githubusercontent.com/abdbbdii/Automated-Menu-Ordering-System/refs/heads/main/docs/images/collaboration-diagrams/Manager%20CD%20login.png)
 
 #### Logout
 
-![Logout - Manager](<collaboration-diagrams/Manager CD logout.png>)
+![Logout - Manager](https://raw.githubusercontent.com/abdbbdii/Automated-Menu-Ordering-System/refs/heads/main/docs/images/collaboration-diagrams/Manager%20CD%20logout.png)
 
 #### Manage Availability
 
-![Manage Availability - Manager](<collaboration-diagrams/Manager CD manage availability.png>)
+![Manage Availability - Manager](https://raw.githubusercontent.com/abdbbdii/Automated-Menu-Ordering-System/refs/heads/main/docs/images/collaboration-diagrams/Manager%20CD%20manage%20availability.png)
 
 #### Manage Orders
 
-![Manage Orders - Manager](<collaboration-diagrams/Manager CD manage orders.png>)
+![Manage Orders - Manager](https://raw.githubusercontent.com/abdbbdii/Automated-Menu-Ordering-System/refs/heads/main/docs/images/collaboration-diagrams/Manager%20CD%20manage%20orders.png)
 
 #### View Order History
 
-![View Order History - Manager](<collaboration-diagrams/Manager CD view order history.png>)
+![View Order History - Manager](https://raw.githubusercontent.com/abdbbdii/Automated-Menu-Ordering-System/refs/heads/main/docs/images/collaboration-diagrams/Manager%20CD%20view%20order%20history.png)
 
 ### User: Customer
 
 #### Browse Menu
 
-![Browse Menu - Customer](<collaboration-diagrams/Customer CD browse menu.png>)
+![Browse Menu - Customer](https://raw.githubusercontent.com/abdbbdii/Automated-Menu-Ordering-System/refs/heads/main/docs/images/collaboration-diagrams/Customer%20CD%20browse%20menu.png)
 
 #### Browse Deals and Promotion
 
-![Browse Deals and Promotion - Customer](<collaboration-diagrams/Customer CD browse deals and promotions.png>)
+![Browse Deals and Promotion - Customer](https://raw.githubusercontent.com/abdbbdii/Automated-Menu-Ordering-System/refs/heads/main/docs/images/collaboration-diagrams/Customer%20CD%20browse%20deals%20and%20promotions.png)
 
 #### Add Item to Cart
 
-![Add Item to Cart - Customer](<collaboration-diagrams/Customer CD add item to cart.png>)
+![Add Item to Cart - Customer](https://raw.githubusercontent.com/abdbbdii/Automated-Menu-Ordering-System/refs/heads/main/docs/images/collaboration-diagrams/Customer%20CD%20add%20item%20to%20cart.png)
 
 #### Place Order
 
-![Place Order - Customer](<collaboration-diagrams/Customer CD place order.png>)
+![Place Order - Customer](https://raw.githubusercontent.com/abdbbdii/Automated-Menu-Ordering-System/refs/heads/main/docs/images/collaboration-diagrams/Customer%20CD%20place%20order.png)
 
 #### View Order Status
 
-![View Order Status - Customer](<collaboration-diagrams/Customer CD view order status.png>)
+![View Order Status - Customer](https://raw.githubusercontent.com/abdbbdii/Automated-Menu-Ordering-System/refs/heads/main/docs/images/collaboration-diagrams/Customer%20CD%20view%20order%20status.png)
 
 #### Give Feedback
 
-![Give Feedback - Customer](<collaboration-diagrams/Customer CD give feedback.png>)
+![Give Feedback - Customer](https://raw.githubusercontent.com/abdbbdii/Automated-Menu-Ordering-System/refs/heads/main/docs/images/collaboration-diagrams/Customer%20CD%20give%20feedback.png)
 
 ## Activity Diagrams
 
@@ -176,110 +176,110 @@
 
 #### Login
 
-![Login - Admin](<activity-diagrams/Admin AD for login.png>)
+![Login - Admin](https://raw.githubusercontent.com/abdbbdii/Automated-Menu-Ordering-System/refs/heads/main/docs/images/activity-diagrams/Admin%20AD%20for%20login.png)
 
 #### Logout
 
-![Logout - Admin](<activity-diagrams/Admin AD for logout.png>)
+![Logout - Admin](https://raw.githubusercontent.com/abdbbdii/Automated-Menu-Ordering-System/refs/heads/main/docs/images/activity-diagrams/Admin%20AD%20for%20logout.png)
 
 #### Account Management
 
-![Account Management - Admin](<activity-diagrams/Admin AD for account management.png>)
+![Account Management - Admin](https://raw.githubusercontent.com/abdbbdii/Automated-Menu-Ordering-System/refs/heads/main/docs/images/activity-diagrams/Admin%20AD%20for%20account%20management.png)
 
 #### Branch Management
 
-![Branch Management - Admin](<activity-diagrams/Admin AD for branch management.png>)
+![Branch Management - Admin](https://raw.githubusercontent.com/abdbbdii/Automated-Menu-Ordering-System/refs/heads/main/docs/images/activity-diagrams/Admin%20AD%20for%20branch%20management.png)
 
 #### Table Assignment
 
-![Table Assignment - Admin](<activity-diagrams/Admin AD for table assignment.png>)
+![Table Assignment - Admin](https://raw.githubusercontent.com/abdbbdii/Automated-Menu-Ordering-System/refs/heads/main/docs/images/activity-diagrams/Admin%20AD%20for%20table%20assignment.png)
 
 #### Menu Management
 
-![Menu Management - Admin](<activity-diagrams/Admin AD for menu management.png>)
+![Menu Management - Admin](https://raw.githubusercontent.com/abdbbdii/Automated-Menu-Ordering-System/refs/heads/main/docs/images/activity-diagrams/Admin%20AD%20for%20menu%20management.png)
 
 #### Deals and Promotions Management
 
-![Deals and Promotions Management - Admin](<activity-diagrams/Admin AD for manage deals and promotions.png>)
+![Deals and Promotions Management - Admin](https://raw.githubusercontent.com/abdbbdii/Automated-Menu-Ordering-System/refs/heads/main/docs/images/activity-diagrams/Admin%20AD%20for%20manage%20deals%20and%20promotions.png)
 
 #### View Privacy Policy
 
-![View Privacy Policy - Admin](<activity-diagrams/Admin AD for view privacy policy.png>)
+![View Privacy Policy - Admin](https://raw.githubusercontent.com/abdbbdii/Automated-Menu-Ordering-System/refs/heads/main/docs/images/activity-diagrams/Admin%20AD%20for%20view%20privacy%20policy.png)
 
 ### User: Manager
 
 #### Login
 
-![Login - Manager](<activity-diagrams/Manager AD for login.png>)
+![Login - Manager](https://raw.githubusercontent.com/abdbbdii/Automated-Menu-Ordering-System/refs/heads/main/docs/images/activity-diagrams/Manager%20AD%20for%20login.png)
 
 #### Logout
 
-![Logout - Manager](<activity-diagrams/Manager AD for logout.png>)
+![Logout - Manager](https://raw.githubusercontent.com/abdbbdii/Automated-Menu-Ordering-System/refs/heads/main/docs/images/activity-diagrams/Manager%20AD%20for%20logout.png)
 
 #### Manage Availability
 
-![Manage Availability - Manager](<activity-diagrams/Manager AD for manage availability.png>)
+![Manage Availability - Manager](https://raw.githubusercontent.com/abdbbdii/Automated-Menu-Ordering-System/refs/heads/main/docs/images/activity-diagrams/Manager%20AD%20for%20manage%20availability.png)
 
 #### Manage Orders
 
-![Manage Orders - Manager](<activity-diagrams/Manager AD to manage orders.png>)
+![Manage Orders - Manager](https://raw.githubusercontent.com/abdbbdii/Automated-Menu-Ordering-System/refs/heads/main/docs/images/activity-diagrams/Manager%20AD%20to%20manage%20orders.png)
 
 #### View Order History
 
-![View Order History - Manager](<activity-diagrams/Manager AD to view order history.png>)
+![View Order History - Manager](https://raw.githubusercontent.com/abdbbdii/Automated-Menu-Ordering-System/refs/heads/main/docs/images/activity-diagrams/Manager%20AD%20to%20view%20order%20history.png)
 
 ### User: Customer
 
 #### Browse Menu
 
-![Browse Menu - Customer](<activity-diagrams/Customer AD for browse menu.png>)
+![Browse Menu - Customer](https://raw.githubusercontent.com/abdbbdii/Automated-Menu-Ordering-System/refs/heads/main/docs/images/activity-diagrams/Customer%20AD%20for%20browse%20menu.png)
 
 #### Browse Deals and Promotions
 
-![Browse Deals and Promotion - Customer](<activity-diagrams/Customer AD for browse deals and promotions.png>)
+![Browse Deals and Promotion - Customer](https://raw.githubusercontent.com/abdbbdii/Automated-Menu-Ordering-System/refs/heads/main/docs/images/activity-diagrams/Customer%20AD%20for%20browse%20deals%20and%20promotions.png)
 
 #### Add to Cart
 
-![Add to Cart - Customer](<activity-diagrams/Customer AD to add to cart.png>)
+![Add to Cart - Customer](https://raw.githubusercontent.com/abdbbdii/Automated-Menu-Ordering-System/refs/heads/main/docs/images/activity-diagrams/Customer%20AD%20to%20add%20to%20cart.png)
 
 #### Place Order
 
-![Place Order - Customer](<activity-diagrams/Customer AD for place order.png>)
+![Place Order - Customer](https://raw.githubusercontent.com/abdbbdii/Automated-Menu-Ordering-System/refs/heads/main/docs/images/activity-diagrams/Customer%20AD%20for%20place%20order.png)
 
 #### View Order Status
 
-![View Order Status - Customer](<activity-diagrams/Customer AD to view order status.png>)
+![View Order Status - Customer](https://raw.githubusercontent.com/abdbbdii/Automated-Menu-Ordering-System/refs/heads/main/docs/images/activity-diagrams/Customer%20AD%20to%20view%20order%20status.png)
 
 #### Provide Feedback
 
-![Provide Feedback - Customer](<activity-diagrams/Customer AD to provide feedback.png>)
+![Provide Feedback - Customer](https://raw.githubusercontent.com/abdbbdii/Automated-Menu-Ordering-System/refs/heads/main/docs/images/activity-diagrams/Customer%20AD%20to%20provide%20feedback.png)
 
 #### Logout
 
-![Logout - Customer](<activity-diagrams/Customer AD for logout.png>)
+![Logout - Customer](https://raw.githubusercontent.com/abdbbdii/Automated-Menu-Ordering-System/refs/heads/main/docs/images/activity-diagrams/Customer%20AD%20for%20logout.png)
 
 ## Object Diagram
 
-![Object Diagram](other-diagrams/objectDiagram.png)
+![Object Diagram](https://raw.githubusercontent.com/abdbbdii/Automated-Menu-Ordering-System/refs/heads/main/docs/images/other-diagrams/objectDiagram.png)
 
 ## State Diagrams
 
 ### User: Admin
 
-![State Diagram - Admin](<state-diagrams/Admin SD.svg>)
+![State Diagram - Admin](https://raw.githubusercontent.com/abdbbdii/Automated-Menu-Ordering-System/refs/heads/main/docs/images/state-diagrams/Admin%20SD.svg)
 
 ### User: Manager
 
-![State Diagram - Manager](<state-diagrams/Manager SD.svg>)
+![State Diagram - Manager](https://raw.githubusercontent.com/abdbbdii/Automated-Menu-Ordering-System/refs/heads/main/docs/images/state-diagrams/Manager%20SD.svg)
 
 ### User: Customer
 
-![State Diagram - Customer](<state-diagrams/Customer SD.svg>)
+![State Diagram - Customer](https://raw.githubusercontent.com/abdbbdii/Automated-Menu-Ordering-System/refs/heads/main/docs/images/state-diagrams/Customer%20SD.svg)
 
 ## Component Diagram
 
-![Component Diagram](other-diagrams/componentDiagram.svg)
+![Component Diagram](https://raw.githubusercontent.com/abdbbdii/Automated-Menu-Ordering-System/refs/heads/main/docs/images/other-diagrams/componentDiagram.svg)
 
 ## ER Diagram
 
-![ER Diagram](other-diagrams/erDiagram.png)
+![ER Diagram](https://raw.githubusercontent.com/abdbbdii/Automated-Menu-Ordering-System/refs/heads/main/docs/images/other-diagrams/erDiagram.png)
