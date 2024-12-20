@@ -1,5 +1,4 @@
 ﻿using System.Diagnostics;
-using System.Diagnostics.Metrics;
 using Npgsql;
 
 public class DatabaseService
@@ -8,10 +7,7 @@ public class DatabaseService
 
     public DatabaseService(string connectionString)
     {
-        if (string.IsNullOrEmpty(connectionString))
-            throw new System.ArgumentException("message", nameof(connectionString));
         _connection = new NpgsqlConnection(connectionString);
-        OpenConnection();
     }
 
     public bool IsConnectionOpen()
@@ -31,9 +27,13 @@ public class DatabaseService
                     Debug.WriteLine("Connection opened");
                     break;
                 }
-                catch (Npgsql.PostgresException ex)
+                catch (PostgresException ex)
                 {
                     Debug.WriteLine(ex.MessageText);
+                }
+                catch (Exception ex)
+                {
+                    Debug.WriteLine(ex.Message);
                 }
             }
         }
@@ -56,14 +56,43 @@ public class DatabaseService
     {
         Debug.WriteLine(query);
         var cmd = new NpgsqlCommand(query, GetConnection());
-        return cmd.ExecuteReader();
+        try
+        {
+            return cmd.ExecuteReader();
+        }
+        catch (PostgresException ex)
+        {
+            if (ex.SqlState == "42P01")
+            {
+                create_tables();
+                return cmd.ExecuteReader();
+            }
+            else
+            {
+                Debug.WriteLine(ex.MessageText);
+                return null;
+            }
+        }
     }
 
     public void run_non_query(string query)
     {
         Debug.WriteLine(query);
         var cmd = new NpgsqlCommand(query, GetConnection());
-        cmd.ExecuteNonQuery();
+        try
+        {
+            cmd.ExecuteNonQuery();
+        }
+        catch (Npgsql.PostgresException ex)
+        {
+            if (ex.SqlState == "42P01")
+            {
+                create_tables();
+                cmd.ExecuteNonQuery();
+            }
+            else
+                Debug.WriteLine(ex.MessageText);
+        }
     }
 
     public static void PrintReader(NpgsqlDataReader reader)
@@ -75,6 +104,91 @@ public class DatabaseService
                 Debug.WriteLine($"{reader.GetName(i)}: {reader[i]}");
             }
         }
+    }
+
+    public void create_tables()
+    {
+        var query = @"
+-- Table to store product details
+CREATE TABLE IF NOT EXISTS Product (
+    id SERIAL PRIMARY KEY,
+    name TEXT NOT NULL,
+    description TEXT,
+    image_url TEXT,
+    price DECIMAL(10, 2),
+    estimated_time INT,
+    category TEXT NOT NULL,
+    subcategory TEXT,
+    discount_percent DECIMAL(5, 2) DEFAULT 0,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+-- Table to store deals (e.g., discounts or offers)
+CREATE TABLE IF NOT EXISTS Deal (
+    id SERIAL PRIMARY KEY,
+    name TEXT NOT NULL,
+    description TEXT,
+    image_url TEXT,
+    price DECIMAL(10, 2)
+);
+-- Junction table to manage many-to-many relationships between Deals and Product
+CREATE TABLE IF NOT EXISTS DealProduct (
+    deal_id INT REFERENCES Deal(id) ON DELETE CASCADE,
+    product_id INT REFERENCES Product(id) ON DELETE CASCADE,
+    PRIMARY KEY (deal_id, product_id)
+);
+-- Table to store branch information
+CREATE TABLE IF NOT EXISTS Branch (
+    id SERIAL PRIMARY KEY,
+    name TEXT NOT NULL
+);
+-- Table to manage user accounts (Admin or Manager)
+CREATE TABLE IF NOT EXISTS Account (
+    id SERIAL PRIMARY KEY,
+    username TEXT UNIQUE NOT NULL,
+    password TEXT NOT NULL,
+    branch_id INT REFERENCES Branch(id),
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    acc_type TEXT CHECK (acc_type IN ('admin', 'manager')) NOT NULL,
+    -- Manager's branch (only managers are associated with a branch)
+    CHECK (
+        (
+            acc_type = 'admin'
+            AND branch_id IS NULL
+        )
+        OR (
+            acc_type = 'manager'
+            AND branch_id IS NOT NULL
+        )
+    )
+);
+-- Table to store branch-specific table for seating
+CREATE TABLE IF NOT EXISTS SittingTable (
+    id SERIAL PRIMARY KEY,
+    branch_id INT REFERENCES Branch(id) ON DELETE CASCADE
+);
+-- Table to manage order placed by customers
+CREATE TABLE IF NOT EXISTS PlacedOrder (
+    id SERIAL PRIMARY KEY,
+    item_id INT,
+    table_id INT REFERENCES SittingTable(id) ON DELETE CASCADE,
+    quantity INT NOT NULL DEFAULT 1,
+    estimated_time INT,
+    is_deal BOOLEAN NOT NULL DEFAULT FALSE,
+    total_price DECIMAL(10, 2) NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    description TEXT,
+    is_paid BOOLEAN NOT NULL DEFAULT FALSE,
+    rating DECIMAL(3, 2) CHECK (rating >= 1 AND rating <= 5 OR rating IS NULL),
+    status TEXT CHECK (status IN ('in_progress', 'ready', 'completed', 'closed')) NOT NULL DEFAULT 'in_progress'
+); 
+-- Table to store product availability in branches
+CREATE TABLE IF NOT EXISTS IsOutOfStock (
+    product_id INT REFERENCES Product(id) ON DELETE CASCADE,
+    branch_id INT REFERENCES Branch(id) ON DELETE CASCADE,
+    PRIMARY KEY (product_id, branch_id)
+);
+";
+        run_non_query(query);
     }
 
     public NpgsqlDataReader get_product_by_category_and_subcategory(string? category, string? subcategory = null)
