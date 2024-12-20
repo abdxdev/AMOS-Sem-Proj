@@ -82,7 +82,7 @@ public sealed partial class HistoryPage : Page
                 Quantity = Convert.ToInt32(reader["quantity"]),
                 TotalPrice = Convert.ToDecimal(reader["total_price"]),
                 CreatedAt = Convert.ToDateTime(reader["created_at"]),
-                Rating = Convert.ToDecimal(reader["rating"]),
+                Rating = (reader["rating"] == DBNull.Value) ? -1 : Convert.ToDecimal(reader["rating"]),
                 Description = reader["description"].ToString(),
             };
             HistoryItems.Add(historyItem);

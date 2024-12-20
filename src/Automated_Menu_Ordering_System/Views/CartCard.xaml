@@ -24,19 +24,19 @@
             Grid.Column="0"
             HorizontalAlignment="Center"
             VerticalAlignment="Center"
-            Source="{x:Bind Order.ImageUrl}"
+            Source="{x:Bind Item.ImageUrl}"
             Stretch="UniformToFill" />
         <StackPanel
             Grid.Column="1"
             VerticalAlignment="Center"
             Spacing="12">
-            <TextBlock Text="{x:Bind Order.Id}" Visibility="Collapsed" />
-            <TextBlock Style="{StaticResource SubtitleTextBlockStyle}" Text="{x:Bind Order.Title}" />
+            <TextBlock Text="{x:Bind Item.Id}" Visibility="Collapsed" />
+            <TextBlock Style="{StaticResource SubtitleTextBlockStyle}" Text="{x:Bind Item.Title}" />
             <TextBlock
                 MaxWidth="500"
                 HorizontalAlignment="Left"
                 Style="{StaticResource CaptionTextBlockStyle}"
-                Text="{x:Bind Order.Description}" />
+                Text="{x:Bind Item.Description}" />
         </StackPanel>
         <Grid Grid.Column="2">
             <Grid.RowDefinitions>
@@ -60,7 +60,7 @@
                 HorizontalAlignment="Right"
                 VerticalAlignment="Top"
                 Style="{StaticResource SubtitleTextBlockStyle}"
-                Text="{x:Bind Order.EstimatedTime}"
+                Text="{x:Bind Item.EstimatedTime}"
                 Visibility="Collapsed" />
             <Button
                 x:Name="RateThisMealButton"
@@ -96,7 +96,7 @@
                 HorizontalAlignment="Right"
                 VerticalAlignment="Bottom"
                 Style="{StaticResource SubtitleTextBlockStyle}"
-                Text="{x:Bind Order.Price}" />
+                Text="{x:Bind Item.Price}" />
         </Grid>
     </Grid>
 

@@ -33,7 +33,7 @@ public sealed partial class CartPage : Page
             float totalPrice = 0;
             while (reader.Read())
             {
-                var order = new Order
+                var order = new Item
                 {
                     Id = reader["order_id"].ToString(),
                     Title = reader["product_name"].ToString(),
@@ -45,7 +45,7 @@ public sealed partial class CartPage : Page
 
                 var card = new CartCard
                 {
-                    Order = order,
+                    Item = order,
                     ParentPage = this
                 };
 
@@ -53,20 +53,20 @@ public sealed partial class CartPage : Page
                 {
                     card.ChangeToUnpaid();
                     UnpaidOrdersPanel.Children.Add(card);
-                    UnpaidOrdersPanel.Visibility = Visibility.Visible;
+                    ParentUnpaidOrdersPanel.Visibility = Visibility.Visible;
                     totalPrice += float.Parse(reader["total_price"].ToString());
                 }
                 else if (reader["status"].ToString() == "in_progress")
                 {
                     card.ChangeToInProgress();
                     InProgressOrdersPanel.Children.Add(card);
-                    InProgressOrdersPanel.Visibility = Visibility.Visible;
+                    ParentInProgressOrdersPanel.Visibility = Visibility.Visible;
                 }
                 else if (reader["status"].ToString() == "ready")
                 {
                     card.ChangeToReady();
                     ReadyOrdersPanel.Children.Add(card);
-                    ReadyOrdersPanel.Visibility = Visibility.Visible;
+                    ParentReadyOrdersPanel.Visibility = Visibility.Visible;
                 }
                 else if (reader["status"].ToString() == "completed")
                 {
@@ -76,18 +76,10 @@ public sealed partial class CartPage : Page
                     else
                         card.ChangeToCompleted(float.Parse(rating));
                     CompletedOrdersPanel.Children.Add(card);
-                    CompletedOrdersPanel.Visibility = Visibility.Visible;
+                    ParentCompletedOrdersPanel.Visibility = Visibility.Visible;
                 }
             }
             reader.Close();
-
-            if (totalPrice == 0)
-            {
-                PaymentArea.Visibility = Visibility.Collapsed;
-                return;
-            }
-            PaymentArea.Visibility = Visibility.Visible;
-            PaymentAreaBar.Visibility = Visibility.Visible;
             PayButton.Content = $"Pay Rs. {totalPrice}";
         }
         catch (Exception ex)
@@ -134,16 +126,14 @@ public sealed partial class CartPage : Page
     }
     private void CollapseEveryThing()
     {
-        UnpaidOrdersPanel.Visibility = Visibility.Collapsed;
+        ParentUnpaidOrdersPanel.Visibility = Visibility.Collapsed;
         UnpaidOrdersPanel.Children.Clear();
-        InProgressOrdersPanel.Visibility = Visibility.Collapsed;
+        ParentInProgressOrdersPanel.Visibility = Visibility.Collapsed;
         InProgressOrdersPanel.Children.Clear();
-        ReadyOrdersPanel.Visibility = Visibility.Collapsed;
+        ParentReadyOrdersPanel.Visibility = Visibility.Collapsed;
         ReadyOrdersPanel.Children.Clear();
-        CompletedOrdersPanel.Visibility = Visibility.Collapsed;
+        ParentCompletedOrdersPanel.Visibility = Visibility.Collapsed;
         CompletedOrdersPanel.Children.Clear();
         EmptyOrdersTextBlock.Visibility = Visibility.Collapsed;
-        PaymentArea.Visibility = Visibility.Collapsed;
-        PaymentAreaBar.Visibility = Visibility.Collapsed;
     }
 }

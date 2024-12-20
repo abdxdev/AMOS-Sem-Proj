@@ -16,31 +16,30 @@
                 Text="Place an order and track it here!"
                 Visibility="Collapsed" />
 
-            <StackPanel Spacing="56">
+            <StackPanel Spacing="40">
 
                 <StackPanel
+                    x:Name="ParentUnpaidOrdersPanel"
                     Padding="16"
                     Background="{ThemeResource CardBackgroundFillColorDefault}"
                     CornerRadius="8"
-                    Spacing="20">
+                    Spacing="20"
+                    Visibility="Collapsed">
 
                     <TextBlock
                         Margin="0,0,0,16"
-                        Style="{StaticResource TitleTextBlockStyle}"
+                        Style="{StaticResource FlyoutPickerTitleTextBlockStyle}"
                         Text="Pending" />
-                    <StackPanel
-                        x:Name="UnpaidOrdersPanel"
-                        Spacing="12"
-                        Visibility="Collapsed" />
-                    <MenuFlyoutSeparator x:Name="PaymentAreaBar" />
-                    <Grid x:Name="PaymentArea">
+                    <StackPanel x:Name="UnpaidOrdersPanel" Spacing="12" />
+                    <MenuFlyoutSeparator />
+                    <Grid>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="Auto" />
                             <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
                         <TextBlock
                             Grid.Column="0"
-                            Style="{ThemeResource SubtitleTextBlockStyle}"
+                            Style="{ThemeResource FlyoutPickerTitleTextBlockStyle}"
                             Text="Complete pending orders: " />
                         <Button
                             x:Name="PayButton"
@@ -53,48 +52,45 @@
                 </StackPanel>
 
                 <StackPanel
+                    x:Name="ParentInProgressOrdersPanel"
                     Padding="16"
                     Background="{ThemeResource CardBackgroundFillColorDefault}"
                     CornerRadius="8"
-                    Spacing="20">
+                    Spacing="20"
+                    Visibility="Collapsed">
                     <TextBlock
                         Margin="0,0,0,16"
-                        Style="{StaticResource TitleTextBlockStyle}"
+                        Style="{StaticResource FlyoutPickerTitleTextBlockStyle}"
                         Text="In Progress" />
-                    <StackPanel
-                        x:Name="InProgressOrdersPanel"
-                        Spacing="12"
-                        Visibility="Collapsed" />
+                    <StackPanel x:Name="InProgressOrdersPanel" Spacing="12" />
                 </StackPanel>
 
                 <StackPanel
+                    x:Name="ParentReadyOrdersPanel"
                     Padding="16"
                     Background="{ThemeResource CardBackgroundFillColorDefault}"
                     CornerRadius="8"
-                    Spacing="20">
+                    Spacing="20"
+                    Visibility="Collapsed">
                     <TextBlock
                         Margin="0,0,0,16"
-                        Style="{StaticResource TitleTextBlockStyle}"
+                        Style="{StaticResource FlyoutPickerTitleTextBlockStyle}"
                         Text="Ready" />
-                    <StackPanel
-                        x:Name="ReadyOrdersPanel"
-                        Spacing="12"
-                        Visibility="Collapsed" />
+                    <StackPanel x:Name="ReadyOrdersPanel" Spacing="12" />
                 </StackPanel>
 
                 <StackPanel
+                    x:Name="ParentCompletedOrdersPanel"
                     Padding="16"
                     Background="{ThemeResource CardBackgroundFillColorDefault}"
                     CornerRadius="8"
-                    Spacing="20">
+                    Spacing="20"
+                    Visibility="Collapsed">
                     <TextBlock
                         Margin="0,0,0,16"
-                        Style="{StaticResource TitleTextBlockStyle}"
+                        Style="{StaticResource FlyoutPickerTitleTextBlockStyle}"
                         Text="Completed" />
-                    <StackPanel
-                        x:Name="CompletedOrdersPanel"
-                        Spacing="12"
-                        Visibility="Collapsed" />
+                    <StackPanel x:Name="CompletedOrdersPanel" Spacing="12" />
                 </StackPanel>
 
             </StackPanel>

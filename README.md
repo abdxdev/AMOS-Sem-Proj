@@ -1,11 +1,12 @@
 # ![icon](https://github.com/abdbbdii/Automated-Menu-Ordering-System/blob/main/src/Automated_Menu_Ordering_System/Assets/Square44x44Logo.targetsize-24_altform-unplated.png?raw=true) Automated Menu Ordering System
 
-![GitHub](docs/images/automated_menu_ordering_system.png)
+![GitHub](<docs/images/automated_menu_ordering_system (Large).png>)
 
 ## Table of Contents
 
 - [ Automated Menu Ordering System](#-automated-menu-ordering-system)
   - [Table of Contents](#table-of-contents)
+  - [Screenshots](#screenshots)
   - [Introduction](#introduction)
   - [Features](#features)
   - [Technologies](#technologies)
@@ -18,6 +19,21 @@
     - [Setting up workspace](#setting-up-workspace)
   - [License](#license)
 
+## Screenshots
+
+![alt text](<screenshots/Screenshot 2024-12-21 023317.png>)
+![alt text](<screenshots/Screenshot 2024-12-21 023358.png>)
+![alt text](<screenshots/Screenshot 2024-12-21 023411.png>)
+![alt text](<screenshots/Screenshot 2024-12-21 024300.png>)
+![alt text](<screenshots/Screenshot 2024-12-21 024319.png>)
+![alt text](<screenshots/Screenshot 2024-12-21 024512.png>)
+![alt text](<screenshots/Screenshot 2024-12-21 024752.png>)
+![alt text](<screenshots/Screenshot 2024-12-21 024822.png>)
+![alt text](<screenshots/Screenshot 2024-12-21 025245.png>)
+![alt text](<screenshots/Screenshot 2024-12-21 025302.png>)
+![alt text](<screenshots/Screenshot 2024-12-21 025351.png>)
+![alt text](<screenshots/Screenshot 2024-12-21 030737.png>)
+![alt text](<screenshots/Screenshot 2024-12-21 030907.png>)
 ## Introduction
 
 The Automated Menu Ordering System solves issues like long wait times, order mistakes, and reliance on waitstaff by allowing customers to select tables, browse menus, and place orders directly from a table screen. Customer can pay for their food. A manager oversees order fulfillment and overall restaurant operations, while an admin manages the menu, promotional deals, accounts, and branches.
