@@ -4,44 +4,8 @@ using Microsoft.UI.Xaml.Controls;
 
 namespace Automated_Menu_Ordering_System.Views;
 
-public class Item
-{
-    public string? Id
-    {
-        get; set;
-    }
-    public string? EstimatedTime
-    {
-        get; set;
-    }
-    public string? Title
-    {
-        get; set;
-    }
-    public string? ImageUrl
-    {
-        get; set;
-    }
-    public string? Description
-    {
-        get; set;
-    }
-    public string? AvgRating
-    {
-        get; set;
-    }
-    public string? Price
-    {
-        get; set;
-    }
-    public string? TotalRatings
-    {
-        get; set;
-    }
-}
 public sealed partial class CardStyle1 : UserControl
 {
-
     public Item Item
     {
         get => (Item)GetValue(ItemProperty);

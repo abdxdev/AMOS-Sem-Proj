@@ -1,6 +1,8 @@
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
+using Microsoft.UI.Xaml.Controls.Primitives;
 using System.Diagnostics;
+using System.Collections.ObjectModel;
 using Automated_Menu_Ordering_System.Contracts.Services;
 
 namespace Automated_Menu_Ordering_System.Views;
@@ -48,6 +50,7 @@ public sealed partial class DealPopupTemplate : ContentDialog
         DataContext = this;
         this.InitializeComponent();
     }
+    
     private void UpdateTextElements()
     {
         if (string.IsNullOrEmpty(Price) || string.IsNullOrEmpty(EstimatedTime))
@@ -96,7 +99,7 @@ public sealed partial class DealPopupTemplate : ContentDialog
         var quantity = int.Parse(QuantityTextBlock.Text);
         try
         {
-            App.GetService<DatabaseService>().insert_an_order(tableId, itemId, quantity, finalPrice, estimatedTime, "");
+            App.GetService<DatabaseService>().insert_an_order(tableId, itemId, quantity, finalPrice, estimatedTime, "", true);
         }
         catch (Exception ex)
         {

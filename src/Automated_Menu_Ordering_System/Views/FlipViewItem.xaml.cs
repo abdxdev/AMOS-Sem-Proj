@@ -27,10 +27,12 @@ public sealed partial class FlipViewItem : UserControl
         {
             Id = selectedItem.Id,
             Title = selectedItem.Title,
+            EstimatedTime = selectedItem.EstimatedTime,
             ImageUrl = selectedItem.ImageUrl,
+            AvgRating = selectedItem.AvgRating,
+            TotalRating = selectedItem.TotalRatings,
             Description = selectedItem.Description,
             Price = selectedItem.Price,
-            EstimatedTime = selectedItem.EstimatedTime,
             XamlRoot = XamlRoot,
         };
 

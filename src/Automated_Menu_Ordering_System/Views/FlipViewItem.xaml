@@ -6,9 +6,8 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="using:Automated_Menu_Ordering_System.Views"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    d:DesignHeight="150"
-    d:DesignWidth="400"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+    DataContext="{Binding}"
     mc:Ignorable="d">
 
     <Grid>

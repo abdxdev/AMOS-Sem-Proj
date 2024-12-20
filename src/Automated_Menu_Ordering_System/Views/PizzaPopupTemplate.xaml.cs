@@ -30,7 +30,6 @@ public class ToppingItem
 public sealed partial class PizzaPopupTemplate : ContentDialog
 {
     public ObservableCollection<ToppingItem> Toppings { get; set; } = new ObservableCollection<ToppingItem>();
-
     public string? Id
     {
         get; set;
@@ -105,7 +104,6 @@ public sealed partial class PizzaPopupTemplate : ContentDialog
         {
             return;
         }
-
         var finalPrice = float.Parse(Price.Split(" ")[1]);
         if (SizeToggleButtonS.IsChecked == true)
         {

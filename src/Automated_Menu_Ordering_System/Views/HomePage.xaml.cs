@@ -5,6 +5,42 @@ using Npgsql;
 
 namespace Automated_Menu_Ordering_System.Views;
 
+public class Item
+{
+    public string? Id
+    {
+        get; set;
+    }
+    public string? EstimatedTime
+    {
+        get; set;
+    }
+    public string? Title
+    {
+        get; set;
+    }
+    public string? ImageUrl
+    {
+        get; set;
+    }
+    public string? Description
+    {
+        get; set;
+    }
+    public string? AvgRating
+    {
+        get; set;
+    }
+    public string? Price
+    {
+        get; set;
+    }
+    public string? TotalRatings
+    {
+        get; set;
+    }
+}
+
 public sealed partial class HomePage : Page
 {
     public HomeViewModel ViewModel
@@ -29,6 +65,7 @@ public sealed partial class HomePage : Page
             ImageUrl = reader["image_url"].ToString(),
             Description = reader["description"].ToString(),
             AvgRating = reader["avg_rating"].ToString(),
+            TotalRatings = reader["total_ratings"].ToString(),
             EstimatedTime = $"{reader["estimated_time"]} mins",
             Price = $"Rs. {reader["price"]}",
         };

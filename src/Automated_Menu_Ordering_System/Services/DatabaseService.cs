@@ -54,6 +54,7 @@ public class DatabaseService
 
     public NpgsqlDataReader run_query(string query)
     {
+        Debug.WriteLine(query);
         var cmd = new NpgsqlCommand(query, GetConnection());
         return cmd.ExecuteReader();
     }
@@ -97,6 +98,7 @@ SELECT
     p.estimated_time,
     p.category,
     p.subcategory,
+    COUNT(po.rating) AS total_ratings,
     COALESCE(AVG(po.rating), -1) AS avg_rating,
     CASE
         WHEN i.branch_id IS NULL THEN FALSE
@@ -122,7 +124,8 @@ SELECT
     d.description,
     d.image_url,
     d.price,
-    AVG(po.rating) AS avg_rating,
+    COUNT(po.rating) AS total_ratings,
+    COALESCE(AVG(po.rating), -1) AS avg_rating,
     SUM(p.estimated_time) AS estimated_time
 FROM
     Deal d
