@@ -21,19 +21,19 @@
 
 ## Screenshots
 
-![alt text](<screenshots/Screenshot 2024-12-21 023317.png>)
-![alt text](<screenshots/Screenshot 2024-12-21 023358.png>)
-![alt text](<screenshots/Screenshot 2024-12-21 023411.png>)
-![alt text](<screenshots/Screenshot 2024-12-21 024300.png>)
-![alt text](<screenshots/Screenshot 2024-12-21 024319.png>)
-![alt text](<screenshots/Screenshot 2024-12-21 024512.png>)
-![alt text](<screenshots/Screenshot 2024-12-21 024752.png>)
-![alt text](<screenshots/Screenshot 2024-12-21 024822.png>)
-![alt text](<screenshots/Screenshot 2024-12-21 025245.png>)
-![alt text](<screenshots/Screenshot 2024-12-21 025302.png>)
-![alt text](<screenshots/Screenshot 2024-12-21 025351.png>)
-![alt text](<screenshots/Screenshot 2024-12-21 030737.png>)
-![alt text](<screenshots/Screenshot 2024-12-21 030907.png>)
+![alt text](screenshots/signin-page.png)
+![alt text](screenshots/customer-place-an-order-dialog-1.png)
+![alt text](screenshots/customer-cart-page.png)
+![alt text](screenshots/customer-home-page-1.png)
+![alt text](screenshots/customer-desserts-page-light.png)
+![alt text](screenshots/filter-dialog-1.png)
+![alt text](screenshots/filter-dialog-2.png)
+![alt text](screenshots/manager-history-page-with-dialog.png)
+![alt text](screenshots/manager-orders-page.png)
+![alt text](screenshots/manager-menu-page.png)
+![alt text](screenshots/admin-products-page.png)
+![alt text](screenshots/settings-page.png)
+
 ## Introduction
 
 The Automated Menu Ordering System solves issues like long wait times, order mistakes, and reliance on waitstaff by allowing customers to select tables, browse menus, and place orders directly from a table screen. Customer can pay for their food. A manager oversees order fulfillment and overall restaurant operations, while an admin manages the menu, promotional deals, accounts, and branches.
