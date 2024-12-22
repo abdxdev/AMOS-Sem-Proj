@@ -1,6 +1,6 @@
 # ![icon](https://github.com/abdbbdii/Automated-Menu-Ordering-System/blob/main/src/Automated_Menu_Ordering_System/Assets/Square44x44Logo.targetsize-24_altform-unplated.png?raw=true) Automated Menu Ordering System
 
-![GitHub](<docs/images/automated_menu_ordering_system (Large).png>)
+![GitHub](<https://github.com/abdbbdii/Automated-Menu-Ordering-System/blob/main/docs/images/automated_menu_ordering_system (Large).png?raw=true>)
 
 ## Table of Contents
 
@@ -21,18 +21,18 @@
 
 ## Screenshots
 
-![alt text](screenshots/signin-page.png)
-![alt text](screenshots/customer-place-an-order-dialog-1.png)
-![alt text](screenshots/customer-cart-page.png)
-![alt text](screenshots/customer-home-page-1.png)
-![alt text](screenshots/customer-desserts-page-light.png)
-![alt text](screenshots/filter-dialog-1.png)
-![alt text](screenshots/filter-dialog-2.png)
-![alt text](screenshots/manager-history-page-with-dialog.png)
-![alt text](screenshots/manager-orders-page.png)
-![alt text](screenshots/manager-menu-page.png)
-![alt text](screenshots/admin-products-page.png)
-![alt text](screenshots/settings-page.png)
+![alt text](https://github.com/abdbbdii/Automated-Menu-Ordering-System/blob/main/screenshots/signin-page.png?raw=true)
+![alt text](https://github.com/abdbbdii/Automated-Menu-Ordering-System/blob/main/screenshots/customer-place-an-order-dialog-1.png?raw=true)
+![alt text](https://github.com/abdbbdii/Automated-Menu-Ordering-System/blob/main/screenshots/customer-cart-page.png?raw=true)
+![alt text](https://github.com/abdbbdii/Automated-Menu-Ordering-System/blob/main/screenshots/customer-home-page-1.png?raw=true)
+![alt text](https://github.com/abdbbdii/Automated-Menu-Ordering-System/blob/main/screenshots/customer-desserts-page-light.png?raw=true)
+![alt text](https://github.com/abdbbdii/Automated-Menu-Ordering-System/blob/main/screenshots/filter-dialog-1.png?raw=true)
+![alt text](https://github.com/abdbbdii/Automated-Menu-Ordering-System/blob/main/screenshots/filter-dialog-2.png?raw=true)
+![alt text](https://github.com/abdbbdii/Automated-Menu-Ordering-System/blob/main/screenshots/manager-history-page-with-dialog.png?raw=true)
+![alt text](https://github.com/abdbbdii/Automated-Menu-Ordering-System/blob/main/screenshots/manager-orders-page.png?raw=true)
+![alt text](https://github.com/abdbbdii/Automated-Menu-Ordering-System/blob/main/screenshots/manager-menu-page.png?raw=true)
+![alt text](https://github.com/abdbbdii/Automated-Menu-Ordering-System/blob/main/screenshots/admin-products-page.png?raw=true)
+![alt text](https://github.com/abdbbdii/Automated-Menu-Ordering-System/blob/main/screenshots/settings-page.png?raw=true)
 
 ## Introduction
 
@@ -100,7 +100,7 @@ Make sure you have the following installed:
 
 4. Set up the environment variables:
 
-   - Create a new file named `.env` in the `Automated-Menu-Ordering-System/src/` directory and add the following environment variables:
+   - Create a new file named `.env` in the `Automated-Menu-Ordering-System/src/Automated_Menu_Ordering_System` directory and add the following environment variables:
 
    ```bash
    DATABASE_CONNECTION='Host=localhost;Port=5432;Username=postgres;Password=your_password;Database=your_database;'
@@ -120,4 +120,4 @@ Make sure you have the following installed:
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License - see the [LICENSE](https://github.com/abdbbdii/Automated-Menu-Ordering-System/blob/main/LICENSE) file for details.

@@ -36,9 +36,9 @@ public sealed partial class CartPage : Page
                 var order = new Item
                 {
                     Id = reader["order_id"].ToString(),
-                    Title = reader["product_name"].ToString(),
-                    ImageUrl = reader["product_image_url"].ToString(),
-                    Description = $"{reader["product_description"]}\n{reader["description"]}",
+                    Title = reader["is_deal"].ToString() == "True" ? reader["deal_name"].ToString() : reader["product_name"].ToString(),
+                    ImageUrl = reader["is_deal"].ToString() == "True" ? reader["deal_image_url"].ToString() : reader["product_image_url"].ToString(),
+                    Description = $"{(reader["is_deal"].ToString() == "True" ? reader["deal_description"] : reader["product_description"])}\n{reader["description"]}",
                     EstimatedTime = $"{reader["estimated_time"]} mins",
                     Price = $"Rs. {reader["total_price"]}",
                 };
