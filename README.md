@@ -1,12 +1,12 @@
 # ![icon](https://github.com/abdxdev/Automated-Menu-Ordering-System/blob/main/src/Automated_Menu_Ordering_System/Assets/Square44x44Logo.targetsize-24_altform-unplated.png?raw=true) Automated Menu Ordering System
 
-![GitHub](<https://github.com/abdxdev/Automated-Menu-Ordering-System/blob/main/docs/images/automated_menu_ordering_system (Large).png?raw=true>)
+![alt text](screenshots/screenshot_1.png)
+![alt text](screenshots/screenshot_2.png)
 
 ## Table of Contents
 
 - [ Automated Menu Ordering System](#-automated-menu-ordering-system)
   - [Table of Contents](#table-of-contents)
-  - [Screenshots](#screenshots)
   - [Introduction](#introduction)
   - [Features](#features)
   - [Technologies](#technologies)
@@ -18,21 +18,6 @@
       - [Nuget Package Manager](#nuget-package-manager)
     - [Setting up workspace](#setting-up-workspace)
   - [License](#license)
-
-## Screenshots
-
-![alt text](https://github.com/abdxdev/Automated-Menu-Ordering-System/blob/main/screenshots/signin-page.png?raw=true)
-![alt text](https://github.com/abdxdev/Automated-Menu-Ordering-System/blob/main/screenshots/customer-place-an-order-dialog-1.png?raw=true)
-![alt text](https://github.com/abdxdev/Automated-Menu-Ordering-System/blob/main/screenshots/customer-cart-page.png?raw=true)
-![alt text](https://github.com/abdxdev/Automated-Menu-Ordering-System/blob/main/screenshots/customer-home-page-1.png?raw=true)
-![alt text](https://github.com/abdxdev/Automated-Menu-Ordering-System/blob/main/screenshots/customer-desserts-page-light.png?raw=true)
-![alt text](https://github.com/abdxdev/Automated-Menu-Ordering-System/blob/main/screenshots/filter-dialog-1.png?raw=true)
-![alt text](https://github.com/abdxdev/Automated-Menu-Ordering-System/blob/main/screenshots/filter-dialog-2.png?raw=true)
-![alt text](https://github.com/abdxdev/Automated-Menu-Ordering-System/blob/main/screenshots/manager-history-page-with-dialog.png?raw=true)
-![alt text](https://github.com/abdxdev/Automated-Menu-Ordering-System/blob/main/screenshots/manager-orders-page.png?raw=true)
-![alt text](https://github.com/abdxdev/Automated-Menu-Ordering-System/blob/main/screenshots/manager-menu-page.png?raw=true)
-![alt text](https://github.com/abdxdev/Automated-Menu-Ordering-System/blob/main/screenshots/admin-products-page.png?raw=true)
-![alt text](https://github.com/abdxdev/Automated-Menu-Ordering-System/blob/main/screenshots/settings-page.png?raw=true)
 
 ## Introduction
 
